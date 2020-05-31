@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ProductoBodegaFk1Link"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  EntityAssociation="model.ProductoBodegaFk1Assoc">
+  <ViewLinkDefEnd
+    Name="ProveedorView"
+    Cardinality="1"
+    Source="true"
+    Owner="model.ProveedorView">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="ProveedorView"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.ProveedorView.NoProveedor"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="ProductoBodegaView"
+    Cardinality="-1"
+    Owner="model.ProductoBodegaView">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="ProductoBodegaView"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.ProductoBodegaView.NoProveedor"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

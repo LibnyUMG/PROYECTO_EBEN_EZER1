@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="BitDetalleFactura"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="BIT_DETALLE_FACTURA"
+  AliasName="BitDetalleFactura"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="LogNoFactura"
+    ColumnName="LOG_NO_FACTURA"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="BIT_DETALLE_FACTURA"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="LogCodProducto"
+    ColumnName="LOG_COD_PRODUCTO"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="BIT_DETALLE_FACTURA"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="LogCantidad"
+    ColumnName="LOG_CANTIDAD"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="BIT_DETALLE_FACTURA"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="LogUsuario"
+    Precision="20"
+    ColumnName="LOG_USUARIO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="BIT_DETALLE_FACTURA"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LogFechahora"
+    ColumnName="LOG_FECHAHORA"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="BIT_DETALLE_FACTURA"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="Accion"
+    Precision="20"
+    ColumnName="ACCION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="BIT_DETALLE_FACTURA"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LogNumBodega"
+    ColumnName="LOG_NUM_BODEGA"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="BIT_DETALLE_FACTURA"
+    PrimaryKey="true"/>
+  <Key
+    Name="BitdetallefacturaPrimaryKey"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="BITDETALLEFACTURA_PRIMARY_KEY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.BitDetalleFactura.LogNoFactura"/>
+      <Item Value="model.BitDetalleFactura.LogCodProducto"/>
+      <Item Value="model.BitDetalleFactura.LogCantidad"/>
+      <Item Value="model.BitDetalleFactura.LogUsuario"/>
+      <Item Value="model.BitDetalleFactura.LogFechahora"/>
+      <Item Value="model.BitDetalleFactura.Accion"/>
+      <Item Value="model.BitDetalleFactura.LogNumBodega"/>
+    </AttrArray>
+  </Key>
+</Entity>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Producto"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="PRODUCTO"
+  AliasName="Producto"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="CodProducto"
+    IsNotNull="true"
+    ColumnName="COD_PRODUCTO"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="PRODUCTO"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="DescripcionProducto"
+    Precision="50"
+    ColumnName="DESCRIPCION_PRODUCTO"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PRODUCTO">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PrecioCompra"
+    Precision="5"
+    ColumnName="PRECIO_COMPRA"
+    SQLType="FLOAT"
+    Type="java.lang.Float"
+    ColumnType="FLOAT"
+    TableName="PRODUCTO"/>
+  <Attribute
+    Name="PrecioVenta"
+    Precision="5"
+    ColumnName="PRECIO_VENTA"
+    SQLType="FLOAT"
+    Type="java.lang.Float"
+    ColumnType="FLOAT"
+    TableName="PRODUCTO"/>
+  <Attribute
+    Name="PrecioSugerido"
+    Precision="4"
+    ColumnName="PRECIO_SUGERIDO"
+    SQLType="FLOAT"
+    Type="java.lang.Float"
+    ColumnType="FLOAT"
+    TableName="PRODUCTO"/>
+  <Attribute
+    Name="FechaVencimiento"
+    ColumnName="FECHA_VENCIMIENTO"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="PRODUCTO"/>
+  <Attribute
+    Name="IdUnidadMedida"
+    IsNotNull="true"
+    ColumnName="ID_UNIDAD_MEDIDA"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="PRODUCTO"/>
+  <AccessorAttribute
+    Name="DetalleFactura"
+    Association="model.DetalleFacturaFk1Assoc"
+    AssociationEnd="model.DetalleFacturaFk1Assoc.DetalleFactura"
+    AssociationOtherEnd="model.DetalleFacturaFk1Assoc.Producto"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="DetBajaProVenc"
+    Association="model.DetBajaProVencFk2Assoc"
+    AssociationEnd="model.DetBajaProVencFk2Assoc.DetBajaProVenc"
+    AssociationOtherEnd="model.DetBajaProVencFk2Assoc.Producto"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="ProductoBodega"
+    Association="model.Relation7ProductoFkAssoc"
+    AssociationEnd="model.Relation7ProductoFkAssoc.ProductoBodega"
+    AssociationOtherEnd="model.Relation7ProductoFkAssoc.Producto"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="UnidadMedida"
+    Association="model.ProductoUnidadMedidaFkAssoc"
+    AssociationEnd="model.ProductoUnidadMedidaFkAssoc.UnidadMedida"
+    AssociationOtherEnd="model.ProductoUnidadMedidaFkAssoc.Producto"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="ProductoPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRODUCTO_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Producto.CodProducto"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ProductoUnidadMedidaFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="UNIDAD_MEDIDA_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="PRODUCTO_UNIDAD_MEDIDA_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.Producto.IdUnidadMedida"/>
+    </AttrArray>
+  </Key>
+</Entity>

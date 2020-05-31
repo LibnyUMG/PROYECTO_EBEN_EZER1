@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ViTotalFactura"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="VI_TOTAL_FACTURA"
+  AliasName="ViTotalFactura"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="NoFactura"
+    IsNotNull="true"
+    ColumnName="NO_FACTURA"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="VI_TOTAL_FACTURA"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="NoCliente"
+    ColumnName="NO_CLIENTE"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="VI_TOTAL_FACTURA"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="NombreCliente"
+    Precision="50"
+    ColumnName="NOMBRE_CLIENTE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="VI_TOTAL_FACTURA"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Total"
+    ColumnName="TOTAL"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="VI_TOTAL_FACTURA"
+    PrimaryKey="true"/>
+  <AccessorAttribute
+    Name="DetalleFactura"
+    Association="model.detalleFac_new"
+    AssociationEnd="model.detalleFac_new.DetalleFactura"
+    AssociationOtherEnd="model.detalleFac_new.ViTotalFactura"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="VitotalfacturaPrimaryKey"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="VITOTALFACTURA_PRIMARY_KEY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.ViTotalFactura.NoFactura"/>
+      <Item Value="model.ViTotalFactura.NoCliente"/>
+      <Item Value="model.ViTotalFactura.NombreCliente"/>
+      <Item Value="model.ViTotalFactura.Total"/>
+    </AttrArray>
+  </Key>
+</Entity>

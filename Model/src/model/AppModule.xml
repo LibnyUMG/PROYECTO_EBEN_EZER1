@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AppModule"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  ClearCacheOnRollback="true">
+  <ViewUsage
+    Name="ViInventarioProBodView1"
+    ViewObjectName="model.ViInventarioProBodView"/>
+  <ViewUsage
+    Name="ViSubtotalProductosView1"
+    ViewObjectName="model.ViSubtotalProductosView"/>
+  <ViewUsage
+    Name="ViTotalFacturaView1"
+    ViewObjectName="model.ViTotalFacturaView"/>
+</AppModule>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ViSubtotalProductosView"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <SQLQuery><![CDATA[SELECT ViSubtotalProductos.NO_FACTURA,
+       ViSubtotalProductos.COD_PRODUCTO,
+       ViSubtotalProductos.DESCRIPCION_PRODUCTO,
+       ViSubtotalProductos.NUM_BODEGA,
+       ViSubtotalProductos.DESCRIPCION_BODEGA,
+       ViSubtotalProductos.SUBTOTAL
+FROM VI_SUBTOTAL_PRODUCTOS ViSubtotalProductos]]></SQLQuery>
+  <ViewAttribute
+    Name="NoFactura"
+    IsUpdateable="false"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="NO_FACTURA"
+    Expression="NO_FACTURA"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="CodProducto"
+    IsUpdateable="false"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="COD_PRODUCTO"
+    Expression="COD_PRODUCTO"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="DescripcionProducto"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="50"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="DESCRIPCION_PRODUCTO"
+    Expression="DESCRIPCION_PRODUCTO"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="NumBodega"
+    IsUpdateable="false"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="NUM_BODEGA"
+    Expression="NUM_BODEGA"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="DescripcionBodega"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="DESCRIPCION_BODEGA"
+    Expression="DESCRIPCION_BODEGA"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Subtotal"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="126"
+    Type="java.lang.Float"
+    ColumnType="FLOAT"
+    AliasName="SUBTOTAL"
+    Expression="SUBTOTAL"
+    SQLType="FLOAT"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="NoFactura"/>
+    <Item Value="CodProducto"/>
+    <Item Value="DescripcionProducto"/>
+    <Item Value="NumBodega"/>
+    <Item Value="DescripcionBodega"/>
+    <Item Value="Subtotal"/>
+  </AttrArray>
+</ViewObject>

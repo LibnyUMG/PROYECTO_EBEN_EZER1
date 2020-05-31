@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="detalleFac_nuevo"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.detalleFac_nuevo_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="ViTotalFactura1"
+    Cardinality="1"
+    Source="true"
+    Owner="model.ViTotalFactura1">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="ViTotalFactura1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.ViTotalFactura1.NoFactura"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="DetalleFacturaView"
+    Cardinality="-1"
+    Owner="model.DetalleFacturaView">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="DetalleFacturaView"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.DetalleFacturaView.NoFactura"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.Model1Bundle"/>
+  </ResourceBundle>
+</ViewLink>
