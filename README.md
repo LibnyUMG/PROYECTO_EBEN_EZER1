@@ -1,4 +1,4 @@
-# PROYECTO_EBEN_EZER1
+# PROYECTO_EBEN_EZER
  Proyecto JDeveloper
  
  Grupo 4 - BASE DE DATOS 2
