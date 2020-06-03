@@ -1,0 +1,157 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="Clientes.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelSplitter orientation="horizontal" splitterPosition="457" id="ps1">
+                <f:facet name="first">
+                    <af:panelFormLayout id="pfl1" inlineStyle="width:333px; height:321px;">
+                        <af:inputText value="#{bindings.NoCliente.inputValue}" label="#{bindings.NoCliente.hints.label}"
+                                      required="#{bindings.NoCliente.hints.mandatory}"
+                                      columns="#{bindings.NoCliente.hints.displayWidth}"
+                                      maximumLength="#{bindings.NoCliente.hints.precision}"
+                                      shortDesc="#{bindings.NoCliente.hints.tooltip}" id="it1">
+                            <f:validator binding="#{bindings.NoCliente.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.NoCliente.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.NombreCliente.inputValue}"
+                                      label="#{bindings.NombreCliente.hints.label}"
+                                      required="#{bindings.NombreCliente.hints.mandatory}"
+                                      columns="#{bindings.NombreCliente.hints.displayWidth}"
+                                      maximumLength="#{bindings.NombreCliente.hints.precision}"
+                                      shortDesc="#{bindings.NombreCliente.hints.tooltip}" id="it2">
+                            <f:validator binding="#{bindings.NombreCliente.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.TelCliente.inputValue}"
+                                      label="#{bindings.TelCliente.hints.label}"
+                                      required="#{bindings.TelCliente.hints.mandatory}"
+                                      columns="#{bindings.TelCliente.hints.displayWidth}"
+                                      maximumLength="#{bindings.TelCliente.hints.precision}"
+                                      shortDesc="#{bindings.TelCliente.hints.tooltip}" id="it3">
+                            <f:validator binding="#{bindings.TelCliente.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.TelCliente.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.NitCliente.inputValue}"
+                                      label="#{bindings.NitCliente.hints.label}"
+                                      required="#{bindings.NitCliente.hints.mandatory}"
+                                      columns="#{bindings.NitCliente.hints.displayWidth}"
+                                      maximumLength="#{bindings.NitCliente.hints.precision}"
+                                      shortDesc="#{bindings.NitCliente.hints.tooltip}" id="it4">
+                            <f:validator binding="#{bindings.NitCliente.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.NitCliente.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.DpiCliente.inputValue}"
+                                      label="#{bindings.DpiCliente.hints.label}"
+                                      required="#{bindings.DpiCliente.hints.mandatory}"
+                                      columns="#{bindings.DpiCliente.hints.displayWidth}"
+                                      maximumLength="#{bindings.DpiCliente.hints.precision}"
+                                      shortDesc="#{bindings.DpiCliente.hints.tooltip}" id="it5">
+                            <f:validator binding="#{bindings.DpiCliente.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.DpiCliente.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.IdDireccion.inputValue}"
+                                      label="#{bindings.IdDireccion.hints.label}"
+                                      required="#{bindings.IdDireccion.hints.mandatory}"
+                                      columns="#{bindings.IdDireccion.hints.displayWidth}"
+                                      maximumLength="#{bindings.IdDireccion.hints.precision}"
+                                      shortDesc="#{bindings.IdDireccion.hints.tooltip}" id="it6">
+                            <f:validator binding="#{bindings.IdDireccion.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.IdDireccion.format}"/>
+                        </af:inputText>
+                        <f:facet name="footer">
+                            <af:panelGroupLayout layout="horizontal" id="pgl1">
+                                <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                                           disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b7">
+                                    <af:resetActionListener/>
+                                </af:button>
+                                <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+                                           disabled="#{!bindings.CreateInsert.enabled}" id="b5"/>
+                                <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
+                                           disabled="#{!bindings.Commit.enabled}" id="b6"/>
+                                <af:button actionListener="#{bindings.Last.execute}" text="Last"
+                                           disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b4"/>
+                            </af:panelGroupLayout>
+                        </f:facet>
+                    </af:panelFormLayout>
+                </f:facet>
+                <f:facet name="second">
+                    <af:panelCollection id="pc1">
+                        <f:facet name="menus"/>
+                        <f:facet name="toolbar"/>
+                        <f:facet name="statusbar"/>
+                        <af:table value="#{bindings.ClienteView1.collectionModel}" var="row"
+                                  rows="#{bindings.ClienteView1.rangeSize}"
+                                  emptyText="#{bindings.ClienteView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.ClienteView1.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.ClienteView1.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.ClienteView1.rangeSize}"
+                                  filterModel="#{bindings.ClienteView1Query.queryDescriptor}" filterVisible="true"
+                                  queryListener="#{bindings.ClienteView1Query.processQuery}" varStatus="vs" id="t1"
+                                  partialTriggers=":::b5 :::b4">
+                            <af:column sortProperty="#{bindings.ClienteView1.hints.NoCliente.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.ClienteView1.hints.NoCliente.label}"
+                                       id="c1">
+                                <af:outputText value="#{row.NoCliente}"
+                                               shortDesc="#{bindings.ClienteView1.hints.NoCliente.tooltip}" id="ot1">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ClienteView1.hints.NoCliente.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ClienteView1.hints.NombreCliente.name}"
+                                       filterable="true" sortable="true"
+                                       headerText="#{bindings.ClienteView1.hints.NombreCliente.label}" id="c2">
+                                <af:outputText value="#{row.NombreCliente}"
+                                               shortDesc="#{bindings.ClienteView1.hints.NombreCliente.tooltip}"
+                                               id="ot2"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ClienteView1.hints.TelCliente.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.ClienteView1.hints.TelCliente.label}"
+                                       id="c3">
+                                <af:outputText value="#{row.TelCliente}"
+                                               shortDesc="#{bindings.ClienteView1.hints.TelCliente.tooltip}" id="ot3">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ClienteView1.hints.TelCliente.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ClienteView1.hints.NitCliente.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.ClienteView1.hints.NitCliente.label}"
+                                       id="c4">
+                                <af:outputText value="#{row.NitCliente}"
+                                               shortDesc="#{bindings.ClienteView1.hints.NitCliente.tooltip}" id="ot4">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ClienteView1.hints.NitCliente.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ClienteView1.hints.DpiCliente.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.ClienteView1.hints.DpiCliente.label}"
+                                       id="c5">
+                                <af:outputText value="#{row.DpiCliente}"
+                                               shortDesc="#{bindings.ClienteView1.hints.DpiCliente.tooltip}" id="ot5">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ClienteView1.hints.DpiCliente.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ClienteView1.hints.IdDireccion.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.ClienteView1.hints.IdDireccion.label}"
+                                       id="c6">
+                                <af:outputText value="#{row.IdDireccion}"
+                                               shortDesc="#{bindings.ClienteView1.hints.IdDireccion.tooltip}" id="ot6">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ClienteView1.hints.IdDireccion.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.ClienteView1.hints.Descripcion.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.ClienteView1.hints.Descripcion.label}"
+                                       id="c7">
+                                <af:outputText value="#{row.Descripcion}"
+                                               shortDesc="#{bindings.ClienteView1.hints.Descripcion.tooltip}" id="ot7"/>
+                            </af:column>
+                        </af:table>
+                    </af:panelCollection>
+                </f:facet>
+            </af:panelSplitter>
+        </af:form>
+    </af:document>
+</f:view>
