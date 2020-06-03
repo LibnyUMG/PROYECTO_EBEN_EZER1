@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="ClientesPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ClienteView1" RangeSize="25" DataControl="AppModuleDataControl" id="ClienteView1Iterator"/>
+    <searchRegion Binds="ClienteView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ClienteView1Query"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ClienteView1Iterator" id="NoCliente">
+      <AttrNames>
+        <Item Value="NoCliente"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ClienteView1Iterator" id="NombreCliente">
+      <AttrNames>
+        <Item Value="NombreCliente"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ClienteView1Iterator" id="TelCliente">
+      <AttrNames>
+        <Item Value="TelCliente"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ClienteView1Iterator" id="NitCliente">
+      <AttrNames>
+        <Item Value="NitCliente"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ClienteView1Iterator" id="DpiCliente">
+      <AttrNames>
+        <Item Value="DpiCliente"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ClienteView1Iterator" id="IdDireccion">
+      <AttrNames>
+        <Item Value="IdDireccion"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="ClienteView1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <action IterBinding="ClienteView1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <tree IterBinding="ClienteView1Iterator" id="ClienteView1">
+      <nodeDefinition DefName="model.ClienteView" Name="ClienteView10">
+        <AttrNames>
+          <Item Value="NoCliente"/>
+          <Item Value="NombreCliente"/>
+          <Item Value="TelCliente"/>
+          <Item Value="NitCliente"/>
+          <Item Value="DpiCliente"/>
+          <Item Value="IdDireccion"/>
+          <Item Value="Descripcion"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>
