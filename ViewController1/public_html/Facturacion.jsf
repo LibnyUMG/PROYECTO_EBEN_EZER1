@@ -180,7 +180,8 @@
                                           columns="#{bindings.Subtotal.hints.displayWidth}"
                                           maximumLength="#{bindings.Subtotal.hints.precision}"
                                           shortDesc="#{bindings.Subtotal.hints.tooltip}" id="it5" autoSubmit="true"
-                                          inlineStyle="text-align:left; column-rule-width:thick; column-width:inherit; alignment-adjust:middle; inline-box-align:initial;">
+                                          inlineStyle="text-align:left; column-rule-width:thick; column-width:inherit; alignment-adjust:middle; inline-box-align:initial;"
+                                          readOnly="true">
                                 <f:validator binding="#{bindings.Subtotal.validator}"/>
                                 <af:convertNumber groupingUsed="false" pattern="#{bindings.Subtotal.format}"/>
                             </af:inputText>
@@ -193,7 +194,7 @@
                            
                                     <af:button 
                                     
-                                    actionListener="#{bindings.CreateInsert.execute}" action="#{bindings.Last1.execute}" text="NUEVO"
+                                    actionListener="#{bindings.CreateInsert.execute}" text="NUEVO"
                                                 disabled="#{!bindings.CreateInsert.enabled}" id="b5" />
                          
                                     <af:button actionListener="#{bindings.Commit.execute}" text="CONFIRMAR"

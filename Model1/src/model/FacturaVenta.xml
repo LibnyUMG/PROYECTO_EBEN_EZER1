@@ -19,7 +19,11 @@
     TableName="FACTURA_VENTA"
     PrimaryKey="true"
     RetrievedOnInsert="true"
-    RetrievedOnUpdate="true"/>
+    RetrievedOnUpdate="true">
+    <Properties>
+      <SchemaBasedProperties/>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="FechaRegistro"
     ColumnName="FECHA_REGISTRO"

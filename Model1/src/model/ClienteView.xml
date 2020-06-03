@@ -12,10 +12,30 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
   <EntityUsage
     Name="Cliente"
     Entity="model.Cliente"/>
+  <EntityUsage
+    Name="Direccion"
+    Entity="model.Direccion"
+    Association="model.ClienteDireccionFkAssoc"
+    AssociationEnd="model.ClienteDireccionFkAssoc.Direccion"
+    SourceUsage="model.ClienteView.Cliente"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="INNER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.Direccion.IdDireccion"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.Cliente.IdDireccion"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
   <ViewAttribute
     Name="NoCliente"
     IsNotNull="true"
@@ -54,6 +74,22 @@
     EntityAttrName="IdDireccion"
     EntityUsage="Cliente"
     AliasName="ID_DIRECCION"/>
+  <ViewAttribute
+    Name="Descripcion"
+    PrecisionRule="true"
+    EntityAttrName="Descripcion"
+    EntityUsage="Direccion"
+    AliasName="DESCRIPCION"/>
+  <ViewAttribute
+    Name="IdDireccion1"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="IdDireccion"
+    EntityUsage="Direccion"
+    AliasName="ID_DIRECCION1"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="NoCliente"/>
+  </AttrArray>
   <ViewLinkAccessor
     Name="FacturaVentaView"
     ViewLink="model.FacturaVentaClienteFkLink"

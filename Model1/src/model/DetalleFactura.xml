@@ -56,7 +56,7 @@
     RetrievedOnUpdate="true"/>
   <Attribute
     Name="Subtotal"
-    Precision="126"
+    Precision="10"
     ColumnName="SUBTOTAL"
     SQLType="FLOAT"
     Type="java.lang.Float"
