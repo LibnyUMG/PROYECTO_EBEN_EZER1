@@ -4,10 +4,14 @@
   <pageMap>
     <page path="/Facturacion.jsf" usageId="view_untitled1PageDef"/>
     <page path="/Clientes.jsf" usageId="view_ClientesPageDef"/>
+    <page path="/clientes2.jsf" usageId="view_cliente2PageDef"/>
+    <page path="/Direccion.jsf" usageId="view_DireccionPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="view_untitled1PageDef" path="view.pageDefs.untitled1PageDef"/>
     <page id="view_ClientesPageDef" path="view.pageDefs.ClientesPageDef"/>
+    <page id="view_cliente2PageDef" path="view.pageDefs.cliente2PageDef"/>
+    <page id="view_DireccionPageDef" path="view.pageDefs.DireccionPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AppModuleDataControl" Package="model"

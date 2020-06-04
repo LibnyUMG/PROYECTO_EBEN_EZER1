@@ -12,10 +12,30 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
   <EntityUsage
     Name="Proveedor"
     Entity="model.Proveedor"/>
+  <EntityUsage
+    Name="Direccion"
+    Entity="model.Direccion"
+    Association="model.ProveedorDireccionFkAssoc"
+    AssociationEnd="model.ProveedorDireccionFkAssoc.Direccion"
+    SourceUsage="model.ProveedorView.Proveedor"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.Direccion.IdDireccion"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.Proveedor.IdDireccion"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
   <ViewAttribute
     Name="NoProveedor"
     IsNotNull="true"
@@ -54,6 +74,21 @@
     EntityAttrName="IdDireccion"
     EntityUsage="Proveedor"
     AliasName="ID_DIRECCION"/>
+  <ViewAttribute
+    Name="IdDireccion1"
+    PrecisionRule="true"
+    EntityAttrName="IdDireccion"
+    EntityUsage="Direccion"
+    AliasName="ID_DIRECCION1"/>
+  <ViewAttribute
+    Name="Descripcion"
+    PrecisionRule="true"
+    EntityAttrName="Descripcion"
+    EntityUsage="Direccion"
+    AliasName="DESCRIPCION"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="NoProveedor"/>
+  </AttrArray>
   <ViewLinkAccessor
     Name="ProductoBodegaView"
     ViewLink="model.ProductoBodegaFk1Link"

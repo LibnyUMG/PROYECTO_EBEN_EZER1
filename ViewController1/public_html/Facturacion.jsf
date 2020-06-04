@@ -7,7 +7,12 @@
             <af:panelGridLayout id="pgl5">
                 <af:gridRow marginTop="5px" height="auto" id="gr1">
                     <af:gridCell marginStart="5px" width="50%" id="gc1">
+                    
+                    
+                         
                         <af:panelFormLayout id="pfl2">
+                        
+                
                             <af:inputText value="#{bindings.NoFactura1.inputValue}"
                                           label="#{bindings.NoFactura1.hints.label}"
                                           required="#{bindings.NoFactura1.hints.mandatory}"
@@ -16,8 +21,12 @@
                                           shortDesc="#{bindings.NoFactura1.hints.tooltip}" id="it6" autoSubmit="true"
                                           readOnly="true">
                                 <f:validator binding="#{bindings.NoFactura1.validator}"/>
-                                <af:convertNumber groupingUsed="false" pattern="#{bindings.NoFactura1.format}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.NoFactura1.format}"/> 
+                           
                             </af:inputText>
+                            
+                            
+                            
                             <af:inputDate value="#{bindings.FechaRegistro.inputValue}"
                                           label="#{bindings.FechaRegistro.hints.label}"
                                           required="#{bindings.FechaRegistro.hints.mandatory}"

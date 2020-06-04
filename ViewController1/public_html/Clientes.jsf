@@ -4,17 +4,24 @@
     <af:document title="Clientes.jsf" id="d1">
         <af:messages id="m1"/>
         <af:form id="f1">
-            <af:panelSplitter orientation="horizontal" splitterPosition="457" id="ps1">
+            <af:panelSplitter orientation="horizontal" splitterPosition="553" id="ps1">
                 <f:facet name="first">
-                    <af:panelFormLayout id="pfl1" inlineStyle="width:333px; height:321px;">
+                    <af:panelFormLayout id="pfl1"> 
                         <af:inputText value="#{bindings.NoCliente.inputValue}" label="#{bindings.NoCliente.hints.label}"
                                       required="#{bindings.NoCliente.hints.mandatory}"
-                                      columns="#{bindings.NoCliente.hints.displayWidth}"
+                                      columns="#{bindings.NoCliente.hints.displayWidth}" 
+                                      
                                       maximumLength="#{bindings.NoCliente.hints.precision}"
-                                      shortDesc="#{bindings.NoCliente.hints.tooltip}" id="it1">
+                                      shortDesc="#{bindings.NoCliente.hints.tooltip}" id="it1" readOnly="true"
+                                      autoSubmit="true">
                             <f:validator binding="#{bindings.NoCliente.validator}"/>
                             <af:convertNumber groupingUsed="false" pattern="#{bindings.NoCliente.format}"/>
-                        </af:inputText>
+                            
+                         
+                         
+                        </af:inputText> 
+                      
+                         
                         <af:inputText value="#{bindings.NombreCliente.inputValue}"
                                       label="#{bindings.NombreCliente.hints.label}"
                                       required="#{bindings.NombreCliente.hints.mandatory}"
@@ -50,36 +57,60 @@
                             <f:validator binding="#{bindings.DpiCliente.validator}"/>
                             <af:convertNumber groupingUsed="false" pattern="#{bindings.DpiCliente.format}"/>
                         </af:inputText>
-                        <af:inputText value="#{bindings.IdDireccion.inputValue}"
-                                      label="#{bindings.IdDireccion.hints.label}"
-                                      required="#{bindings.IdDireccion.hints.mandatory}"
-                                      columns="#{bindings.IdDireccion.hints.displayWidth}"
-                                      maximumLength="#{bindings.IdDireccion.hints.precision}"
-                                      shortDesc="#{bindings.IdDireccion.hints.tooltip}" id="it6">
+                        <af:inputComboboxListOfValues id="idDireccionId"
+                                                      popupTitle="Search and Select: #{bindings.IdDireccion.hints.label}"
+                                                      value="#{bindings.IdDireccion.inputValue}"
+                                                      label="#{bindings.IdDireccion.hints.label}"
+                                                      model="#{bindings.IdDireccion.listOfValuesModel}"
+                                                      required="#{bindings.IdDireccion.hints.mandatory}"
+                                                      columns="#{bindings.IdDireccion.hints.displayWidth}"
+                                                      shortDesc="#{bindings.IdDireccion.hints.tooltip}">
                             <f:validator binding="#{bindings.IdDireccion.validator}"/>
                             <af:convertNumber groupingUsed="false" pattern="#{bindings.IdDireccion.format}"/>
+                        </af:inputComboboxListOfValues>
+                        <af:inputText value="#{bindings.IdDireccion1.inputValue}"
+                                      label="#{bindings.IdDireccion1.hints.label}"
+                                      required="#{bindings.IdDireccion1.hints.mandatory}"
+                                      columns="#{bindings.IdDireccion1.hints.displayWidth}"
+                                      maximumLength="#{bindings.IdDireccion1.hints.precision}"
+                                      shortDesc="#{bindings.IdDireccion1.hints.tooltip}" id="it7" visible="false">
+                            <f:validator binding="#{bindings.IdDireccion1.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.IdDireccion1.format}"/>
                         </af:inputText>
+                        <af:inputText value="#{bindings.Descripcion.inputValue}"
+                                      label="#{bindings.Descripcion.hints.label}"
+                                      required="#{bindings.Descripcion.hints.mandatory}"
+                                      columns="#{bindings.Descripcion.hints.displayWidth}"
+                                      maximumLength="#{bindings.Descripcion.hints.precision}"
+                                      shortDesc="#{bindings.Descripcion.hints.tooltip}" id="it8" autoSubmit="true"
+                                      readOnly="true">
+                            <f:validator binding="#{bindings.Descripcion.validator}"/>
+                        </af:inputText>
+                          
+                        
                         <f:facet name="footer">
                             <af:panelGroupLayout layout="horizontal" id="pgl1">
-                                <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
-                                           disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b7">
+                                <af:button actionListener="#{bindings.Rollback.execute}" text="CANCELAR"
+                                           disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b2">
                                     <af:resetActionListener/>
                                 </af:button>
-                                <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+                                <af:button actionListener="#{bindings.CreateInsert.execute}" text="NUEVO"
                                            disabled="#{!bindings.CreateInsert.enabled}" id="b5"/>
-                                <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
-                                           disabled="#{!bindings.Commit.enabled}" id="b6"/>
-                                <af:button actionListener="#{bindings.Last.execute}" text="Last"
-                                           disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b4"/>
+                                <af:button actionListener="#{bindings.Commit.execute}" text="CONFIRMAR"
+                                           disabled="#{!bindings.Commit.enabled}" id="b1"/>
                             </af:panelGroupLayout>
-                        </f:facet>
+                               
+                            </f:facet>
+                        
+                        
                     </af:panelFormLayout>
+           
                 </f:facet>
+                         
                 <f:facet name="second">
                     <af:panelCollection id="pc1">
                         <f:facet name="menus"/>
                         <f:facet name="toolbar"/>
-                        <f:facet name="statusbar"/>
                         <af:table value="#{bindings.ClienteView1.collectionModel}" var="row"
                                   rows="#{bindings.ClienteView1.rangeSize}"
                                   emptyText="#{bindings.ClienteView1.viewable ? 'No data to display.' : 'Access Denied.'}"
@@ -89,7 +120,7 @@
                                   rowSelection="single" fetchSize="#{bindings.ClienteView1.rangeSize}"
                                   filterModel="#{bindings.ClienteView1Query.queryDescriptor}" filterVisible="true"
                                   queryListener="#{bindings.ClienteView1Query.processQuery}" varStatus="vs" id="t1"
-                                  partialTriggers=":::b5 :::b4">
+                                  partialTriggers=":::b5 :::b4" displayRow="last">
                             <af:column sortProperty="#{bindings.ClienteView1.hints.NoCliente.name}" filterable="true"
                                        sortable="true" headerText="#{bindings.ClienteView1.hints.NoCliente.label}"
                                        id="c1">
@@ -142,13 +173,24 @@
                                                       pattern="#{bindings.ClienteView1.hints.IdDireccion.format}"/>
                                 </af:outputText>
                             </af:column>
+                            <af:column sortProperty="#{bindings.ClienteView1.hints.IdDireccion1.name}" filterable="true"
+                                       sortable="true" headerText="#{bindings.ClienteView1.hints.IdDireccion1.label}"
+                                       id="c7" visible="false">
+                                <af:outputText value="#{row.IdDireccion1}"
+                                               shortDesc="#{bindings.ClienteView1.hints.IdDireccion1.tooltip}" id="ot7">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.ClienteView1.hints.IdDireccion1.format}"/>
+                                </af:outputText>
+                            </af:column>
                             <af:column sortProperty="#{bindings.ClienteView1.hints.Descripcion.name}" filterable="true"
                                        sortable="true" headerText="#{bindings.ClienteView1.hints.Descripcion.label}"
-                                       id="c7">
+                                       id="c8">
                                 <af:outputText value="#{row.Descripcion}"
-                                               shortDesc="#{bindings.ClienteView1.hints.Descripcion.tooltip}" id="ot7"/>
+                                               shortDesc="#{bindings.ClienteView1.hints.Descripcion.tooltip}" id="ot8"/>
                             </af:column>
                         </af:table>
+                        <f:facet name="statusbar"/>
+                        <f:facet name="viewMenu"/>
                     </af:panelCollection>
                 </f:facet>
             </af:panelSplitter>

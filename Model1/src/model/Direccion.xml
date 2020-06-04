@@ -12,13 +12,14 @@
   BindingStyle="OracleName">
   <Attribute
     Name="IdDireccion"
-    IsNotNull="true"
     ColumnName="ID_DIRECCION"
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
     TableName="DIRECCION"
-    PrimaryKey="true"/>
+    PrimaryKey="true"
+    RetrievedOnInsert="true"
+    RetrievedOnUpdate="true"/>
   <Attribute
     Name="Descripcion"
     Precision="125"

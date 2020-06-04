@@ -34,12 +34,16 @@
         <Item Value="DpiCliente"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="ClienteView1Iterator" id="IdDireccion">
+    <attributeValues IterBinding="ClienteView1Iterator" id="IdDireccion1">
       <AttrNames>
-        <Item Value="IdDireccion"/>
+        <Item Value="IdDireccion1"/>
       </AttrNames>
     </attributeValues>
-    <action IterBinding="ClienteView1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <attributeValues IterBinding="ClienteView1Iterator" id="Descripcion">
+      <AttrNames>
+        <Item Value="Descripcion"/>
+      </AttrNames>
+    </attributeValues>
     <action IterBinding="ClienteView1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
@@ -52,9 +56,11 @@
           <Item Value="NitCliente"/>
           <Item Value="DpiCliente"/>
           <Item Value="IdDireccion"/>
+          <Item Value="IdDireccion1"/>
           <Item Value="Descripcion"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <listOfValues IterBinding="ClienteView1Iterator" StaticList="false" Uses="LOV_IdDireccion" id="IdDireccion"/>
   </bindings>
 </pageDefinition>

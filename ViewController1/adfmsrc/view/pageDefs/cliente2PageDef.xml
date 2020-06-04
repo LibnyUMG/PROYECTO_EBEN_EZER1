@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="cliente2PageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DireccionView1" RangeSize="25" DataControl="AppModuleDataControl" id="DireccionView1Iterator"/>
+    <searchRegion Binds="DireccionView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="DireccionView1Query"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="DireccionView1Iterator" id="IdDireccion">
+      <AttrNames>
+        <Item Value="IdDireccion"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DireccionView1Iterator" id="Descripcion">
+      <AttrNames>
+        <Item Value="Descripcion"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="DireccionView1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <tree IterBinding="DireccionView1Iterator" id="DireccionView1">
+      <nodeDefinition DefName="model.DireccionView" Name="DireccionView10">
+        <AttrNames>
+          <Item Value="IdDireccion"/>
+          <Item Value="Descripcion"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

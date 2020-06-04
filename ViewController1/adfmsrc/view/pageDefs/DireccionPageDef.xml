@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="DireccionPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DireccionView1" RangeSize="25" DataControl="AppModuleDataControl" id="DireccionView1Iterator"/>
+    <iterator Binds="ClienteView2" RangeSize="25" DataControl="AppModuleDataControl" id="ClienteView2Iterator"/>
+    <searchRegion Binds="ClienteView2Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ClienteView2Query"/>
+    <searchRegion Binds="DireccionView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="DireccionView1Query"/>
+    <iterator Binds="ProveedorView2" RangeSize="25" DataControl="AppModuleDataControl" id="ProveedorView2Iterator"/>
+    <searchRegion Binds="ProveedorView2Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ProveedorView2Query"/>
+    <iterator Binds="BodegaView2" RangeSize="25" DataControl="AppModuleDataControl" id="BodegaView2Iterator"/>
+    <searchRegion Binds="BodegaView2Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="BodegaView2Query"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="DireccionView1Iterator" id="IdDireccion">
+      <AttrNames>
+        <Item Value="IdDireccion"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DireccionView1Iterator" id="Descripcion">
+      <AttrNames>
+        <Item Value="Descripcion"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="DireccionView1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="DireccionView1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="DireccionView1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <tree IterBinding="ClienteView2Iterator" id="ClienteView2">
+      <nodeDefinition DefName="model.ClienteView" Name="ClienteView20">
+        <AttrNames>
+          <Item Value="NoCliente"/>
+          <Item Value="NombreCliente"/>
+          <Item Value="TelCliente"/>
+          <Item Value="NitCliente"/>
+          <Item Value="DpiCliente"/>
+          <Item Value="IdDireccion"/>
+          <Item Value="IdDireccion1"/>
+          <Item Value="Descripcion"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="DireccionView1Iterator" id="DireccionView1">
+      <nodeDefinition DefName="model.DireccionView" Name="DireccionView10">
+        <AttrNames>
+          <Item Value="IdDireccion"/>
+          <Item Value="Descripcion"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ProveedorView2Iterator" id="ProveedorView2">
+      <nodeDefinition DefName="model.ProveedorView" Name="ProveedorView20">
+        <AttrNames>
+          <Item Value="NoProveedor"/>
+          <Item Value="NombreProveedor"/>
+          <Item Value="TelProveedor"/>
+          <Item Value="NitProveedor"/>
+          <Item Value="DpiProveedor"/>
+          <Item Value="IdDireccion"/>
+          <Item Value="IdDireccion1"/>
+          <Item Value="Descripcion"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="BodegaView2Iterator" id="BodegaView2">
+      <nodeDefinition DefName="model.BodegaView" Name="BodegaView20">
+        <AttrNames>
+          <Item Value="NumBodega"/>
+          <Item Value="DescripcionBodega"/>
+          <Item Value="IdDireccion"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>
