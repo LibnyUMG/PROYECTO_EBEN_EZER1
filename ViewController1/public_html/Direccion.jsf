@@ -9,6 +9,14 @@
                     <af:panelGridLayout id="pgl3">
                         <af:gridRow marginTop="5px" height="auto" id="gr4">
                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc4">
+                                <af:panelHeader text="Gestión de direcciones" id="ph1"
+                                                inlineStyle="height:70px;">
+                                    <f:facet name="context"/>
+                                    <f:facet name="toolbar"/>
+                                    <f:facet name="menuBar"/>
+                                    <f:facet name="legend"/>
+                                    <f:facet name="info"/>
+                                </af:panelHeader>
                                 <af:panelFormLayout id="pfl1">
                                     <af:inputText value="#{bindings.IdDireccion.inputValue}"
                                                   label="#{bindings.IdDireccion.hints.label}"
@@ -97,6 +105,13 @@
                     <af:panelGridLayout id="pgl2">
                         <af:gridRow marginTop="5px" height="auto" id="gr1">
                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1">
+                                <af:panelHeader text="Clientes" id="ph2">
+                                    <f:facet name="context"/>
+                                    <f:facet name="toolbar"/>
+                                    <f:facet name="menuBar"/>
+                                    <f:facet name="legend"/>
+                                    <f:facet name="info"/>
+                                </af:panelHeader>
                                 <af:panelCollection id="pc1">
                                     <f:facet name="menus"/>
                                     <f:facet name="toolbar"/>
@@ -198,6 +213,13 @@
                         </af:gridRow>
                         <af:gridRow marginTop="20px" height="auto" id="gr2">
                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2">
+                                <af:panelHeader text="Proveedores" id="ph3">
+                                    <f:facet name="context"/>
+                                    <f:facet name="toolbar"/>
+                                    <f:facet name="menuBar"/>
+                                    <f:facet name="legend"/>
+                                    <f:facet name="info"/>
+                                </af:panelHeader>
                                 <af:panelCollection id="pc3">
                                     <f:facet name="menus"/>
                                     <f:facet name="toolbar"/>
@@ -301,6 +323,13 @@
                         </af:gridRow>
                         <af:gridRow marginTop="20px" height="auto" marginBottom="5px" id="gr3">
                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3">
+                                <af:panelHeader text="Bodegas" id="ph4">
+                                    <f:facet name="context"/>
+                                    <f:facet name="toolbar"/>
+                                    <f:facet name="menuBar"/>
+                                    <f:facet name="legend"/>
+                                    <f:facet name="info"/>
+                                </af:panelHeader>
                                 <af:panelCollection id="pc4">
                                     <f:facet name="menus"/>
                                     <f:facet name="toolbar"/>

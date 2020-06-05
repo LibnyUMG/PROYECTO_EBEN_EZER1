@@ -12,7 +12,29 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
+  <ViewAccessor
+    Name="ClienteView1"
+    ViewObjectName="model.ClienteView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_NoCliente"
+    ListVOName="ClienteView1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="NoCliente"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="NoCliente"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="NombreCliente"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="FacturaVenta"
     Entity="model.FacturaVenta"/>
@@ -35,7 +57,15 @@
     PrecisionRule="true"
     EntityAttrName="NoCliente"
     EntityUsage="FacturaVenta"
-    AliasName="NO_CLIENTE"/>
+    AliasName="NO_CLIENTE"
+    LOVName="LOV_NoCliente">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="DetalleFacturaView"
     ViewLink="model.DetalleFacturaFk3Link"

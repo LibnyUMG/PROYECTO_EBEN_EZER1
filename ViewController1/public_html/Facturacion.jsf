@@ -24,9 +24,17 @@
                                 <af:convertNumber groupingUsed="false" pattern="#{bindings.NoFactura1.format}"/> 
                            
                             </af:inputText>
-                            
-                            
-                            
+                            <af:inputComboboxListOfValues id="noClienteId"
+                                                          popupTitle="Search and Select: #{bindings.NoCliente.hints.label}"
+                                                          value="#{bindings.NoCliente.inputValue}"
+                                                          label="#{bindings.NoCliente.hints.label}"
+                                                          model="#{bindings.NoCliente.listOfValuesModel}"
+                                                          required="#{bindings.NoCliente.hints.mandatory}"
+                                                          columns="#{bindings.NoCliente.hints.displayWidth}"
+                                                          shortDesc="#{bindings.NoCliente.hints.tooltip}">
+                                <f:validator binding="#{bindings.NoCliente.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.NoCliente.format}"/>
+                            </af:inputComboboxListOfValues>
                             <af:inputDate value="#{bindings.FechaRegistro.inputValue}"
                                           label="#{bindings.FechaRegistro.hints.label}"
                                           required="#{bindings.FechaRegistro.hints.mandatory}"
@@ -35,15 +43,6 @@
                                 <f:validator binding="#{bindings.FechaRegistro.validator}"/>
                                 <af:convertDateTime pattern="#{bindings.FechaRegistro.format}"/>
                             </af:inputDate>
-                            <af:inputText value="#{bindings.NoCliente.inputValue}"
-                                          label="#{bindings.NoCliente.hints.label}"
-                                          required="#{bindings.NoCliente.hints.mandatory}"
-                                          columns="#{bindings.NoCliente.hints.displayWidth}"
-                                          maximumLength="#{bindings.NoCliente.hints.precision}"
-                                          shortDesc="#{bindings.NoCliente.hints.tooltip}" id="it7">
-                                <f:validator binding="#{bindings.NoCliente.validator}"/>
-                                <af:convertNumber groupingUsed="false" pattern="#{bindings.NoCliente.format}"/>
-                            </af:inputText>
                             <f:facet name="footer">
                                 <af:panelGroupLayout layout="horizontal" id="pgl3">
                                     <af:button actionListener="#{bindings.Rollback.execute}" text="CANCELAR"

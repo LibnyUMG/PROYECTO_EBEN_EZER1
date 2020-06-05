@@ -30,11 +30,6 @@
         <Item Value="FechaRegistro"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="FacturaVentaView1Iterator" id="NoCliente">
-      <AttrNames>
-        <Item Value="NoCliente"/>
-      </AttrNames>
-    </attributeValues>
     <action IterBinding="FacturaVentaView1Iterator" id="Last1" RequiresUpdateModel="true" Action="last"/>
     <action IterBinding="FacturaVentaView1Iterator" id="CreateInsert1" RequiresUpdateModel="true"
             Action="createInsertRow"/>
@@ -104,5 +99,6 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <listOfValues IterBinding="FacturaVentaView1Iterator" StaticList="false" Uses="LOV_NoCliente" id="NoCliente"/>
   </bindings>
 </pageDefinition>
