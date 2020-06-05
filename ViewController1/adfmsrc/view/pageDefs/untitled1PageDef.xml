@@ -16,6 +16,8 @@
               id="DetalleFacturaView5Iterator"/>
     <searchRegion Binds="DetalleFacturaView5Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="DetalleFacturaView5Query"/>
+    <iterator Binds="DetalleFacturaView1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="DetalleFacturaView1Iterator"/>
   </executables>
   <bindings>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
@@ -38,19 +40,9 @@
         <Item Value="NoFactura"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="DetalleFacturaView3Iterator" id="CodProducto">
-      <AttrNames>
-        <Item Value="CodProducto"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="DetalleFacturaView3Iterator" id="Cantidad">
       <AttrNames>
         <Item Value="Cantidad"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="DetalleFacturaView3Iterator" id="NumBodega">
-      <AttrNames>
-        <Item Value="NumBodega"/>
       </AttrNames>
     </attributeValues>
     <attributeValues IterBinding="DetalleFacturaView3Iterator" id="Subtotal">
@@ -100,5 +92,7 @@
       </nodeDefinition>
     </tree>
     <listOfValues IterBinding="FacturaVentaView1Iterator" StaticList="false" Uses="LOV_NoCliente" id="NoCliente"/>
+    <listOfValues IterBinding="DetalleFacturaView1Iterator" StaticList="false" Uses="LOV_CodProducto" id="CodProducto"/>
+    <listOfValues IterBinding="DetalleFacturaView1Iterator" StaticList="false" Uses="LOV_NumBodega" id="NumBodega"/>
   </bindings>
 </pageDefinition>

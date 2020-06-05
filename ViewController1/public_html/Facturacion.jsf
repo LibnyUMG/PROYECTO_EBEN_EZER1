@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html>
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
-    <af:document title="untitled1.jsf" id="d1">
+    <af:document title="Facturacion.jsf" id="d1">
         <af:messages id="m1"/>
         <af:form id="f1">
             <af:panelGridLayout id="pgl5">
@@ -129,15 +129,17 @@
                                 <f:validator binding="#{bindings.NoFactura.validator}"/>
                                 <af:convertNumber groupingUsed="false" pattern="#{bindings.NoFactura.format}"/>
                             </af:inputText>
-                            <af:inputText value="#{bindings.CodProducto.inputValue}"
-                                          label="#{bindings.CodProducto.hints.label}"
-                                          required="#{bindings.CodProducto.hints.mandatory}"
-                                          columns="#{bindings.CodProducto.hints.displayWidth}"
-                                          maximumLength="#{bindings.CodProducto.hints.precision}"
-                                          shortDesc="#{bindings.CodProducto.hints.tooltip}" id="it2" autoSubmit="true">
+                            <af:inputComboboxListOfValues id="codProductoId"
+                                                          popupTitle="Search and Select: #{bindings.CodProducto.hints.label}"
+                                                          value="#{bindings.CodProducto.inputValue}"
+                                                          label="#{bindings.CodProducto.hints.label}"
+                                                          model="#{bindings.CodProducto.listOfValuesModel}"
+                                                          required="#{bindings.CodProducto.hints.mandatory}"
+                                                          columns="#{bindings.CodProducto.hints.displayWidth}"
+                                                          shortDesc="#{bindings.CodProducto.hints.tooltip}">
                                 <f:validator binding="#{bindings.CodProducto.validator}"/>
                                 <af:convertNumber groupingUsed="false" pattern="#{bindings.CodProducto.format}"/>
-                            </af:inputText>
+                            </af:inputComboboxListOfValues>
                             <af:inputText value="#{bindings.DescripcionProducto.inputValue}"
                                           label="#{bindings.DescripcionProducto.hints.label}"
                                           required="#{bindings.DescripcionProducto.hints.mandatory}"
@@ -164,15 +166,17 @@
                                 <f:validator binding="#{bindings.Cantidad.validator}"/>
                                 <af:convertNumber groupingUsed="false" pattern="#{bindings.Cantidad.format}"/>
                             </af:inputText>
-                            <af:inputText value="#{bindings.NumBodega.inputValue}"
-                                          label="#{bindings.NumBodega.hints.label}"
-                                          required="#{bindings.NumBodega.hints.mandatory}"
-                                          columns="#{bindings.NumBodega.hints.displayWidth}"
-                                          maximumLength="#{bindings.NumBodega.hints.precision}"
-                                          shortDesc="#{bindings.NumBodega.hints.tooltip}" id="it4" autoSubmit="true">
+                            <af:inputComboboxListOfValues id="numBodegaId"
+                                                          popupTitle="Search and Select: #{bindings.NumBodega.hints.label}"
+                                                          value="#{bindings.NumBodega.inputValue}"
+                                                          label="#{bindings.NumBodega.hints.label}"
+                                                          model="#{bindings.NumBodega.listOfValuesModel}"
+                                                          required="#{bindings.NumBodega.hints.mandatory}"
+                                                          columns="#{bindings.NumBodega.hints.displayWidth}"
+                                                          shortDesc="#{bindings.NumBodega.hints.tooltip}">
                                 <f:validator binding="#{bindings.NumBodega.validator}"/>
                                 <af:convertNumber groupingUsed="false" pattern="#{bindings.NumBodega.format}"/>
-                            </af:inputText>
+                            </af:inputComboboxListOfValues>
                             <af:inputText value="#{bindings.CodProducto1.inputValue}"
                                           label="#{bindings.CodProducto1.hints.label}"
                                           required="#{bindings.CodProducto1.hints.mandatory}"

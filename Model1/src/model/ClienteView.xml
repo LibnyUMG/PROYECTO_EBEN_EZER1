@@ -43,6 +43,23 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
+  <ListBinding
+    Name="LOV_NoCliente"
+    ListVOName="DireccionView1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="NoCliente"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="IdDireccion"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Descripcion"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="Cliente"
     Entity="model.Cliente"/>
@@ -71,7 +88,15 @@
     PrecisionRule="true"
     EntityAttrName="NoCliente"
     EntityUsage="Cliente"
-    AliasName="NO_CLIENTE"/>
+    AliasName="NO_CLIENTE"
+    LOVName="LOV_NoCliente">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="NombreCliente"
     PrecisionRule="true"

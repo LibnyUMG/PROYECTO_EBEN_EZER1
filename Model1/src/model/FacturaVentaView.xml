@@ -35,6 +35,23 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
+  <ListBinding
+    Name="LOV_NoFactura"
+    ListVOName="ClienteView1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="NoFactura"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="NoCliente"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="NombreCliente"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="FacturaVenta"
     Entity="model.FacturaVenta"/>
@@ -44,7 +61,15 @@
     PrecisionRule="true"
     EntityAttrName="NoFactura"
     EntityUsage="FacturaVenta"
-    AliasName="NO_FACTURA"/>
+    AliasName="NO_FACTURA"
+    LOVName="LOV_NoFactura">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="FechaRegistro"
     PrecisionRule="true"
