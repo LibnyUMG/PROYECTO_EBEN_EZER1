@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="ProveedoresPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ProveedorView1" RangeSize="25" DataControl="AppModuleDataControl" id="ProveedorView1Iterator"/>
+    <searchRegion Binds="ProveedorView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ProveedorView1Query"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ProveedorView1Iterator" id="NoProveedor">
+      <AttrNames>
+        <Item Value="NoProveedor"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProveedorView1Iterator" id="NombreProveedor">
+      <AttrNames>
+        <Item Value="NombreProveedor"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProveedorView1Iterator" id="TelProveedor">
+      <AttrNames>
+        <Item Value="TelProveedor"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProveedorView1Iterator" id="NitProveedor">
+      <AttrNames>
+        <Item Value="NitProveedor"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProveedorView1Iterator" id="DpiProveedor">
+      <AttrNames>
+        <Item Value="DpiProveedor"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ProveedorView1Iterator" StaticList="false" Uses="LOV_IdDireccion" id="IdDireccion"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="ProveedorView1Iterator" id="IdDireccion1">
+      <AttrNames>
+        <Item Value="IdDireccion1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProveedorView1Iterator" id="Descripcion">
+      <AttrNames>
+        <Item Value="Descripcion"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="ProveedorView1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <tree IterBinding="ProveedorView1Iterator" id="ProveedorView1">
+      <nodeDefinition DefName="model.ProveedorView" Name="ProveedorView10">
+        <AttrNames>
+          <Item Value="NoProveedor"/>
+          <Item Value="NombreProveedor"/>
+          <Item Value="TelProveedor"/>
+          <Item Value="NitProveedor"/>
+          <Item Value="DpiProveedor"/>
+          <Item Value="IdDireccion"/>
+          <Item Value="Descripcion"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

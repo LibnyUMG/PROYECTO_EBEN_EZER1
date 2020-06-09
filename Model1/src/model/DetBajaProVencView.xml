@@ -12,7 +12,71 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
+  <ViewAccessor
+    Name="ProductoView1"
+    ViewObjectName="model.ProductoView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="BodegaView1"
+    ViewObjectName="model.BodegaView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="BajaProductoVencidoView1"
+    ViewObjectName="model.BajaProductoVencidoView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_CodProducto"
+    ListVOName="ProductoView1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CodProducto"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CodProducto"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DescripcionProducto"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_NumBodega"
+    ListVOName="BodegaView1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="NumBodega"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="NumBodega"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DescripcionBodega"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_NoBajaVenc"
+    ListVOName="BajaProductoVencidoView1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="NoBajaVenc"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="NoBajaVenc"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="NoBajaVenc"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="DetBajaProVenc"
     Entity="model.DetBajaProVenc"/>
@@ -22,14 +86,30 @@
     PrecisionRule="true"
     EntityAttrName="NoBajaVenc"
     EntityUsage="DetBajaProVenc"
-    AliasName="NO_BAJA_VENC"/>
+    AliasName="NO_BAJA_VENC"
+    LOVName="LOV_NoBajaVenc">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CodProducto"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="CodProducto"
     EntityUsage="DetBajaProVenc"
-    AliasName="COD_PRODUCTO"/>
+    AliasName="COD_PRODUCTO"
+    LOVName="LOV_CodProducto">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Cantidad"
     IsNotNull="true"
@@ -43,5 +123,13 @@
     PrecisionRule="true"
     EntityAttrName="NumBodega"
     EntityUsage="DetBajaProVenc"
-    AliasName="NUM_BODEGA"/>
+    AliasName="NUM_BODEGA"
+    LOVName="LOV_NumBodega">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
 </ViewObject>

@@ -12,13 +12,14 @@
   BindingStyle="OracleName">
   <Attribute
     Name="NoBajaVenc"
-    IsNotNull="true"
     ColumnName="NO_BAJA_VENC"
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
     TableName="DET_BAJA_PRO_VENC"
-    PrimaryKey="true"/>
+    PrimaryKey="true"
+    RetrievedOnInsert="true"
+    RetrievedOnUpdate="true"/>
   <Attribute
     Name="CodProducto"
     IsNotNull="true"

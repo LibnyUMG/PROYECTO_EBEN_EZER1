@@ -12,13 +12,14 @@
   BindingStyle="OracleName">
   <Attribute
     Name="NoProveedor"
-    IsNotNull="true"
     ColumnName="NO_PROVEEDOR"
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
     TableName="PROVEEDOR"
-    PrimaryKey="true"/>
+    PrimaryKey="true"
+    RetrievedOnInsert="true"
+    RetrievedOnUpdate="true"/>
   <Attribute
     Name="NombreProveedor"
     Precision="100"

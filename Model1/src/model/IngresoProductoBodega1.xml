@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="IngresoProductoBodega1"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.IngresoProductoBodega1_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="IngresoProductoBodega"
+    Cardinality="1"
+    Source="true"
+    Owner="model.IngresoProductoBodega">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="IngresoProductoBodega"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.IngresoProductoBodega.CodProducto"/>
+      <Item Value="model.IngresoProductoBodega.NumBodega"/>
+      <Item Value="model.IngresoProductoBodega.NoFactura"/>
+      <Item Value="model.IngresoProductoBodega.NoProveedor"/>
+      <Item Value="model.IngresoProductoBodega.NoBajaVenc"/>
+      <Item Value="model.IngresoProductoBodega.IdMovimiento"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="ProductoBodegaView"
+    Cardinality="-1"
+    Owner="model.ProductoBodegaView">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="ProductoBodegaView"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.ProductoBodegaView.CodProducto"/>
+      <Item Value="model.ProductoBodegaView.NumBodega"/>
+      <Item Value="model.ProductoBodegaView.NoFactura"/>
+      <Item Value="model.ProductoBodegaView.NoProveedor"/>
+      <Item Value="model.ProductoBodegaView.NoBajaVenc"/>
+      <Item Value="model.ProductoBodegaView.IdMovimiento"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.Model1Bundle"/>
+  </ResourceBundle>
+</ViewLink>

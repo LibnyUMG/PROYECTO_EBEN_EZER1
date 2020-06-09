@@ -12,7 +12,97 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
+  <ViewAccessor
+    Name="ProductoView1"
+    ViewObjectName="model.ProductoView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="BodegaView1"
+    ViewObjectName="model.BodegaView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ProveedorView1"
+    ViewObjectName="model.ProveedorView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ProductoView2"
+    ViewObjectName="model.ProductoView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="TipoMovimientoView1"
+    ViewObjectName="model.TipoMovimientoView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_CodProducto"
+    ListVOName="ProductoView2"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CodProducto"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CodProducto"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DescripcionProducto"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_NumBodega"
+    ListVOName="BodegaView1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="NumBodega"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="NumBodega"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DescripcionBodega"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_NoProveedor"
+    ListVOName="ProveedorView1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="NoProveedor"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="NoProveedor"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="NombreProveedor"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_IdMovimiento"
+    ListVOName="TipoMovimientoView1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="IdMovimiento"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="NoMovimiento"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Descripcion"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="ProductoBodega"
     Entity="model.ProductoBodega"/>
@@ -22,14 +112,30 @@
     PrecisionRule="true"
     EntityAttrName="CodProducto"
     EntityUsage="ProductoBodega"
-    AliasName="COD_PRODUCTO"/>
+    AliasName="COD_PRODUCTO"
+    LOVName="LOV_CodProducto">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="NumBodega"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="NumBodega"
     EntityUsage="ProductoBodega"
-    AliasName="NUM_BODEGA"/>
+    AliasName="NUM_BODEGA"
+    LOVName="LOV_NumBodega">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CantidadProducto"
     PrecisionRule="true"
@@ -41,7 +147,15 @@
     PrecisionRule="true"
     EntityAttrName="NoProveedor"
     EntityUsage="ProductoBodega"
-    AliasName="NO_PROVEEDOR"/>
+    AliasName="NO_PROVEEDOR"
+    LOVName="LOV_NoProveedor">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="FechaReg"
     PrecisionRule="true"
@@ -66,5 +180,17 @@
     PrecisionRule="true"
     EntityAttrName="IdMovimiento"
     EntityUsage="ProductoBodega"
-    AliasName="ID_MOVIMIENTO"/>
+    AliasName="ID_MOVIMIENTO"
+    LOVName="LOV_IdMovimiento"
+    DefaultValue="1">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <DesignTime>
+      <Attr Name="_description" Value="Movimiento"/>
+    </DesignTime>
+  </ViewAttribute>
 </ViewObject>

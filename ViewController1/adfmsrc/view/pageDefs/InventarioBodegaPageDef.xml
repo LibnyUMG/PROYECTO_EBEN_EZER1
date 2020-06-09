@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="InventarioBodegaPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="IngresoProductoBodega1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="IngresoProductoBodega1Iterator"/>
+    <searchRegion Binds="IngresoProductoBodega1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="IngresoProductoBodega1Query"/>
+    <iterator Binds="ViInventarioProBod1_1" RangeSize="-1" DataControl="AppModuleDataControl"
+              id="ViInventarioProBod1_1Iterator"/>
+    <searchRegion Binds="ViInventarioProBod1_1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ViInventarioProBod1_1Query"/>
+    <iterator Binds="ProductoBodegaView1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="ProductoBodegaView1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="IngresoProductoBodega1Iterator" id="IngresoProductoBodega1">
+      <nodeDefinition DefName="model.IngresoProductoBodega" Name="IngresoProductoBodega10">
+        <AttrNames>
+          <Item Value="CantidadProducto"/>
+          <Item Value="CodProducto"/>
+          <Item Value="FechaReg"/>
+          <Item Value="IdMovimiento"/>
+          <Item Value="NoProveedor"/>
+          <Item Value="NumBodega"/>
+          <Item Value="NoFactura"/>
+          <Item Value="NoBajaVenc"/>
+          <Item Value="DescripcionProducto"/>
+          <Item Value="CodProducto1"/>
+          <Item Value="NombreProveedor"/>
+          <Item Value="NoProveedor1"/>
+          <Item Value="DescripcionBodega"/>
+          <Item Value="NumBodega1"/>
+          <Item Value="Descripcion"/>
+          <Item Value="NoMovimiento"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ViInventarioProBod1_1Iterator" id="ViInventarioProBod1_1">
+      <nodeDefinition DefName="model.ViInventarioProBod1" Name="ViInventarioProBod1_10">
+        <AttrNames>
+          <Item Value="Cantidad"/>
+          <Item Value="CodProducto"/>
+          <Item Value="DescripcionBodega"/>
+          <Item Value="DescripcionProducto"/>
+          <Item Value="NumBodega"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <list IterBinding="ProductoBodegaView1Iterator" StaticList="false" Uses="LOV_CodProducto" id="CodProducto"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="ProductoBodegaView1Iterator" StaticList="false" Uses="LOV_NumBodega" id="NumBodega"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="ProductoBodegaView1Iterator" id="CantidadProducto">
+      <AttrNames>
+        <Item Value="CantidadProducto"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ProductoBodegaView1Iterator" StaticList="false" Uses="LOV_NoProveedor" id="NoProveedor"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="ProductoBodegaView1Iterator" id="FechaReg">
+      <AttrNames>
+        <Item Value="FechaReg"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProductoBodegaView1Iterator" id="NoFactura">
+      <AttrNames>
+        <Item Value="NoFactura"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProductoBodegaView1Iterator" id="NoBajaVenc">
+      <AttrNames>
+        <Item Value="NoBajaVenc"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ProductoBodegaView1Iterator" StaticList="false" Uses="LOV_IdMovimiento" id="IdMovimiento"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <action IterBinding="ProductoBodegaView1Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <tree IterBinding="ViInventarioProBod1_1Iterator" id="ViInventarioProBod1_11" ChangeEventPolicy="ppr">
+      <nodeDefinition DefName="model.ViInventarioProBod1" Name="ViInventarioProBod1_11">
+        <AttrNames>
+          <Item Value="Cantidad"/>
+          <Item Value="CodProducto"/>
+          <Item Value="DescripcionProducto"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

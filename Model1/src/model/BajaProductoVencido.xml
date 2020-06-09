@@ -12,7 +12,6 @@
   BindingStyle="OracleName">
   <Attribute
     Name="NoBajaVenc"
-    IsNotNull="true"
     ColumnName="NO_BAJA_VENC"
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"

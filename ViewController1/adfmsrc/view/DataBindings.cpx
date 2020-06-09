@@ -1,17 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.22.48" id="DataBindings"
              SeparateXMLFiles="false" Package="view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adfm/dvt"
+             className="oracle.adfinternal.view.faces.dvt.model.binding.FacesBindingFactory"/>
+  </definitionFactories>
   <pageMap>
     <page path="/Facturacion.jsf" usageId="view_untitled1PageDef"/>
     <page path="/Clientes.jsf" usageId="view_ClientesPageDef"/>
     <page path="/clientes2.jsf" usageId="view_cliente2PageDef"/>
     <page path="/Direccion.jsf" usageId="view_DireccionPageDef"/>
+    <page path="/Proveedores.jsf" usageId="view_ProveedoresPageDef"/>
+    <page path="/Bodegas.jsf" usageId="view_BodegasPageDef"/>
+    <page path="/Productos.jsf" usageId="view_ProductosPageDef"/>
+    <page path="/InventarioBodega.jsf" usageId="view_InventarioBodegaPageDef"/>
+    <page path="/ProductosVencidos.jsf" usageId="view_ProductosVencidosPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="view_untitled1PageDef" path="view.pageDefs.untitled1PageDef"/>
     <page id="view_ClientesPageDef" path="view.pageDefs.ClientesPageDef"/>
     <page id="view_cliente2PageDef" path="view.pageDefs.cliente2PageDef"/>
     <page id="view_DireccionPageDef" path="view.pageDefs.DireccionPageDef"/>
+    <page id="view_ProveedoresPageDef" path="view.pageDefs.ProveedoresPageDef"/>
+    <page id="view_BodegasPageDef" path="view.pageDefs.BodegasPageDef"/>
+    <page id="view_ProductosPageDef" path="view.pageDefs.ProductosPageDef"/>
+    <page id="view_InventarioBodegaPageDef" path="view.pageDefs.InventarioBodegaPageDef"/>
+    <page id="view_ProductosVencidosPageDef" path="view.pageDefs.ProductosVencidosPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AppModuleDataControl" Package="model"

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="Menu">
+    <default-activity>Facturacion</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <view id="Facturacion">
+      <page>/Facturacion.jsf</page>
+    </view>
+    <view id="InventarioBodega">
+      <page>/InventarioBodega.jsf</page>
+    </view>
+    <view id="ProductosVencidos">
+      <page>/ProductosVencidos.jsf</page>
+    </view>
+    <view id="Proveedores">
+      <page>/Proveedores.jsf</page>
+    </view>
+    <view id="Clientes">
+      <page>/Clientes.jsf</page>
+    </view>
+    <view id="Direccion">
+      <page>/Direccion.jsf</page>
+    </view>
+    <view id="Bodegas">
+      <page>/Bodegas.jsf</page>
+    </view>
+    <view id="Productos">
+      <page>/Productos.jsf</page>
+    </view>
+    <control-flow-rule id="__1">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>Fact</from-outcome>
+        <to-activity-id>Facturacion</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__3">
+        <from-outcome>Cli</from-outcome>
+        <to-activity-id>Clientes</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__4">
+        <from-outcome>Bod</from-outcome>
+        <to-activity-id>Bodegas</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__5">
+        <from-outcome>Inv</from-outcome>
+        <to-activity-id>InventarioBodega</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__6">
+        <from-outcome>Dir</from-outcome>
+        <to-activity-id>Direccion</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__7">
+        <from-outcome>Prov</from-outcome>
+        <to-activity-id>Proveedores</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__8">
+        <from-outcome>Prod</from-outcome>
+        <to-activity-id>Productos</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__9">
+        <from-outcome>PrVen</from-outcome>
+        <to-activity-id>ProductosVencidos</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

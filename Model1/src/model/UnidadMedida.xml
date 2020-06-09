@@ -12,13 +12,14 @@
   BindingStyle="OracleName">
   <Attribute
     Name="IdUnidadMedida"
-    IsNotNull="true"
     ColumnName="ID_UNIDAD_MEDIDA"
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
     TableName="UNIDAD_MEDIDA"
-    PrimaryKey="true"/>
+    PrimaryKey="true"
+    RetrievedOnInsert="true"
+    RetrievedOnUpdate="true"/>
   <Attribute
     Name="UnidadMedida"
     IsNotNull="true"

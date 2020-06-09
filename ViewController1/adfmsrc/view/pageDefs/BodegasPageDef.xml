@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="BodegasPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="BodegaView1" RangeSize="25" DataControl="AppModuleDataControl" id="BodegaView1Iterator"/>
+    <searchRegion Binds="BodegaView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="BodegaView1Query"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="BodegaView1Iterator" id="NumBodega">
+      <AttrNames>
+        <Item Value="NumBodega"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="BodegaView1Iterator" id="DescripcionBodega">
+      <AttrNames>
+        <Item Value="DescripcionBodega"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="BodegaView1Iterator" StaticList="false" Uses="LOV_IdDireccion" id="IdDireccion"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <action IterBinding="BodegaView1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <tree IterBinding="BodegaView1Iterator" id="BodegaView1">
+      <nodeDefinition DefName="model.BodegaView" Name="BodegaView10">
+        <AttrNames>
+          <Item Value="NumBodega"/>
+          <Item Value="DescripcionBodega"/>
+          <Item Value="IdDireccion"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

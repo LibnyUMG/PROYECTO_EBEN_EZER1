@@ -12,7 +12,29 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
+  <ViewAccessor
+    Name="UnidadMedidaView1"
+    ViewObjectName="model.UnidadMedidaView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_IdUnidadMedida"
+    ListVOName="UnidadMedidaView1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="IdUnidadMedida"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="IdUnidadMedida"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="UnidadMedida1"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="Producto"
     Entity="model.Producto"/>
@@ -59,7 +81,15 @@
     PrecisionRule="true"
     EntityAttrName="IdUnidadMedida"
     EntityUsage="Producto"
-    AliasName="ID_UNIDAD_MEDIDA"/>
+    AliasName="ID_UNIDAD_MEDIDA"
+    LOVName="LOV_IdUnidadMedida">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="DetalleFacturaView"
     ViewLink="model.DetalleFacturaFk1Link"

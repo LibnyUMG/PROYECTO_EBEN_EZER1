@@ -12,7 +12,29 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
+  <ViewAccessor
+    Name="DireccionView1"
+    ViewObjectName="model.DireccionView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_IdDireccion"
+    ListVOName="DireccionView1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="IdDireccion"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="IdDireccion"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Descripcion"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="Bodega"
     Entity="model.Bodega"/>
@@ -35,7 +57,15 @@
     PrecisionRule="true"
     EntityAttrName="IdDireccion"
     EntityUsage="Bodega"
-    AliasName="ID_DIRECCION"/>
+    AliasName="ID_DIRECCION"
+    LOVName="LOV_IdDireccion">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="DetalleFacturaView"
     ViewLink="model.DetalleFacturaFk2Link"
