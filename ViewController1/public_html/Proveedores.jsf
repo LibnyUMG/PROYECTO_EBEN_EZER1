@@ -6,89 +6,109 @@
         <af:form id="f1">
             <af:panelSplitter orientation="horizontal" splitterPosition="390" id="ps1">
                 <f:facet name="first">
-                    <af:panelFormLayout id="pfl1">
-                        <af:inputText value="#{bindings.NoProveedor.inputValue}"
-                                      label="#{bindings.NoProveedor.hints.label}"
-                                      required="#{bindings.NoProveedor.hints.mandatory}"
-                                      columns="#{bindings.NoProveedor.hints.displayWidth}"
-                                      maximumLength="#{bindings.NoProveedor.hints.precision}"
-                                      shortDesc="#{bindings.NoProveedor.hints.tooltip}" id="it1" readOnly="true">
-                            <f:validator binding="#{bindings.NoProveedor.validator}"/>
-                            <af:convertNumber groupingUsed="false" pattern="#{bindings.NoProveedor.format}"/>
-                        </af:inputText>
-                        <af:inputText value="#{bindings.NombreProveedor.inputValue}"
-                                      label="#{bindings.NombreProveedor.hints.label}"
-                                      required="#{bindings.NombreProveedor.hints.mandatory}"
-                                      columns="#{bindings.NombreProveedor.hints.displayWidth}"
-                                      maximumLength="#{bindings.NombreProveedor.hints.precision}"
-                                      shortDesc="#{bindings.NombreProveedor.hints.tooltip}" id="it2">
-                            <f:validator binding="#{bindings.NombreProveedor.validator}"/>
-                        </af:inputText>
-                        <af:inputText value="#{bindings.TelProveedor.inputValue}"
-                                      label="#{bindings.TelProveedor.hints.label}"
-                                      required="#{bindings.TelProveedor.hints.mandatory}"
-                                      columns="#{bindings.TelProveedor.hints.displayWidth}"
-                                      maximumLength="#{bindings.TelProveedor.hints.precision}"
-                                      shortDesc="#{bindings.TelProveedor.hints.tooltip}" id="it3">
-                            <f:validator binding="#{bindings.TelProveedor.validator}"/>
-                            <af:convertNumber groupingUsed="false" pattern="#{bindings.TelProveedor.format}"/>
-                        </af:inputText>
-                        <af:inputText value="#{bindings.NitProveedor.inputValue}"
-                                      label="#{bindings.NitProveedor.hints.label}"
-                                      required="#{bindings.NitProveedor.hints.mandatory}"
-                                      columns="#{bindings.NitProveedor.hints.displayWidth}"
-                                      maximumLength="#{bindings.NitProveedor.hints.precision}"
-                                      shortDesc="#{bindings.NitProveedor.hints.tooltip}" id="it4">
-                            <f:validator binding="#{bindings.NitProveedor.validator}"/>
-                            <af:convertNumber groupingUsed="false" pattern="#{bindings.NitProveedor.format}"/>
-                        </af:inputText>
-                        <af:inputText value="#{bindings.DpiProveedor.inputValue}"
-                                      label="#{bindings.DpiProveedor.hints.label}"
-                                      required="#{bindings.DpiProveedor.hints.mandatory}"
-                                      columns="#{bindings.DpiProveedor.hints.displayWidth}"
-                                      maximumLength="#{bindings.DpiProveedor.hints.precision}"
-                                      shortDesc="#{bindings.DpiProveedor.hints.tooltip}" id="it5">
-                            <f:validator binding="#{bindings.DpiProveedor.validator}"/>
-                            <af:convertNumber groupingUsed="false" pattern="#{bindings.DpiProveedor.format}"/>
-                        </af:inputText>
-                        <af:selectOneChoice value="#{bindings.IdDireccion.inputValue}"
-                                            label="#{bindings.IdDireccion.label}"
-                                            required="#{bindings.IdDireccion.hints.mandatory}"
-                                            shortDesc="#{bindings.IdDireccion.hints.tooltip}" id="soc1">
-                            <f:selectItems value="#{bindings.IdDireccion.items}" id="si1"/>
-                            <f:validator binding="#{bindings.IdDireccion.validator}"/>
-                        </af:selectOneChoice>
-                        <af:inputText value="#{bindings.IdDireccion1.inputValue}"
-                                      label="#{bindings.IdDireccion1.hints.label}"
-                                      required="#{bindings.IdDireccion1.hints.mandatory}"
-                                      columns="#{bindings.IdDireccion1.hints.displayWidth}"
-                                      maximumLength="#{bindings.IdDireccion1.hints.precision}"
-                                      shortDesc="#{bindings.IdDireccion1.hints.tooltip}" id="it6" visible="false">
-                            <f:validator binding="#{bindings.IdDireccion1.validator}"/>
-                            <af:convertNumber groupingUsed="false" pattern="#{bindings.IdDireccion1.format}"/>
-                        </af:inputText>
-                        <af:inputText value="#{bindings.Descripcion.inputValue}"
-                                      label="#{bindings.Descripcion.hints.label}"
-                                      required="#{bindings.Descripcion.hints.mandatory}"
-                                      columns="#{bindings.Descripcion.hints.displayWidth}"
-                                      maximumLength="#{bindings.Descripcion.hints.precision}"
-                                      shortDesc="#{bindings.Descripcion.hints.tooltip}" id="it7" readOnly="true"
-                                      visible="false">
-                            <f:validator binding="#{bindings.Descripcion.validator}"/>
-                        </af:inputText>
-                        <f:facet name="footer">
-                            <af:panelGroupLayout id="pgl1">
-                                <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
-                                           disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b3">
-                                    <af:resetActionListener/>
-                                </af:button>
-                                <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
-                                           disabled="#{!bindings.CreateInsert.enabled}" id="b2"/>
-                                <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
-                                           disabled="#{!bindings.Commit.enabled}" id="b1"/>
-                            </af:panelGroupLayout>
-                        </f:facet>
-                    </af:panelFormLayout>
+                    <af:panelGridLayout id="pgl2">
+                        <af:gridRow marginTop="5px" height="auto" id="gr3">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3">
+                                <af:button text="HOME" id="b1" action="home"/>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow marginTop="15px" height="auto" marginBottom="5px" id="gr4">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc4">
+                                <af:panelFormLayout id="pfl1">
+                                    <af:inputText value="#{bindings.NoProveedor.inputValue}"
+                                                  label="#{bindings.NoProveedor.hints.label}"
+                                                  required="#{bindings.NoProveedor.hints.mandatory}"
+                                                  columns="#{bindings.NoProveedor.hints.displayWidth}"
+                                                  maximumLength="#{bindings.NoProveedor.hints.precision}"
+                                                  shortDesc="#{bindings.NoProveedor.hints.tooltip}" id="it1"
+                                                  readOnly="true" autoSubmit="true">
+                                        <f:validator binding="#{bindings.NoProveedor.validator}"/>
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.NoProveedor.format}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.NombreProveedor.inputValue}"
+                                                  label="#{bindings.NombreProveedor.hints.label}"
+                                                  required="#{bindings.NombreProveedor.hints.mandatory}"
+                                                  columns="#{bindings.NombreProveedor.hints.displayWidth}"
+                                                  maximumLength="#{bindings.NombreProveedor.hints.precision}"
+                                                  shortDesc="#{bindings.NombreProveedor.hints.tooltip}" id="it2">
+                                        <f:validator binding="#{bindings.NombreProveedor.validator}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.TelProveedor.inputValue}"
+                                                  label="#{bindings.TelProveedor.hints.label}"
+                                                  required="#{bindings.TelProveedor.hints.mandatory}"
+                                                  columns="#{bindings.TelProveedor.hints.displayWidth}"
+                                                  maximumLength="#{bindings.TelProveedor.hints.precision}"
+                                                  shortDesc="#{bindings.TelProveedor.hints.tooltip}" id="it3">
+                                        <f:validator binding="#{bindings.TelProveedor.validator}"/>
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.TelProveedor.format}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.NitProveedor.inputValue}"
+                                                  label="#{bindings.NitProveedor.hints.label}"
+                                                  required="#{bindings.NitProveedor.hints.mandatory}"
+                                                  columns="#{bindings.NitProveedor.hints.displayWidth}"
+                                                  maximumLength="#{bindings.NitProveedor.hints.precision}"
+                                                  shortDesc="#{bindings.NitProveedor.hints.tooltip}" id="it4">
+                                        <f:validator binding="#{bindings.NitProveedor.validator}"/>
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.NitProveedor.format}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.DpiProveedor.inputValue}"
+                                                  label="#{bindings.DpiProveedor.hints.label}"
+                                                  required="#{bindings.DpiProveedor.hints.mandatory}"
+                                                  columns="#{bindings.DpiProveedor.hints.displayWidth}"
+                                                  maximumLength="#{bindings.DpiProveedor.hints.precision}"
+                                                  shortDesc="#{bindings.DpiProveedor.hints.tooltip}" id="it5">
+                                        <f:validator binding="#{bindings.DpiProveedor.validator}"/>
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.DpiProveedor.format}"/>
+                                    </af:inputText>
+                                    <af:selectOneChoice value="#{bindings.IdDireccion.inputValue}"
+                                                        label="#{bindings.IdDireccion.label}"
+                                                        required="#{bindings.IdDireccion.hints.mandatory}"
+                                                        shortDesc="#{bindings.IdDireccion.hints.tooltip}" id="soc1">
+                                        <f:selectItems value="#{bindings.IdDireccion.items}" id="si1"/>
+                                        <f:validator binding="#{bindings.IdDireccion.validator}"/>
+                                    </af:selectOneChoice>
+                                    <af:inputText value="#{bindings.IdDireccion1.inputValue}"
+                                                  label="#{bindings.IdDireccion1.hints.label}"
+                                                  required="#{bindings.IdDireccion1.hints.mandatory}"
+                                                  columns="#{bindings.IdDireccion1.hints.displayWidth}"
+                                                  maximumLength="#{bindings.IdDireccion1.hints.precision}"
+                                                  shortDesc="#{bindings.IdDireccion1.hints.tooltip}" id="it6"
+                                                  visible="false">
+                                        <f:validator binding="#{bindings.IdDireccion1.validator}"/>
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.IdDireccion1.format}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.Descripcion.inputValue}"
+                                                  label="#{bindings.Descripcion.hints.label}"
+                                                  required="#{bindings.Descripcion.hints.mandatory}"
+                                                  columns="#{bindings.Descripcion.hints.displayWidth}"
+                                                  maximumLength="#{bindings.Descripcion.hints.precision}"
+                                                  shortDesc="#{bindings.Descripcion.hints.tooltip}" id="it7"
+                                                  readOnly="true" autoSubmit="true">
+                                        <f:validator binding="#{bindings.Descripcion.validator}"/>
+                                    </af:inputText>
+                                    <f:facet name="footer">
+                                        <af:panelGroupLayout layout="horizontal" id="pgl1">
+                                            <af:button actionListener="#{bindings.Rollback.execute}" text="CANCELAR"
+                                                       disabled="#{!bindings.Rollback.enabled}" immediate="true"
+                                                       id="b7">
+                                                <af:resetActionListener/>
+                                            </af:button>
+                                            <af:button actionListener="#{bindings.CreateInsert.execute}"
+                                                       text="NUEVO REGISTRO"
+                                                       disabled="#{!bindings.CreateInsert.enabled}" id="b5"/>
+                                            <af:button actionListener="#{bindings.Commit.execute}" text="CONFIRMAR"
+                                                       disabled="#{!bindings.Commit.enabled}" id="b6"/>
+                                        </af:panelGroupLayout>
+                                    </f:facet>
+                                </af:panelFormLayout>
+                            </af:gridCell>
+                        </af:gridRow>
+                    </af:panelGridLayout>
                 </f:facet>
                 <f:facet name="second">
                     <af:panelGridLayout id="pgl3">
@@ -107,11 +127,11 @@
                                               filterModel="#{bindings.ProveedorView1Query.queryDescriptor}"
                                               filterVisible="true"
                                               queryListener="#{bindings.ProveedorView1Query.processQuery}"
-                                              varStatus="vs" id="t1" partialTriggers=":::b2" width="941">
+                                              varStatus="vs" id="t1" partialTriggers=":::b5">
                                         <af:column sortProperty="#{bindings.ProveedorView1.hints.NoProveedor.name}"
                                                    filterable="true" sortable="true"
                                                    headerText="#{bindings.ProveedorView1.hints.NoProveedor.label}"
-                                                   id="c1" width="100">
+                                                   id="c1">
                                             <af:outputText value="#{row.NoProveedor}"
                                                            shortDesc="#{bindings.ProveedorView1.hints.NoProveedor.tooltip}"
                                                            id="ot1">
@@ -119,21 +139,10 @@
                                                                   pattern="#{bindings.ProveedorView1.hints.NoProveedor.format}"/>
                                             </af:outputText>
                                         </af:column>
-                                        <af:column sortProperty="#{bindings.ProveedorView1.hints.DpiProveedor.name}"
-                                                   filterable="true" sortable="true"
-                                                   headerText="#{bindings.ProveedorView1.hints.DpiProveedor.label}"
-                                                   id="c5" width="100">
-                                            <af:outputText value="#{row.DpiProveedor}"
-                                                           shortDesc="#{bindings.ProveedorView1.hints.DpiProveedor.tooltip}"
-                                                           id="ot5">
-                                                <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.ProveedorView1.hints.DpiProveedor.format}"/>
-                                            </af:outputText>
-                                        </af:column>
                                         <af:column sortProperty="#{bindings.ProveedorView1.hints.NombreProveedor.name}"
                                                    filterable="true" sortable="true"
                                                    headerText="#{bindings.ProveedorView1.hints.NombreProveedor.label}"
-                                                   id="c2" width="100">
+                                                   id="c2">
                                             <af:outputText value="#{row.NombreProveedor}"
                                                            shortDesc="#{bindings.ProveedorView1.hints.NombreProveedor.tooltip}"
                                                            id="ot2"/>
@@ -141,7 +150,7 @@
                                         <af:column sortProperty="#{bindings.ProveedorView1.hints.TelProveedor.name}"
                                                    filterable="true" sortable="true"
                                                    headerText="#{bindings.ProveedorView1.hints.TelProveedor.label}"
-                                                   id="c3" width="100">
+                                                   id="c3">
                                             <af:outputText value="#{row.TelProveedor}"
                                                            shortDesc="#{bindings.ProveedorView1.hints.TelProveedor.tooltip}"
                                                            id="ot3">
@@ -152,7 +161,7 @@
                                         <af:column sortProperty="#{bindings.ProveedorView1.hints.NitProveedor.name}"
                                                    filterable="true" sortable="true"
                                                    headerText="#{bindings.ProveedorView1.hints.NitProveedor.label}"
-                                                   id="c4" width="100">
+                                                   id="c4">
                                             <af:outputText value="#{row.NitProveedor}"
                                                            shortDesc="#{bindings.ProveedorView1.hints.NitProveedor.tooltip}"
                                                            id="ot4">
@@ -160,10 +169,21 @@
                                                                   pattern="#{bindings.ProveedorView1.hints.NitProveedor.format}"/>
                                             </af:outputText>
                                         </af:column>
+                                        <af:column sortProperty="#{bindings.ProveedorView1.hints.DpiProveedor.name}"
+                                                   filterable="true" sortable="true"
+                                                   headerText="#{bindings.ProveedorView1.hints.DpiProveedor.label}"
+                                                   id="c5">
+                                            <af:outputText value="#{row.DpiProveedor}"
+                                                           shortDesc="#{bindings.ProveedorView1.hints.DpiProveedor.tooltip}"
+                                                           id="ot5">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.ProveedorView1.hints.DpiProveedor.format}"/>
+                                            </af:outputText>
+                                        </af:column>
                                         <af:column sortProperty="#{bindings.ProveedorView1.hints.IdDireccion.name}"
                                                    filterable="true" sortable="true"
                                                    headerText="#{bindings.ProveedorView1.hints.IdDireccion.label}"
-                                                   id="c6" width="300">
+                                                   id="c6">
                                             <af:selectOneChoice value="#{row.bindings.IdDireccion.inputValue}"
                                                                 label="#{row.bindings.IdDireccion.label}"
                                                                 required="#{bindings.ProveedorView1.hints.IdDireccion.mandatory}"
@@ -172,6 +192,25 @@
                                                 <f:selectItems value="#{row.bindings.IdDireccion.items}" id="si2"/>
                                                 <f:validator binding="#{row.bindings.IdDireccion.validator}"/>
                                             </af:selectOneChoice>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.ProveedorView1.hints.IdDireccion1.name}"
+                                                   filterable="true" sortable="true"
+                                                   headerText="#{bindings.ProveedorView1.hints.IdDireccion1.label}"
+                                                   id="c7" visible="false">
+                                            <af:outputText value="#{row.IdDireccion1}"
+                                                           shortDesc="#{bindings.ProveedorView1.hints.IdDireccion1.tooltip}"
+                                                           id="ot6">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.ProveedorView1.hints.IdDireccion1.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.ProveedorView1.hints.Descripcion.name}"
+                                                   filterable="true" sortable="true"
+                                                   headerText="#{bindings.ProveedorView1.hints.Descripcion.label}"
+                                                   id="c8" visible="false">
+                                            <af:outputText value="#{row.Descripcion}"
+                                                           shortDesc="#{bindings.ProveedorView1.hints.Descripcion.tooltip}"
+                                                           id="ot7"/>
                                         </af:column>
                                     </af:table>
                                     <f:facet name="statusbar"/>

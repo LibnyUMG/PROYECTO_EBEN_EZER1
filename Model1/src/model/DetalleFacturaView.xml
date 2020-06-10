@@ -23,23 +23,6 @@
     ViewObjectName="model.BodegaView"
     RowLevelBinds="true"/>
   <ListBinding
-    Name="LOV_CodProducto"
-    ListVOName="ProductoView1"
-    NullValueFlag="none"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="CodProducto"/>
-    </AttrArray>
-    <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="CodProducto"/>
-    </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="DescripcionProducto"/>
-    </AttrArray>
-    <DisplayCriteria/>
-  </ListBinding>
-  <ListBinding
     Name="LOV_NumBodega"
     ListVOName="BodegaView1"
     NullValueFlag="none"
@@ -56,6 +39,23 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
+  <ListBinding
+    Name="LOV_CodProducto"
+    ListVOName="ProductoView1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CodProducto"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CodProducto"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DescripcionProducto"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="DetalleFactura"
     Entity="model.DetalleFactura"/>
@@ -68,13 +68,32 @@
     ReadOnly="true"
     Reference="true"
     DeleteParticipant="false"
-    JoinType="INNER JOIN">
+    JoinType="LEFT OUTER JOIN">
     <DesignTime>
       <AttrArray Name="_dstAttributes">
         <Item Value="model.Producto.CodProducto"/>
       </AttrArray>
       <AttrArray Name="_srcAttributes">
         <Item Value="model.DetalleFactura.CodProducto"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="Bodega"
+    Entity="model.Bodega"
+    Association="model.DetalleFacturaFk2Assoc"
+    AssociationEnd="model.DetalleFacturaFk2Assoc.Bodega"
+    SourceUsage="model.DetalleFacturaView.DetalleFactura"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.Bodega.NumBodega"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.DetalleFactura.NumBodega"/>
       </AttrArray>
     </DesignTime>
   </EntityUsage>
@@ -130,23 +149,22 @@
     AliasName="SUBTOTAL"/>
   <ViewAttribute
     Name="CodProducto1"
-    IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="CodProducto"
     EntityUsage="Producto"
     AliasName="COD_PRODUCTO1"/>
-  <ViewAttribute
-    Name="PrecioVenta"
-    PrecisionRule="true"
-    EntityAttrName="PrecioVenta"
-    EntityUsage="Producto"
-    AliasName="PRECIO_VENTA"/>
   <ViewAttribute
     Name="DescripcionProducto"
     PrecisionRule="true"
     EntityAttrName="DescripcionProducto"
     EntityUsage="Producto"
     AliasName="DESCRIPCION_PRODUCTO"/>
+  <ViewAttribute
+    Name="PrecioVenta"
+    PrecisionRule="true"
+    EntityAttrName="PrecioVenta"
+    EntityUsage="Producto"
+    AliasName="PRECIO_VENTA"/>
   <AttrArray Name="KeyAttributes">
     <Item Value="NoFactura"/>
     <Item Value="CodProducto"/>

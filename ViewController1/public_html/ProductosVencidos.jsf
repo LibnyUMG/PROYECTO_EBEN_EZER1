@@ -9,6 +9,7 @@
                     <af:panelGridLayout id="pgl5">
                         <af:gridRow marginTop="5px" height="auto" id="gr3">
                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3">
+                                <af:button text="HOME" id="b1" action="home"/>
                                 <af:panelHeader text="Vencimiento de producto" id="ph3">
                                     <f:facet name="context"/>
                                     <f:facet name="toolbar"/>
@@ -74,19 +75,22 @@
                                     <f:facet name="info"/>
                                 </af:panelHeader>
                                 <af:panelFormLayout id="pfl2">
-                                    <af:selectOneChoice value="#{bindings.NoBajaVenc1.inputValue}"
-                                                        label="#{bindings.NoBajaVenc1.label}"
-                                                        required="#{bindings.NoBajaVenc1.hints.mandatory}"
-                                                        shortDesc="#{bindings.NoBajaVenc1.hints.tooltip}" id="soc1"
-                                                        readOnly="true" autoSubmit="true">
-                                        <f:selectItems value="#{bindings.NoBajaVenc1.items}" id="si1"/>
+                                    <af:inputText value="#{bindings.NoBajaVenc1.inputValue}"
+                                                  label="#{bindings.NoBajaVenc1.hints.label}"
+                                                  required="#{bindings.NoBajaVenc1.hints.mandatory}"
+                                                  columns="#{bindings.NoBajaVenc1.hints.displayWidth}"
+                                                  maximumLength="#{bindings.NoBajaVenc1.hints.precision}"
+                                                  shortDesc="#{bindings.NoBajaVenc1.hints.tooltip}" id="it2"
+                                                  readOnly="true" autoSubmit="true">
                                         <f:validator binding="#{bindings.NoBajaVenc1.validator}"/>
-                                    </af:selectOneChoice>
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.NoBajaVenc1.format}"/>
+                                    </af:inputText>
                                     <af:selectOneChoice value="#{bindings.CodProducto.inputValue}"
                                                         label="#{bindings.CodProducto.label}"
                                                         required="#{bindings.CodProducto.hints.mandatory}"
-                                                        shortDesc="#{bindings.CodProducto.hints.tooltip}" id="soc2">
-                                        <f:selectItems value="#{bindings.CodProducto.items}" id="si2"/>
+                                                        shortDesc="#{bindings.CodProducto.hints.tooltip}" id="soc1">
+                                        <f:selectItems value="#{bindings.CodProducto.items}" id="si1"/>
                                         <f:validator binding="#{bindings.CodProducto.validator}"/>
                                     </af:selectOneChoice>
                                     <af:inputText value="#{bindings.Cantidad.inputValue}"
@@ -94,15 +98,15 @@
                                                   required="#{bindings.Cantidad.hints.mandatory}"
                                                   columns="#{bindings.Cantidad.hints.displayWidth}"
                                                   maximumLength="#{bindings.Cantidad.hints.precision}"
-                                                  shortDesc="#{bindings.Cantidad.hints.tooltip}" id="it2">
+                                                  shortDesc="#{bindings.Cantidad.hints.tooltip}" id="it3">
                                         <f:validator binding="#{bindings.Cantidad.validator}"/>
                                         <af:convertNumber groupingUsed="false" pattern="#{bindings.Cantidad.format}"/>
                                     </af:inputText>
                                     <af:selectOneChoice value="#{bindings.NumBodega.inputValue}"
                                                         label="#{bindings.NumBodega.label}"
                                                         required="#{bindings.NumBodega.hints.mandatory}"
-                                                        shortDesc="#{bindings.NumBodega.hints.tooltip}" id="soc6">
-                                        <f:selectItems value="#{bindings.NumBodega.items}" id="si6"/>
+                                                        shortDesc="#{bindings.NumBodega.hints.tooltip}" id="soc2">
+                                        <f:selectItems value="#{bindings.NumBodega.items}" id="si2"/>
                                         <f:validator binding="#{bindings.NumBodega.validator}"/>
                                     </af:selectOneChoice>
                                     <f:facet name="footer">

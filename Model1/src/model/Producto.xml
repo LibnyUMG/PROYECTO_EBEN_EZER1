@@ -18,8 +18,8 @@
     ColumnType="NUMBER"
     TableName="PRODUCTO"
     PrimaryKey="true"
-    RetrievedOnInsert="true"
-    RetrievedOnUpdate="true"/>
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true"/>
   <Attribute
     Name="DescripcionProducto"
     Precision="50"

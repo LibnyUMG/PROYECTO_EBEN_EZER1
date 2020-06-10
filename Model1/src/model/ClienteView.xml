@@ -72,7 +72,7 @@
     ReadOnly="true"
     Reference="true"
     DeleteParticipant="false"
-    JoinType="INNER JOIN">
+    JoinType="LEFT OUTER JOIN">
     <DesignTime>
       <AttrArray Name="_dstAttributes">
         <Item Value="model.Direccion.IdDireccion"/>
@@ -138,7 +138,6 @@
   </ViewAttribute>
   <ViewAttribute
     Name="IdDireccion1"
-    IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="IdDireccion"
     EntityUsage="Direccion"

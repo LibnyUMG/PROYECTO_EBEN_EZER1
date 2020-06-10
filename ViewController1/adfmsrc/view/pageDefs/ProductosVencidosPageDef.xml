@@ -6,12 +6,12 @@
     <variableIterator id="variables"/>
     <iterator Binds="BajaProductoVencidoView1" RangeSize="25" DataControl="AppModuleDataControl"
               id="BajaProductoVencidoView1Iterator"/>
-    <iterator Binds="DetBajaProVencView2" RangeSize="25" DataControl="AppModuleDataControl"
-              id="DetBajaProVencView2Iterator"/>
     <iterator Binds="VencidoProductoBodega1_1" RangeSize="25" DataControl="AppModuleDataControl"
               id="VencidoProductoBodega1_1Iterator"/>
     <searchRegion Binds="VencidoProductoBodega1_1Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="VencidoProductoBodega1_1Query"/>
+    <iterator Binds="DetBajaProVencView2" RangeSize="25" DataControl="AppModuleDataControl"
+              id="DetBajaProVencView2Iterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="BajaProductoVencidoView1Iterator" id="NoBajaVenc">
@@ -28,20 +28,7 @@
             Action="createInsertRow"/>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
-    <list IterBinding="DetBajaProVencView2Iterator" StaticList="false" Uses="LOV_NoBajaVenc" id="NoBajaVenc1"
-          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
-    <list IterBinding="DetBajaProVencView2Iterator" StaticList="false" Uses="LOV_CodProducto" id="CodProducto"
-          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
-    <attributeValues IterBinding="DetBajaProVencView2Iterator" id="Cantidad">
-      <AttrNames>
-        <Item Value="Cantidad"/>
-      </AttrNames>
-    </attributeValues>
-    <list IterBinding="DetBajaProVencView2Iterator" StaticList="false" Uses="LOV_NumBodega" id="NumBodega"
-          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <action IterBinding="BajaProductoVencidoView1Iterator" id="Last1" RequiresUpdateModel="true" Action="last"/>
-    <action IterBinding="DetBajaProVencView2Iterator" id="CreateInsert1" RequiresUpdateModel="true"
-            Action="createInsertRow"/>
     <tree IterBinding="VencidoProductoBodega1_1Iterator" id="VencidoProductoBodega1_1">
       <nodeDefinition DefName="model.VencidoProductoBodega1" Name="VencidoProductoBodega1_10">
         <AttrNames>
@@ -62,5 +49,21 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <attributeValues IterBinding="DetBajaProVencView2Iterator" id="NoBajaVenc1">
+      <AttrNames>
+        <Item Value="NoBajaVenc"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="DetBajaProVencView2Iterator" StaticList="false" Uses="LOV_CodProducto" id="CodProducto"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="DetBajaProVencView2Iterator" id="Cantidad">
+      <AttrNames>
+        <Item Value="Cantidad"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="DetBajaProVencView2Iterator" StaticList="false" Uses="LOV_NumBodega" id="NumBodega"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <action IterBinding="DetBajaProVencView2Iterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
   </bindings>
 </pageDefinition>

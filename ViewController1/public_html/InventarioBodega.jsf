@@ -12,6 +12,14 @@
                             <af:panelGridLayout id="pgl3">
                                 <af:gridRow marginTop="5px" height="auto" id="gr3">
                                     <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc3">
+                                        <af:button text="HOME" id="b1" action="home"/>
+                                        <af:panelHeader text="Ingreso de producto" id="ph3" inlineStyle="height:36px;">
+                                            <f:facet name="context"/>
+                                            <f:facet name="toolbar"/>
+                                            <f:facet name="menuBar"/>
+                                            <f:facet name="legend"/>
+                                            <f:facet name="info"/>
+                                        </af:panelHeader>
                                         <af:panelFormLayout id="pfl1">
                                             <af:selectOneChoice value="#{bindings.CodProducto.inputValue}"
                                                                 label="#{bindings.CodProducto.label}"
@@ -82,23 +90,21 @@
                                                                 label="#{bindings.IdMovimiento.label}"
                                                                 required="#{bindings.IdMovimiento.hints.mandatory}"
                                                                 shortDesc="#{bindings.IdMovimiento.hints.tooltip}"
-                                                                id="soc4" rendered="true" autoSubmit="true"
-                                                                visible="true" readOnly="true">
+                                                                id="soc4">
                                                 <f:selectItems value="#{bindings.IdMovimiento.items}" id="si4"/>
                                                 <f:validator binding="#{bindings.IdMovimiento.validator}"/>
                                             </af:selectOneChoice>
                                             <f:facet name="footer">
                                                 <af:panelGroupLayout layout="horizontal" id="pgl1">
                                                     <af:button actionListener="#{bindings.Rollback.execute}"
-                                                               text="CANCELAR" disabled="#{!bindings.Rollback.enabled}"
+                                                               text="Rollback" disabled="#{!bindings.Rollback.enabled}"
                                                                immediate="true" id="b7">
                                                         <af:resetActionListener/>
                                                     </af:button>
                                                     <af:button actionListener="#{bindings.CreateInsert.execute}"
-                                                               text="NUEVO REGISTRO"
+                                                               text="CreateInsert"
                                                                disabled="#{!bindings.CreateInsert.enabled}" id="b5"/>
-                                                    <af:button actionListener="#{bindings.Commit.execute}"
-                                                               text="CONFIRMAR"
+                                                    <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
                                                                disabled="#{!bindings.Commit.enabled}" id="b6"/>
                                                 </af:panelGroupLayout>
                                             </f:facet>
@@ -107,9 +113,18 @@
                                 </af:gridRow>
                                 <af:gridRow marginTop="20px" height="auto" marginBottom="5px" id="gr4">
                                     <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc4">
+                                        <af:panelHeader text="Detalle de ingreso de productos" id="ph4"
+                                                        inlineStyle="height:29px;">
+                                            <f:facet name="context"/>
+                                            <f:facet name="toolbar"/>
+                                            <f:facet name="menuBar"/>
+                                            <f:facet name="legend"/>
+                                            <f:facet name="info"/>
+                                        </af:panelHeader>
                                         <af:panelCollection id="pc1">
                                             <f:facet name="menus"/>
                                             <f:facet name="toolbar"/>
+                                            <f:facet name="statusbar"/>
                                             <af:table value="#{bindings.IngresoProductoBodega1.collectionModel}"
                                                       var="row" rows="#{bindings.IngresoProductoBodega1.rangeSize}"
                                                       emptyText="#{bindings.IngresoProductoBodega1.viewable ? 'No data to display.' : 'Access Denied.'}"
@@ -121,42 +136,11 @@
                                                       filterModel="#{bindings.IngresoProductoBodega1Query.queryDescriptor}"
                                                       filterVisible="true"
                                                       queryListener="#{bindings.IngresoProductoBodega1Query.processQuery}"
-                                                      varStatus="vs" id="t1" autoHeightRows="8" displayRow="last"
-                                                      width="719">
-                                                <af:column sortProperty="#{bindings.IngresoProductoBodega1.hints.CantidadProducto.name}"
-                                                           filterable="true" sortable="true"
-                                                           headerText="#{bindings.IngresoProductoBodega1.hints.CantidadProducto.label}"
-                                                           id="c1" width="100">
-                                                    <af:outputText value="#{row.CantidadProducto}"
-                                                                   shortDesc="#{bindings.IngresoProductoBodega1.hints.CantidadProducto.tooltip}"
-                                                                   id="ot1">
-                                                        <af:convertNumber groupingUsed="false"
-                                                                          pattern="#{bindings.IngresoProductoBodega1.hints.CantidadProducto.format}"/>
-                                                    </af:outputText>
-                                                </af:column>
-                                                <af:column sortProperty="#{bindings.IngresoProductoBodega1.hints.CodProducto.name}"
-                                                           filterable="true" sortable="true"
-                                                           headerText="#{bindings.IngresoProductoBodega1.hints.CodProducto.label}"
-                                                           id="c2" visible="false">
-                                                    <af:outputText value="#{row.CodProducto}"
-                                                                   shortDesc="#{bindings.IngresoProductoBodega1.hints.CodProducto.tooltip}"
-                                                                   id="ot2">
-                                                        <af:convertNumber groupingUsed="false"
-                                                                          pattern="#{bindings.IngresoProductoBodega1.hints.CodProducto.format}"/>
-                                                    </af:outputText>
-                                                </af:column>
-                                                <af:column sortProperty="#{bindings.IngresoProductoBodega1.hints.DescripcionProducto.name}"
-                                                           filterable="true" sortable="true"
-                                                           headerText="#{bindings.IngresoProductoBodega1.hints.DescripcionProducto.label}"
-                                                           id="c9" width="150">
-                                                    <af:outputText value="#{row.DescripcionProducto}"
-                                                                   shortDesc="#{bindings.IngresoProductoBodega1.hints.DescripcionProducto.tooltip}"
-                                                                   id="ot9"/>
-                                                </af:column>
+                                                      varStatus="vs" id="t2" autoHeightRows="8">
                                                 <af:column sortProperty="#{bindings.IngresoProductoBodega1.hints.FechaReg.name}"
                                                            filterable="true" sortable="true"
                                                            headerText="#{bindings.IngresoProductoBodega1.hints.FechaReg.label}"
-                                                           id="c3" width="64">
+                                                           id="c8">
                                                     <f:facet name="filter">
                                                         <af:inputDate value="#{bindings.IngresoProductoBodega1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.FechaReg.value}"
                                                                       id="id2">
@@ -165,85 +149,91 @@
                                                     </f:facet>
                                                     <af:outputText value="#{row.FechaReg}"
                                                                    shortDesc="#{bindings.IngresoProductoBodega1.hints.FechaReg.tooltip}"
-                                                                   id="ot3">
+                                                                   id="ot8">
                                                         <af:convertDateTime pattern="#{bindings.IngresoProductoBodega1.hints.FechaReg.format}"/>
+                                                    </af:outputText>
+                                                </af:column>
+                                                <af:column sortProperty="#{bindings.IngresoProductoBodega1.hints.NoFactura.name}"
+                                                           filterable="true" sortable="true"
+                                                           headerText="#{bindings.IngresoProductoBodega1.hints.NoFactura.label}"
+                                                           id="c12" visible="false">
+                                                    <af:outputText value="#{row.NoFactura}"
+                                                                   shortDesc="#{bindings.IngresoProductoBodega1.hints.NoFactura.tooltip}"
+                                                                   id="ot12">
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.IngresoProductoBodega1.hints.NoFactura.format}"/>
+                                                    </af:outputText>
+                                                </af:column>
+                                                <af:column sortProperty="#{bindings.IngresoProductoBodega1.hints.DescripcionProducto.name}"
+                                                           filterable="true" sortable="true"
+                                                           headerText="#{bindings.IngresoProductoBodega1.hints.DescripcionProducto.label}"
+                                                           id="c14">
+                                                    <af:outputText value="#{row.DescripcionProducto}"
+                                                                   shortDesc="#{bindings.IngresoProductoBodega1.hints.DescripcionProducto.tooltip}"
+                                                                   id="ot14"/>
+                                                </af:column>
+                                                <af:column sortProperty="#{bindings.IngresoProductoBodega1.hints.CantidadProducto.name}"
+                                                           filterable="true" sortable="true"
+                                                           headerText="#{bindings.IngresoProductoBodega1.hints.CantidadProducto.label}"
+                                                           id="c6">
+                                                    <af:outputText value="#{row.CantidadProducto}"
+                                                                   shortDesc="#{bindings.IngresoProductoBodega1.hints.CantidadProducto.tooltip}"
+                                                                   id="ot6">
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.IngresoProductoBodega1.hints.CantidadProducto.format}"/>
+                                                    </af:outputText>
+                                                </af:column>
+                                                <af:column sortProperty="#{bindings.IngresoProductoBodega1.hints.CodProducto.name}"
+                                                           filterable="true" sortable="true"
+                                                           headerText="#{bindings.IngresoProductoBodega1.hints.CodProducto.label}"
+                                                           id="c7" visible="false">
+                                                    <af:outputText value="#{row.CodProducto}"
+                                                                   shortDesc="#{bindings.IngresoProductoBodega1.hints.CodProducto.tooltip}"
+                                                                   id="ot7">
+                                                        <af:convertNumber groupingUsed="false"
+                                                                          pattern="#{bindings.IngresoProductoBodega1.hints.CodProducto.format}"/>
                                                     </af:outputText>
                                                 </af:column>
                                                 <af:column sortProperty="#{bindings.IngresoProductoBodega1.hints.IdMovimiento.name}"
                                                            filterable="true" sortable="true"
                                                            headerText="#{bindings.IngresoProductoBodega1.hints.IdMovimiento.label}"
-                                                           id="c4" visible="false">
+                                                           id="c9" visible="false">
                                                     <af:outputText value="#{row.IdMovimiento}"
                                                                    shortDesc="#{bindings.IngresoProductoBodega1.hints.IdMovimiento.tooltip}"
-                                                                   id="ot4">
+                                                                   id="ot9">
                                                         <af:convertNumber groupingUsed="false"
                                                                           pattern="#{bindings.IngresoProductoBodega1.hints.IdMovimiento.format}"/>
                                                     </af:outputText>
                                                 </af:column>
-                                                <af:column sortProperty="#{bindings.IngresoProductoBodega1.hints.Descripcion.name}"
-                                                           filterable="true" sortable="true"
-                                                           headerText="#{bindings.IngresoProductoBodega1.hints.Descripcion.label}"
-                                                           id="c15" visible="false">
-                                                    <af:outputText value="#{row.Descripcion}"
-                                                                   shortDesc="#{bindings.IngresoProductoBodega1.hints.Descripcion.tooltip}"
-                                                                   id="ot15"/>
-                                                </af:column>
                                                 <af:column sortProperty="#{bindings.IngresoProductoBodega1.hints.NoProveedor.name}"
                                                            filterable="true" sortable="true"
                                                            headerText="#{bindings.IngresoProductoBodega1.hints.NoProveedor.label}"
-                                                           id="c5" visible="false">
+                                                           id="c10" visible="false">
                                                     <af:outputText value="#{row.NoProveedor}"
                                                                    shortDesc="#{bindings.IngresoProductoBodega1.hints.NoProveedor.tooltip}"
-                                                                   id="ot5">
+                                                                   id="ot10">
                                                         <af:convertNumber groupingUsed="false"
                                                                           pattern="#{bindings.IngresoProductoBodega1.hints.NoProveedor.format}"/>
                                                     </af:outputText>
                                                 </af:column>
-                                                <af:column sortProperty="#{bindings.IngresoProductoBodega1.hints.NombreProveedor.name}"
-                                                           filterable="true" sortable="true"
-                                                           headerText="#{bindings.IngresoProductoBodega1.hints.NombreProveedor.label}"
-                                                           id="c11" width="100">
-                                                    <af:outputText value="#{row.NombreProveedor}"
-                                                                   shortDesc="#{bindings.IngresoProductoBodega1.hints.NombreProveedor.tooltip}"
-                                                                   id="ot11"/>
-                                                </af:column>
                                                 <af:column sortProperty="#{bindings.IngresoProductoBodega1.hints.NumBodega.name}"
                                                            filterable="true" sortable="true"
                                                            headerText="#{bindings.IngresoProductoBodega1.hints.NumBodega.label}"
-                                                           id="c6" visible="false">
+                                                           id="c11" visible="false">
                                                     <af:outputText value="#{row.NumBodega}"
                                                                    shortDesc="#{bindings.IngresoProductoBodega1.hints.NumBodega.tooltip}"
-                                                                   id="ot6">
+                                                                   id="ot11">
                                                         <af:convertNumber groupingUsed="false"
                                                                           pattern="#{bindings.IngresoProductoBodega1.hints.NumBodega.format}"/>
-                                                    </af:outputText>
-                                                </af:column>
-                                                <af:column sortProperty="#{bindings.IngresoProductoBodega1.hints.DescripcionBodega.name}"
-                                                           filterable="true" sortable="true"
-                                                           headerText="#{bindings.IngresoProductoBodega1.hints.DescripcionBodega.label}"
-                                                           id="c13" width="110">
-                                                    <af:outputText value="#{row.DescripcionBodega}"
-                                                                   shortDesc="#{bindings.IngresoProductoBodega1.hints.DescripcionBodega.tooltip}"
-                                                                   id="ot13"/>
-                                                </af:column>
-                                                <af:column sortProperty="#{bindings.IngresoProductoBodega1.hints.NoFactura.name}"
-                                                           filterable="true" sortable="true"
-                                                           headerText="#{bindings.IngresoProductoBodega1.hints.NoFactura.label}"
-                                                           id="c7" visible="false">
-                                                    <af:outputText value="#{row.NoFactura}"
-                                                                   shortDesc="#{bindings.IngresoProductoBodega1.hints.NoFactura.tooltip}"
-                                                                   id="ot7">
-                                                        <af:convertNumber groupingUsed="false"
-                                                                          pattern="#{bindings.IngresoProductoBodega1.hints.NoFactura.format}"/>
                                                     </af:outputText>
                                                 </af:column>
                                                 <af:column sortProperty="#{bindings.IngresoProductoBodega1.hints.NoBajaVenc.name}"
                                                            filterable="true" sortable="true"
                                                            headerText="#{bindings.IngresoProductoBodega1.hints.NoBajaVenc.label}"
-                                                           id="c8" visible="false">
+                                                           id="c13" visible="false">
                                                     <af:outputText value="#{row.NoBajaVenc}"
                                                                    shortDesc="#{bindings.IngresoProductoBodega1.hints.NoBajaVenc.tooltip}"
-                                                                   id="ot8">
+                                                                   id="ot13">
                                                         <af:convertNumber groupingUsed="false"
                                                                           pattern="#{bindings.IngresoProductoBodega1.hints.NoBajaVenc.format}"/>
                                                     </af:outputText>
@@ -251,49 +241,72 @@
                                                 <af:column sortProperty="#{bindings.IngresoProductoBodega1.hints.CodProducto1.name}"
                                                            filterable="true" sortable="true"
                                                            headerText="#{bindings.IngresoProductoBodega1.hints.CodProducto1.label}"
-                                                           id="c10" visible="false">
+                                                           id="c15" visible="false">
                                                     <af:outputText value="#{row.CodProducto1}"
                                                                    shortDesc="#{bindings.IngresoProductoBodega1.hints.CodProducto1.tooltip}"
-                                                                   id="ot10">
+                                                                   id="ot15">
                                                         <af:convertNumber groupingUsed="false"
                                                                           pattern="#{bindings.IngresoProductoBodega1.hints.CodProducto1.format}"/>
                                                     </af:outputText>
                                                 </af:column>
+                                                <af:column sortProperty="#{bindings.IngresoProductoBodega1.hints.NombreProveedor.name}"
+                                                           filterable="true" sortable="true"
+                                                           headerText="#{bindings.IngresoProductoBodega1.hints.NombreProveedor.label}"
+                                                           id="c16">
+                                                    <af:outputText value="#{row.NombreProveedor}"
+                                                                   shortDesc="#{bindings.IngresoProductoBodega1.hints.NombreProveedor.tooltip}"
+                                                                   id="ot16"/>
+                                                </af:column>
                                                 <af:column sortProperty="#{bindings.IngresoProductoBodega1.hints.NoProveedor1.name}"
                                                            filterable="true" sortable="true"
                                                            headerText="#{bindings.IngresoProductoBodega1.hints.NoProveedor1.label}"
-                                                           id="c12" visible="false">
+                                                           id="c17" visible="false">
                                                     <af:outputText value="#{row.NoProveedor1}"
                                                                    shortDesc="#{bindings.IngresoProductoBodega1.hints.NoProveedor1.tooltip}"
-                                                                   id="ot12">
+                                                                   id="ot17">
                                                         <af:convertNumber groupingUsed="false"
                                                                           pattern="#{bindings.IngresoProductoBodega1.hints.NoProveedor1.format}"/>
                                                     </af:outputText>
                                                 </af:column>
+                                                <af:column sortProperty="#{bindings.IngresoProductoBodega1.hints.DescripcionBodega.name}"
+                                                           filterable="true" sortable="true"
+                                                           headerText="#{bindings.IngresoProductoBodega1.hints.DescripcionBodega.label}"
+                                                           id="c18">
+                                                    <af:outputText value="#{row.DescripcionBodega}"
+                                                                   shortDesc="#{bindings.IngresoProductoBodega1.hints.DescripcionBodega.tooltip}"
+                                                                   id="ot18"/>
+                                                </af:column>
                                                 <af:column sortProperty="#{bindings.IngresoProductoBodega1.hints.NumBodega1.name}"
                                                            filterable="true" sortable="true"
                                                            headerText="#{bindings.IngresoProductoBodega1.hints.NumBodega1.label}"
-                                                           id="c14" visible="false">
+                                                           id="c19" visible="false">
                                                     <af:outputText value="#{row.NumBodega1}"
                                                                    shortDesc="#{bindings.IngresoProductoBodega1.hints.NumBodega1.tooltip}"
-                                                                   id="ot14">
+                                                                   id="ot19">
                                                         <af:convertNumber groupingUsed="false"
                                                                           pattern="#{bindings.IngresoProductoBodega1.hints.NumBodega1.format}"/>
                                                     </af:outputText>
                                                 </af:column>
+                                                <af:column sortProperty="#{bindings.IngresoProductoBodega1.hints.Descripcion.name}"
+                                                           filterable="true" sortable="true"
+                                                           headerText="#{bindings.IngresoProductoBodega1.hints.Descripcion.label}"
+                                                           id="c20">
+                                                    <af:outputText value="#{row.Descripcion}"
+                                                                   shortDesc="#{bindings.IngresoProductoBodega1.hints.Descripcion.tooltip}"
+                                                                   id="ot20"/>
+                                                </af:column>
                                                 <af:column sortProperty="#{bindings.IngresoProductoBodega1.hints.NoMovimiento.name}"
                                                            filterable="true" sortable="true"
                                                            headerText="#{bindings.IngresoProductoBodega1.hints.NoMovimiento.label}"
-                                                           id="c16" visible="false">
+                                                           id="c21" visible="false">
                                                     <af:outputText value="#{row.NoMovimiento}"
                                                                    shortDesc="#{bindings.IngresoProductoBodega1.hints.NoMovimiento.tooltip}"
-                                                                   id="ot16">
+                                                                   id="ot21">
                                                         <af:convertNumber groupingUsed="false"
                                                                           pattern="#{bindings.IngresoProductoBodega1.hints.NoMovimiento.format}"/>
                                                     </af:outputText>
                                                 </af:column>
                                             </af:table>
-                                            <f:facet name="statusbar"/>
                                         </af:panelCollection>
                                     </af:gridCell>
                                 </af:gridRow>
@@ -305,6 +318,13 @@
                     <af:panelGridLayout id="pgl2">
                         <af:gridRow marginTop="5px" height="auto" id="gr1">
                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1">
+                                <af:panelHeader text="Producto en bodega" id="ph1" inlineStyle="height:32px;">
+                                    <f:facet name="context"/>
+                                    <f:facet name="toolbar"/>
+                                    <f:facet name="menuBar"/>
+                                    <f:facet name="legend"/>
+                                    <f:facet name="info"/>
+                                </af:panelHeader>
                                 <af:panelCollection id="pc2">
                                     <f:facet name="menus"/>
                                     <f:facet name="toolbar"/>
@@ -319,14 +339,14 @@
                                               filterModel="#{bindings.ViInventarioProBod1_1Query.queryDescriptor}"
                                               filterVisible="true"
                                               queryListener="#{bindings.ViInventarioProBod1_1Query.processQuery}"
-                                              varStatus="vs" id="t2" displayRow="selected" autoHeightRows="10">
+                                              varStatus="vs" id="t1" autoHeightRows="10">
                                         <af:column sortProperty="#{bindings.ViInventarioProBod1_1.hints.Cantidad.name}"
                                                    filterable="true" sortable="true"
                                                    headerText="#{bindings.ViInventarioProBod1_1.hints.Cantidad.label}"
-                                                   id="c17" width="100">
+                                                   id="c1">
                                             <af:outputText value="#{row.Cantidad}"
                                                            shortDesc="#{bindings.ViInventarioProBod1_1.hints.Cantidad.tooltip}"
-                                                           id="ot17">
+                                                           id="ot1">
                                                 <af:convertNumber groupingUsed="false"
                                                                   pattern="#{bindings.ViInventarioProBod1_1.hints.Cantidad.format}"/>
                                             </af:outputText>
@@ -334,10 +354,10 @@
                                         <af:column sortProperty="#{bindings.ViInventarioProBod1_1.hints.CodProducto.name}"
                                                    filterable="true" sortable="true"
                                                    headerText="#{bindings.ViInventarioProBod1_1.hints.CodProducto.label}"
-                                                   id="c18" width="100">
+                                                   id="c2">
                                             <af:outputText value="#{row.CodProducto}"
                                                            shortDesc="#{bindings.ViInventarioProBod1_1.hints.CodProducto.tooltip}"
-                                                           id="ot18">
+                                                           id="ot2">
                                                 <af:convertNumber groupingUsed="false"
                                                                   pattern="#{bindings.ViInventarioProBod1_1.hints.CodProducto.format}"/>
                                             </af:outputText>
@@ -345,26 +365,26 @@
                                         <af:column sortProperty="#{bindings.ViInventarioProBod1_1.hints.DescripcionBodega.name}"
                                                    filterable="true" sortable="true"
                                                    headerText="#{bindings.ViInventarioProBod1_1.hints.DescripcionBodega.label}"
-                                                   id="c19" width="100">
+                                                   id="c3">
                                             <af:outputText value="#{row.DescripcionBodega}"
                                                            shortDesc="#{bindings.ViInventarioProBod1_1.hints.DescripcionBodega.tooltip}"
-                                                           id="ot19"/>
+                                                           id="ot3"/>
                                         </af:column>
                                         <af:column sortProperty="#{bindings.ViInventarioProBod1_1.hints.DescripcionProducto.name}"
                                                    filterable="true" sortable="true"
                                                    headerText="#{bindings.ViInventarioProBod1_1.hints.DescripcionProducto.label}"
-                                                   id="c20" width="150">
+                                                   id="c4">
                                             <af:outputText value="#{row.DescripcionProducto}"
                                                            shortDesc="#{bindings.ViInventarioProBod1_1.hints.DescripcionProducto.tooltip}"
-                                                           id="ot20"/>
+                                                           id="ot4"/>
                                         </af:column>
                                         <af:column sortProperty="#{bindings.ViInventarioProBod1_1.hints.NumBodega.name}"
                                                    filterable="true" sortable="true"
                                                    headerText="#{bindings.ViInventarioProBod1_1.hints.NumBodega.label}"
-                                                   id="c21" width="102">
+                                                   id="c5">
                                             <af:outputText value="#{row.NumBodega}"
                                                            shortDesc="#{bindings.ViInventarioProBod1_1.hints.NumBodega.tooltip}"
-                                                           id="ot21">
+                                                           id="ot5">
                                                 <af:convertNumber groupingUsed="false"
                                                                   pattern="#{bindings.ViInventarioProBod1_1.hints.NumBodega.format}"/>
                                             </af:outputText>
@@ -376,6 +396,14 @@
                         </af:gridRow>
                         <af:gridRow marginTop="20px" height="auto" marginBottom="5px" id="gr2">
                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2">
+                                <af:panelHeader text="Gráfica de producto existente" id="ph2"
+                                                inlineStyle="height:28px;">
+                                    <f:facet name="context"/>
+                                    <f:facet name="toolbar"/>
+                                    <f:facet name="menuBar"/>
+                                    <f:facet name="legend"/>
+                                    <f:facet name="info"/>
+                                </af:panelHeader>
                                 <dvt:pieChart id="pieChart1" var="row"
                                               value="#{bindings.ViInventarioProBod1_11.collectionModel}">
                                     <dvt:chartLegend id="cl1"/>

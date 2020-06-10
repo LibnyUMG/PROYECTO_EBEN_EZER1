@@ -6,44 +6,58 @@
         <af:form id="f1">
             <af:panelSplitter orientation="horizontal" splitterPosition="333" id="ps1">
                 <f:facet name="first">
-                    <af:panelFormLayout id="pfl1">
-                        <af:inputText value="#{bindings.NumBodega.inputValue}" label="#{bindings.NumBodega.hints.label}"
-                                      required="#{bindings.NumBodega.hints.mandatory}"
-                                      columns="#{bindings.NumBodega.hints.displayWidth}"
-                                      maximumLength="#{bindings.NumBodega.hints.precision}"
-                                      shortDesc="#{bindings.NumBodega.hints.tooltip}" id="it1" readOnly="true"
-                                      autoSubmit="true">
-                            <f:validator binding="#{bindings.NumBodega.validator}"/>
-                            <af:convertNumber groupingUsed="false" pattern="#{bindings.NumBodega.format}"/>
-                        </af:inputText>
-                        <af:inputText value="#{bindings.DescripcionBodega.inputValue}"
-                                      label="#{bindings.DescripcionBodega.hints.label}"
-                                      required="#{bindings.DescripcionBodega.hints.mandatory}"
-                                      columns="#{bindings.DescripcionBodega.hints.displayWidth}"
-                                      maximumLength="#{bindings.DescripcionBodega.hints.precision}"
-                                      shortDesc="#{bindings.DescripcionBodega.hints.tooltip}" id="it2">
-                            <f:validator binding="#{bindings.DescripcionBodega.validator}"/>
-                        </af:inputText>
-                        <af:selectOneChoice value="#{bindings.IdDireccion.inputValue}"
-                                            label="#{bindings.IdDireccion.label}"
-                                            required="#{bindings.IdDireccion.hints.mandatory}"
-                                            shortDesc="#{bindings.IdDireccion.hints.tooltip}" id="soc1">
-                            <f:selectItems value="#{bindings.IdDireccion.items}" id="si1"/>
-                            <f:validator binding="#{bindings.IdDireccion.validator}"/>
-                        </af:selectOneChoice>
-                        <f:facet name="footer">
-                            <af:panelGroupLayout layout="horizontal" id="pgl1">
-                                <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
-                                           disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b2">
-                                    <af:resetActionListener/>
-                                </af:button>
-                                <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
-                                           disabled="#{!bindings.CreateInsert.enabled}" id="b5"/>
-                                <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
-                                           disabled="#{!bindings.Commit.enabled}" id="b1"/>
-                            </af:panelGroupLayout>
-                        </f:facet>
-                    </af:panelFormLayout>
+                    <af:panelGridLayout id="pgl2">
+                        <af:gridRow marginTop="5px" height="auto" id="gr1">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1">
+                                <af:button text="HOME" id="b3" action="home"/>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow marginTop="15px" height="auto" marginBottom="5px" id="gr2">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2">
+                                <af:panelFormLayout id="pfl1">
+                                    <af:inputText value="#{bindings.NumBodega.inputValue}"
+                                                  label="#{bindings.NumBodega.hints.label}"
+                                                  required="#{bindings.NumBodega.hints.mandatory}"
+                                                  columns="#{bindings.NumBodega.hints.displayWidth}"
+                                                  maximumLength="#{bindings.NumBodega.hints.precision}"
+                                                  shortDesc="#{bindings.NumBodega.hints.tooltip}" id="it1"
+                                                  readOnly="true" autoSubmit="true">
+                                        <f:validator binding="#{bindings.NumBodega.validator}"/>
+                                        <af:convertNumber groupingUsed="false" pattern="#{bindings.NumBodega.format}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.DescripcionBodega.inputValue}"
+                                                  label="#{bindings.DescripcionBodega.hints.label}"
+                                                  required="#{bindings.DescripcionBodega.hints.mandatory}"
+                                                  columns="#{bindings.DescripcionBodega.hints.displayWidth}"
+                                                  maximumLength="#{bindings.DescripcionBodega.hints.precision}"
+                                                  shortDesc="#{bindings.DescripcionBodega.hints.tooltip}" id="it2">
+                                        <f:validator binding="#{bindings.DescripcionBodega.validator}"/>
+                                    </af:inputText>
+                                    <af:selectOneChoice value="#{bindings.IdDireccion.inputValue}"
+                                                        label="#{bindings.IdDireccion.label}"
+                                                        required="#{bindings.IdDireccion.hints.mandatory}"
+                                                        shortDesc="#{bindings.IdDireccion.hints.tooltip}" id="soc1">
+                                        <f:selectItems value="#{bindings.IdDireccion.items}" id="si1"/>
+                                        <f:validator binding="#{bindings.IdDireccion.validator}"/>
+                                    </af:selectOneChoice>
+                                    <f:facet name="footer">
+                                        <af:panelGroupLayout layout="horizontal" id="pgl1">
+                                            <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                                                       disabled="#{!bindings.Rollback.enabled}" immediate="true"
+                                                       id="b2">
+                                                <af:resetActionListener/>
+                                            </af:button>
+                                            <af:button actionListener="#{bindings.CreateInsert.execute}"
+                                                       text="CreateInsert" disabled="#{!bindings.CreateInsert.enabled}"
+                                                       id="b5"/>
+                                            <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
+                                                       disabled="#{!bindings.Commit.enabled}" id="b1"/>
+                                        </af:panelGroupLayout>
+                                    </f:facet>
+                                </af:panelFormLayout>
+                            </af:gridCell>
+                        </af:gridRow>
+                    </af:panelGridLayout>
                 </f:facet>
                 <f:facet name="second">
                     <af:panelCollection id="pc1">

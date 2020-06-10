@@ -60,41 +60,54 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
-  <ListBinding
-    Name="LOV_NoBajaVenc"
-    ListVOName="BajaProductoVencidoView1"
-    NullValueFlag="none"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="NoBajaVenc"/>
-    </AttrArray>
-    <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="NoBajaVenc"/>
-    </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="NoBajaVenc"/>
-    </AttrArray>
-    <DisplayCriteria/>
-  </ListBinding>
   <EntityUsage
     Name="DetBajaProVenc"
     Entity="model.DetBajaProVenc"/>
+  <EntityUsage
+    Name="Bodega"
+    Entity="model.Bodega"
+    Association="model.DetBajaProVencFk3Assoc"
+    AssociationEnd="model.DetBajaProVencFk3Assoc.Bodega"
+    SourceUsage="model.DetBajaProVencView.DetBajaProVenc"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.Bodega.NumBodega"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.DetBajaProVenc.NumBodega"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="Producto"
+    Entity="model.Producto"
+    Association="model.DetBajaProVencFk2Assoc"
+    AssociationEnd="model.DetBajaProVencFk2Assoc.Producto"
+    SourceUsage="model.DetBajaProVencView.DetBajaProVenc"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.Producto.CodProducto"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.DetBajaProVenc.CodProducto"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
   <ViewAttribute
     Name="NoBajaVenc"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="NoBajaVenc"
     EntityUsage="DetBajaProVenc"
-    AliasName="NO_BAJA_VENC"
-    LOVName="LOV_NoBajaVenc">
-    <Properties>
-      <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="choice"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
+    AliasName="NO_BAJA_VENC"/>
   <ViewAttribute
     Name="CodProducto"
     IsNotNull="true"

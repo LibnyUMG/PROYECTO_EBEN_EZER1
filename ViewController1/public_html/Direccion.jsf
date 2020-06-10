@@ -9,6 +9,7 @@
                     <af:panelGridLayout id="pgl3">
                         <af:gridRow marginTop="5px" height="auto" id="gr4">
                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc4">
+                                <af:button text="HOME" id="b6" action="home"/>
                                 <af:panelHeader text="Gestión de direcciones" id="ph1"
                                                 inlineStyle="height:70px;">
                                     <f:facet name="context"/>
@@ -115,7 +116,6 @@
                                 <af:panelCollection id="pc1">
                                     <f:facet name="menus"/>
                                     <f:facet name="toolbar"/>
-                                    <f:facet name="statusbar"/>
                                     <af:table value="#{bindings.ClienteView2.collectionModel}" var="row"
                                               rows="#{bindings.ClienteView2.rangeSize}"
                                               emptyText="#{bindings.ClienteView2.viewable ? 'No data to display.' : 'Access Denied.'}"
@@ -130,12 +130,14 @@
                                         <af:column sortProperty="#{bindings.ClienteView2.hints.NoCliente.name}"
                                                    filterable="true" sortable="true"
                                                    headerText="#{bindings.ClienteView2.hints.NoCliente.label}" id="c1">
-                                            <af:outputText value="#{row.NoCliente}"
-                                                           shortDesc="#{bindings.ClienteView2.hints.NoCliente.tooltip}"
-                                                           id="ot1">
-                                                <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.ClienteView2.hints.NoCliente.format}"/>
-                                            </af:outputText>
+                                            <af:selectOneChoice value="#{row.bindings.NoCliente.inputValue}"
+                                                                label="#{row.bindings.NoCliente.label}"
+                                                                required="#{bindings.ClienteView2.hints.NoCliente.mandatory}"
+                                                                shortDesc="#{bindings.ClienteView2.hints.NoCliente.tooltip}"
+                                                                readOnly="true" id="soc1">
+                                                <f:selectItems value="#{row.bindings.NoCliente.items}" id="si1"/>
+                                                <f:validator binding="#{row.bindings.NoCliente.validator}"/>
+                                            </af:selectOneChoice>
                                         </af:column>
                                         <af:column sortProperty="#{bindings.ClienteView2.hints.NombreCliente.name}"
                                                    filterable="true" sortable="true"
@@ -143,14 +145,14 @@
                                                    id="c2">
                                             <af:outputText value="#{row.NombreCliente}"
                                                            shortDesc="#{bindings.ClienteView2.hints.NombreCliente.tooltip}"
-                                                           id="ot2"/>
+                                                           id="ot1"/>
                                         </af:column>
                                         <af:column sortProperty="#{bindings.ClienteView2.hints.TelCliente.name}"
                                                    filterable="true" sortable="true"
                                                    headerText="#{bindings.ClienteView2.hints.TelCliente.label}" id="c3">
                                             <af:outputText value="#{row.TelCliente}"
                                                            shortDesc="#{bindings.ClienteView2.hints.TelCliente.tooltip}"
-                                                           id="ot3">
+                                                           id="ot2">
                                                 <af:convertNumber groupingUsed="false"
                                                                   pattern="#{bindings.ClienteView2.hints.TelCliente.format}"/>
                                             </af:outputText>
@@ -160,7 +162,7 @@
                                                    headerText="#{bindings.ClienteView2.hints.NitCliente.label}" id="c4">
                                             <af:outputText value="#{row.NitCliente}"
                                                            shortDesc="#{bindings.ClienteView2.hints.NitCliente.tooltip}"
-                                                           id="ot4">
+                                                           id="ot3">
                                                 <af:convertNumber groupingUsed="false"
                                                                   pattern="#{bindings.ClienteView2.hints.NitCliente.format}"/>
                                             </af:outputText>
@@ -170,7 +172,7 @@
                                                    headerText="#{bindings.ClienteView2.hints.DpiCliente.label}" id="c5">
                                             <af:outputText value="#{row.DpiCliente}"
                                                            shortDesc="#{bindings.ClienteView2.hints.DpiCliente.tooltip}"
-                                                           id="ot5">
+                                                           id="ot4">
                                                 <af:convertNumber groupingUsed="false"
                                                                   pattern="#{bindings.ClienteView2.hints.DpiCliente.format}"/>
                                             </af:outputText>
@@ -183,8 +185,8 @@
                                                                 label="#{row.bindings.IdDireccion.label}"
                                                                 required="#{bindings.ClienteView2.hints.IdDireccion.mandatory}"
                                                                 shortDesc="#{bindings.ClienteView2.hints.IdDireccion.tooltip}"
-                                                                readOnly="true" id="soc1">
-                                                <f:selectItems value="#{row.bindings.IdDireccion.items}" id="si1"/>
+                                                                readOnly="true" id="soc2">
+                                                <f:selectItems value="#{row.bindings.IdDireccion.items}" id="si2"/>
                                                 <f:validator binding="#{row.bindings.IdDireccion.validator}"/>
                                             </af:selectOneChoice>
                                         </af:column>
@@ -194,7 +196,7 @@
                                                    id="c7">
                                             <af:outputText value="#{row.IdDireccion1}"
                                                            shortDesc="#{bindings.ClienteView2.hints.IdDireccion1.tooltip}"
-                                                           id="ot6">
+                                                           id="ot5">
                                                 <af:convertNumber groupingUsed="false"
                                                                   pattern="#{bindings.ClienteView2.hints.IdDireccion1.format}"/>
                                             </af:outputText>
@@ -205,9 +207,10 @@
                                                    id="c8">
                                             <af:outputText value="#{row.Descripcion}"
                                                            shortDesc="#{bindings.ClienteView2.hints.Descripcion.tooltip}"
-                                                           id="ot7"/>
+                                                           id="ot6"/>
                                         </af:column>
                                     </af:table>
+                                    <f:facet name="statusbar"/>
                                 </af:panelCollection>
                             </af:gridCell>
                         </af:gridRow>

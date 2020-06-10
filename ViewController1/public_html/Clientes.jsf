@@ -4,107 +4,111 @@
     <af:document title="Clientes.jsf" id="d1">
         <af:messages id="m1"/>
         <af:form id="f1">
-            <af:panelSplitter orientation="horizontal" splitterPosition="553" id="ps1">
+            <af:panelSplitter orientation="horizontal" splitterPosition="508" id="ps1">
                 <f:facet name="first">
-                    <af:panelFormLayout id="pfl1"> 
-                        <af:inputText value="#{bindings.NoCliente.inputValue}" label="#{bindings.NoCliente.hints.label}"
-                                      required="#{bindings.NoCliente.hints.mandatory}"
-                                      columns="#{bindings.NoCliente.hints.displayWidth}" 
-                                      
-                                      maximumLength="#{bindings.NoCliente.hints.precision}"
-                                      shortDesc="#{bindings.NoCliente.hints.tooltip}" id="it1" readOnly="true"
-                                      autoSubmit="true">
-                            <f:validator binding="#{bindings.NoCliente.validator}"/>
-                            <af:convertNumber groupingUsed="false" pattern="#{bindings.NoCliente.format}"/>
-                            
-                         
-                         
-                        </af:inputText> 
-                      
-                         
-                        <af:inputText value="#{bindings.NombreCliente.inputValue}"
-                                      label="#{bindings.NombreCliente.hints.label}"
-                                      required="#{bindings.NombreCliente.hints.mandatory}"
-                                      columns="#{bindings.NombreCliente.hints.displayWidth}"
-                                      maximumLength="#{bindings.NombreCliente.hints.precision}"
-                                      shortDesc="#{bindings.NombreCliente.hints.tooltip}" id="it2">
-                            <f:validator binding="#{bindings.NombreCliente.validator}"/>
-                        </af:inputText>
-                        <af:inputText value="#{bindings.TelCliente.inputValue}"
-                                      label="#{bindings.TelCliente.hints.label}"
-                                      required="#{bindings.TelCliente.hints.mandatory}"
-                                      columns="#{bindings.TelCliente.hints.displayWidth}"
-                                      maximumLength="#{bindings.TelCliente.hints.precision}"
-                                      shortDesc="#{bindings.TelCliente.hints.tooltip}" id="it3">
-                            <f:validator binding="#{bindings.TelCliente.validator}"/>
-                            <af:convertNumber groupingUsed="false" pattern="#{bindings.TelCliente.format}"/>
-                        </af:inputText>
-                        <af:inputText value="#{bindings.NitCliente.inputValue}"
-                                      label="#{bindings.NitCliente.hints.label}"
-                                      required="#{bindings.NitCliente.hints.mandatory}"
-                                      columns="#{bindings.NitCliente.hints.displayWidth}"
-                                      maximumLength="#{bindings.NitCliente.hints.precision}"
-                                      shortDesc="#{bindings.NitCliente.hints.tooltip}" id="it4">
-                            <f:validator binding="#{bindings.NitCliente.validator}"/>
-                            <af:convertNumber groupingUsed="false" pattern="#{bindings.NitCliente.format}"/>
-                        </af:inputText>
-                        <af:inputText value="#{bindings.DpiCliente.inputValue}"
-                                      label="#{bindings.DpiCliente.hints.label}"
-                                      required="#{bindings.DpiCliente.hints.mandatory}"
-                                      columns="#{bindings.DpiCliente.hints.displayWidth}"
-                                      maximumLength="#{bindings.DpiCliente.hints.precision}"
-                                      shortDesc="#{bindings.DpiCliente.hints.tooltip}" id="it5">
-                            <f:validator binding="#{bindings.DpiCliente.validator}"/>
-                            <af:convertNumber groupingUsed="false" pattern="#{bindings.DpiCliente.format}"/>
-                        </af:inputText>
-                        <af:inputComboboxListOfValues id="idDireccionId"
-                                                      popupTitle="Search and Select: #{bindings.IdDireccion.hints.label}"
-                                                      value="#{bindings.IdDireccion.inputValue}"
-                                                      label="#{bindings.IdDireccion.hints.label}"
-                                                      model="#{bindings.IdDireccion.listOfValuesModel}"
-                                                      required="#{bindings.IdDireccion.hints.mandatory}"
-                                                      columns="#{bindings.IdDireccion.hints.displayWidth}"
-                                                      shortDesc="#{bindings.IdDireccion.hints.tooltip}">
-                            <f:validator binding="#{bindings.IdDireccion.validator}"/>
-                            <af:convertNumber groupingUsed="false" pattern="#{bindings.IdDireccion.format}"/>
-                        </af:inputComboboxListOfValues>
-                        <af:inputText value="#{bindings.IdDireccion1.inputValue}"
-                                      label="#{bindings.IdDireccion1.hints.label}"
-                                      required="#{bindings.IdDireccion1.hints.mandatory}"
-                                      columns="#{bindings.IdDireccion1.hints.displayWidth}"
-                                      maximumLength="#{bindings.IdDireccion1.hints.precision}"
-                                      shortDesc="#{bindings.IdDireccion1.hints.tooltip}" id="it7" visible="false">
-                            <f:validator binding="#{bindings.IdDireccion1.validator}"/>
-                            <af:convertNumber groupingUsed="false" pattern="#{bindings.IdDireccion1.format}"/>
-                        </af:inputText>
-                        <af:inputText value="#{bindings.Descripcion.inputValue}"
-                                      label="#{bindings.Descripcion.hints.label}"
-                                      required="#{bindings.Descripcion.hints.mandatory}"
-                                      columns="#{bindings.Descripcion.hints.displayWidth}"
-                                      maximumLength="#{bindings.Descripcion.hints.precision}"
-                                      shortDesc="#{bindings.Descripcion.hints.tooltip}" id="it8" autoSubmit="true"
-                                      readOnly="true">
-                            <f:validator binding="#{bindings.Descripcion.validator}"/>
-                        </af:inputText>
-                          
-                        
-                        <f:facet name="footer">
-                            <af:panelGroupLayout layout="horizontal" id="pgl1">
-                                <af:button actionListener="#{bindings.Rollback.execute}" text="CANCELAR"
-                                           disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b2">
-                                    <af:resetActionListener/>
-                                </af:button>
-                                <af:button actionListener="#{bindings.CreateInsert.execute}" text="NUEVO"
-                                           disabled="#{!bindings.CreateInsert.enabled}" id="b5"/>
-                                <af:button actionListener="#{bindings.Commit.execute}" text="CONFIRMAR"
-                                           disabled="#{!bindings.Commit.enabled}" id="b1"/>
-                            </af:panelGroupLayout>
-                               
-                            </f:facet>
-                        
-                        
-                    </af:panelFormLayout>
-           
+                    <af:panelGridLayout id="pgl2">
+                        <af:gridRow marginTop="5px" height="auto" id="gr1">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc1">
+                                <af:button text="HOME" id="b3" action="home"/>
+                            </af:gridCell>
+                        </af:gridRow>
+                        <af:gridRow marginTop="15px" height="auto" marginBottom="5px" id="gr2">
+                            <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2">
+                                <af:panelFormLayout id="pfl1">
+                                    <af:inputText value="#{bindings.NoCliente.inputValue}"
+                                                  label="#{bindings.NoCliente.hints.label}"
+                                                  required="#{bindings.NoCliente.hints.mandatory}"
+                                                  columns="#{bindings.NoCliente.hints.displayWidth}"
+                                                  maximumLength="#{bindings.NoCliente.hints.precision}"
+                                                  shortDesc="#{bindings.NoCliente.hints.tooltip}" id="it1"
+                                                  readOnly="true" autoSubmit="true">
+                                        <f:validator binding="#{bindings.NoCliente.validator}"/>
+                                        <af:convertNumber groupingUsed="false" pattern="#{bindings.NoCliente.format}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.NombreCliente.inputValue}"
+                                                  label="#{bindings.NombreCliente.hints.label}"
+                                                  required="#{bindings.NombreCliente.hints.mandatory}"
+                                                  columns="#{bindings.NombreCliente.hints.displayWidth}"
+                                                  maximumLength="#{bindings.NombreCliente.hints.precision}"
+                                                  shortDesc="#{bindings.NombreCliente.hints.tooltip}" id="it2">
+                                        <f:validator binding="#{bindings.NombreCliente.validator}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.TelCliente.inputValue}"
+                                                  label="#{bindings.TelCliente.hints.label}"
+                                                  required="#{bindings.TelCliente.hints.mandatory}"
+                                                  columns="#{bindings.TelCliente.hints.displayWidth}"
+                                                  maximumLength="#{bindings.TelCliente.hints.precision}"
+                                                  shortDesc="#{bindings.TelCliente.hints.tooltip}" id="it3">
+                                        <f:validator binding="#{bindings.TelCliente.validator}"/>
+                                        <af:convertNumber groupingUsed="false" pattern="#{bindings.TelCliente.format}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.NitCliente.inputValue}"
+                                                  label="#{bindings.NitCliente.hints.label}"
+                                                  required="#{bindings.NitCliente.hints.mandatory}"
+                                                  columns="#{bindings.NitCliente.hints.displayWidth}"
+                                                  maximumLength="#{bindings.NitCliente.hints.precision}"
+                                                  shortDesc="#{bindings.NitCliente.hints.tooltip}" id="it4">
+                                        <f:validator binding="#{bindings.NitCliente.validator}"/>
+                                        <af:convertNumber groupingUsed="false" pattern="#{bindings.NitCliente.format}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.DpiCliente.inputValue}"
+                                                  label="#{bindings.DpiCliente.hints.label}"
+                                                  required="#{bindings.DpiCliente.hints.mandatory}"
+                                                  columns="#{bindings.DpiCliente.hints.displayWidth}"
+                                                  maximumLength="#{bindings.DpiCliente.hints.precision}"
+                                                  shortDesc="#{bindings.DpiCliente.hints.tooltip}" id="it5">
+                                        <f:validator binding="#{bindings.DpiCliente.validator}"/>
+                                        <af:convertNumber groupingUsed="false" pattern="#{bindings.DpiCliente.format}"/>
+                                    </af:inputText>
+                                    <af:inputComboboxListOfValues id="idDireccionId"
+                                                                  popupTitle="Search and Select: #{bindings.IdDireccion.hints.label}"
+                                                                  value="#{bindings.IdDireccion.inputValue}"
+                                                                  label="#{bindings.IdDireccion.hints.label}"
+                                                                  model="#{bindings.IdDireccion.listOfValuesModel}"
+                                                                  required="#{bindings.IdDireccion.hints.mandatory}"
+                                                                  columns="#{bindings.IdDireccion.hints.displayWidth}"
+                                                                  shortDesc="#{bindings.IdDireccion.hints.tooltip}">
+                                        <f:validator binding="#{bindings.IdDireccion.validator}"/>
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.IdDireccion.format}"/>
+                                    </af:inputComboboxListOfValues>
+                                    <af:inputText value="#{bindings.IdDireccion1.inputValue}"
+                                                  label="#{bindings.IdDireccion1.hints.label}"
+                                                  required="#{bindings.IdDireccion1.hints.mandatory}"
+                                                  columns="#{bindings.IdDireccion1.hints.displayWidth}"
+                                                  maximumLength="#{bindings.IdDireccion1.hints.precision}"
+                                                  shortDesc="#{bindings.IdDireccion1.hints.tooltip}" id="it7"
+                                                  visible="false">
+                                        <f:validator binding="#{bindings.IdDireccion1.validator}"/>
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.IdDireccion1.format}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.Descripcion.inputValue}"
+                                                  label="#{bindings.Descripcion.hints.label}"
+                                                  required="#{bindings.Descripcion.hints.mandatory}"
+                                                  columns="#{bindings.Descripcion.hints.displayWidth}"
+                                                  maximumLength="#{bindings.Descripcion.hints.precision}"
+                                                  shortDesc="#{bindings.Descripcion.hints.tooltip}" id="it8"
+                                                  autoSubmit="true" readOnly="true">
+                                        <f:validator binding="#{bindings.Descripcion.validator}"/>
+                                    </af:inputText>
+                                    <f:facet name="footer">
+                                        <af:panelGroupLayout layout="horizontal" id="pgl1">
+                                            <af:button actionListener="#{bindings.Rollback.execute}" text="CANCELAR"
+                                                       disabled="#{!bindings.Rollback.enabled}" immediate="true"
+                                                       id="b2">
+                                                <af:resetActionListener/>
+                                            </af:button>
+                                            <af:button actionListener="#{bindings.CreateInsert.execute}" text="NUEVO"
+                                                       disabled="#{!bindings.CreateInsert.enabled}" id="b5"/>
+                                            <af:button actionListener="#{bindings.Commit.execute}" text="CONFIRMAR"
+                                                       disabled="#{!bindings.Commit.enabled}" id="b1"/>
+                                        </af:panelGroupLayout>
+                                    </f:facet>
+                                </af:panelFormLayout>
+                            </af:gridCell>
+                        </af:gridRow>
+                    </af:panelGridLayout>
                 </f:facet>
                          
                 <f:facet name="second">

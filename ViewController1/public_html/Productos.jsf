@@ -6,13 +6,14 @@
         <af:form id="f1">
         
         
-            <af:panelSplitter orientation="horizontal" splitterPosition="666" id="ps1">
+            <af:panelSplitter orientation="horizontal" splitterPosition="557" id="ps1">
             
             
                 <f:facet name="first">
                     <af:panelAccordion discloseMany="false" id="pa1">
                         <af:showDetailItem id="pane1" text="Busqueda de Producto" flex="0"
                                            inflexibleHeight="100" disclosed="false">
+                            <af:button text="HOME" id="b1" action="home"/>
                             <af:panelHeader text="Producto" id="ph2" inlineStyle="font-size:smaller;">
                                 <af:query id="qryId1" headerText="Search" disclosed="true"
                                           value="#{bindings.ImplicitViewCriteriaQuery.queryDescriptor}"
@@ -22,97 +23,7 @@
                                           inlineStyle="font-size:smaller;"/>
                             </af:panelHeader>
                             <af:separator id="s1"/>
-                            <af:panelGroupLayout id="pgl7" layout="scroll">
-                                <af:panelFormLayout id="pfl2" rows="4" inlineStyle="height:228px;">
-                                    <af:inputText value="#{bindings.CodProducto.inputValue}"
-                                                  label="#{bindings.CodProducto.hints.label}"
-                                                  required="#{bindings.CodProducto.hints.mandatory}"
-                                                  columns="#{bindings.CodProducto.hints.displayWidth}"
-                                                  maximumLength="#{bindings.CodProducto.hints.precision}"
-                                                  shortDesc="#{bindings.CodProducto.hints.tooltip}" id="it6">
-                                        <f:validator binding="#{bindings.CodProducto.validator}"/>
-                                        <af:convertNumber groupingUsed="false"
-                                                          pattern="#{bindings.CodProducto.format}"/>
-                                    </af:inputText>
-                                    <af:inputText value="#{bindings.PrecioCompra.inputValue}"
-                                                  label="#{bindings.PrecioCompra.hints.label}"
-                                                  required="#{bindings.PrecioCompra.hints.mandatory}"
-                                                  columns="#{bindings.PrecioCompra.hints.displayWidth}"
-                                                  maximumLength="#{bindings.PrecioCompra.hints.precision}"
-                                                  shortDesc="#{bindings.PrecioCompra.hints.tooltip}" id="it8">
-                                        <f:validator binding="#{bindings.PrecioCompra.validator}"/>
-                                        <af:convertNumber groupingUsed="false"
-                                                          pattern="#{bindings.PrecioCompra.format}"/>
-                                    </af:inputText>
-                                    <af:inputText value="#{bindings.PrecioVenta.inputValue}"
-                                                  label="#{bindings.PrecioVenta.hints.label}"
-                                                  required="#{bindings.PrecioVenta.hints.mandatory}"
-                                                  columns="#{bindings.PrecioVenta.hints.displayWidth}"
-                                                  maximumLength="#{bindings.PrecioVenta.hints.precision}"
-                                                  shortDesc="#{bindings.PrecioVenta.hints.tooltip}" id="it9">
-                                        <f:validator binding="#{bindings.PrecioVenta.validator}"/>
-                                        <af:convertNumber groupingUsed="false"
-                                                          pattern="#{bindings.PrecioVenta.format}"/>
-                                    </af:inputText>
-                                    <af:inputText value="#{bindings.PrecioSugerido.inputValue}"
-                                                  label="#{bindings.PrecioSugerido.hints.label}"
-                                                  required="#{bindings.PrecioSugerido.hints.mandatory}"
-                                                  columns="#{bindings.PrecioSugerido.hints.displayWidth}"
-                                                  maximumLength="#{bindings.PrecioSugerido.hints.precision}"
-                                                  shortDesc="#{bindings.PrecioSugerido.hints.tooltip}" id="it10">
-                                        <f:validator binding="#{bindings.PrecioSugerido.validator}"/>
-                                        <af:convertNumber groupingUsed="false"
-                                                          pattern="#{bindings.PrecioSugerido.format}"/>
-                                    </af:inputText>
-                                    <af:inputText value="#{bindings.DescripcionProducto.inputValue}"
-                                                  label="#{bindings.DescripcionProducto.hints.label}"
-                                                  required="#{bindings.DescripcionProducto.hints.mandatory}"
-                                                  columns="#{bindings.DescripcionProducto.hints.displayWidth}"
-                                                  maximumLength="#{bindings.DescripcionProducto.hints.precision}"
-                                                  shortDesc="#{bindings.DescripcionProducto.hints.tooltip}" id="it7">
-                                        <f:validator binding="#{bindings.DescripcionProducto.validator}"/>
-                                    </af:inputText>
-                                    <af:inputDate value="#{bindings.FechaVencimiento.inputValue}"
-                                                  label="#{bindings.FechaVencimiento.hints.label}"
-                                                  required="#{bindings.FechaVencimiento.hints.mandatory}"
-                                                  columns="#{bindings.FechaVencimiento.hints.displayWidth}"
-                                                  shortDesc="#{bindings.FechaVencimiento.hints.tooltip}" id="id3">
-                                        <f:validator binding="#{bindings.FechaVencimiento.validator}"/>
-                                        <af:convertDateTime pattern="#{bindings.FechaVencimiento.format}"/>
-                                    </af:inputDate>
-                                    <af:selectOneChoice value="#{bindings.IdUnidadMedida.inputValue}"
-                                                        label="#{bindings.IdUnidadMedida.label}"
-                                                        required="#{bindings.IdUnidadMedida.hints.mandatory}"
-                                                        shortDesc="#{bindings.IdUnidadMedida.hints.tooltip}" id="soc1">
-                                        <f:selectItems value="#{bindings.IdUnidadMedida.items}" id="si1"/>
-                                        <f:validator binding="#{bindings.IdUnidadMedida.validator}"/>
-                                    </af:selectOneChoice>
-                                    <f:facet name="footer">
-                                        <af:panelGroupLayout layout="horizontal" id="pgl4">
-                                            <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
-                                                       disabled="#{!bindings.Rollback.enabled}" immediate="true"
-                                                       id="b9">
-                                                <af:resetActionListener/>
-                                            </af:button>
-                                            <af:button actionListener="#{bindings.First.execute}" text="First"
-                                                       disabled="#{!bindings.First.enabled}" partialSubmit="true"
-                                                       id="b2"/>
-                                            <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
-                                                       disabled="#{!bindings.Previous.enabled}" partialSubmit="true"
-                                                       id="b3"/>
-                                            <af:button actionListener="#{bindings.Next.execute}" text="Next"
-                                                       disabled="#{!bindings.Next.enabled}" partialSubmit="true"
-                                                       id="b4"/>
-                                            <af:button actionListener="#{bindings.Last.execute}" text="Last"
-                                                       disabled="#{!bindings.Last.enabled}" partialSubmit="true"
-                                                       id="b7"/>
-                                            <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
-                                                       disabled="#{!bindings.Commit.enabled}" id="b8"/>
-                                            <af:spacer id="s3"/>
-                                        </af:panelGroupLayout>
-                                    </f:facet>
-                                </af:panelFormLayout>
-                            </af:panelGroupLayout>
+                            <af:panelGroupLayout id="pgl7" layout="scroll"/>
                             <af:panelGroupLayout layout="vertical" id="pgl3"/>
                         </af:showDetailItem>
                         <af:showDetailItem text="Unidad de medida" id="sdi1">
@@ -223,10 +134,11 @@
                                 <af:panelFormLayout id="pfl1">
                                     <af:inputText value="#{bindings.CodProducto.inputValue}"
                                                   label="#{bindings.CodProducto.hints.label}"
-                                                  required="#{bindings.CodProducto.hints.mandatory}" readOnly="true"
+                                                  required="#{bindings.CodProducto.hints.mandatory}"
                                                   columns="#{bindings.CodProducto.hints.displayWidth}"
                                                   maximumLength="#{bindings.CodProducto.hints.precision}"
-                                                  shortDesc="#{bindings.CodProducto.hints.tooltip}" id="it1">
+                                                  shortDesc="#{bindings.CodProducto.hints.tooltip}" id="it1"
+                                                  readOnly="true" autoSubmit="true">
                                         <f:validator binding="#{bindings.CodProducto.validator}"/>
                                         <af:convertNumber groupingUsed="false"
                                                           pattern="#{bindings.CodProducto.format}"/>
@@ -234,7 +146,6 @@
                                     <af:inputText value="#{bindings.DescripcionProducto.inputValue}"
                                                   label="#{bindings.DescripcionProducto.hints.label}"
                                                   required="#{bindings.DescripcionProducto.hints.mandatory}"
-                                                  readOnly="false"
                                                   columns="#{bindings.DescripcionProducto.hints.displayWidth}"
                                                   maximumLength="#{bindings.DescripcionProducto.hints.precision}"
                                                   shortDesc="#{bindings.DescripcionProducto.hints.tooltip}" id="it2">
@@ -242,7 +153,7 @@
                                     </af:inputText>
                                     <af:inputText value="#{bindings.PrecioCompra.inputValue}"
                                                   label="#{bindings.PrecioCompra.hints.label}"
-                                                  required="#{bindings.PrecioCompra.hints.mandatory}" readOnly="false"
+                                                  required="#{bindings.PrecioCompra.hints.mandatory}"
                                                   columns="#{bindings.PrecioCompra.hints.displayWidth}"
                                                   maximumLength="#{bindings.PrecioCompra.hints.precision}"
                                                   shortDesc="#{bindings.PrecioCompra.hints.tooltip}" id="it3">
@@ -252,7 +163,7 @@
                                     </af:inputText>
                                     <af:inputText value="#{bindings.PrecioVenta.inputValue}"
                                                   label="#{bindings.PrecioVenta.hints.label}"
-                                                  required="#{bindings.PrecioVenta.hints.mandatory}" readOnly="false"
+                                                  required="#{bindings.PrecioVenta.hints.mandatory}"
                                                   columns="#{bindings.PrecioVenta.hints.displayWidth}"
                                                   maximumLength="#{bindings.PrecioVenta.hints.precision}"
                                                   shortDesc="#{bindings.PrecioVenta.hints.tooltip}" id="it4">
@@ -262,7 +173,7 @@
                                     </af:inputText>
                                     <af:inputText value="#{bindings.PrecioSugerido.inputValue}"
                                                   label="#{bindings.PrecioSugerido.hints.label}"
-                                                  required="#{bindings.PrecioSugerido.hints.mandatory}" readOnly="false"
+                                                  required="#{bindings.PrecioSugerido.hints.mandatory}"
                                                   columns="#{bindings.PrecioSugerido.hints.displayWidth}"
                                                   maximumLength="#{bindings.PrecioSugerido.hints.precision}"
                                                   shortDesc="#{bindings.PrecioSugerido.hints.tooltip}" id="it5">
@@ -270,7 +181,7 @@
                                         <af:convertNumber groupingUsed="false"
                                                           pattern="#{bindings.PrecioSugerido.format}"/>
                                     </af:inputText>
-                                    <af:inputDate value="#{bindings.FechaVencimiento.inputValue}" readOnly="false"
+                                    <af:inputDate value="#{bindings.FechaVencimiento.inputValue}"
                                                   label="#{bindings.FechaVencimiento.hints.label}"
                                                   required="#{bindings.FechaVencimiento.hints.mandatory}"
                                                   columns="#{bindings.FechaVencimiento.hints.displayWidth}"
@@ -278,30 +189,25 @@
                                         <f:validator binding="#{bindings.FechaVencimiento.validator}"/>
                                         <af:convertDateTime pattern="#{bindings.FechaVencimiento.format}"/>
                                     </af:inputDate>
-                                    <af:inputComboboxListOfValues id="idUnidadMedida1Id"
-                                                                  popupTitle="Search and Select: #{bindings.IdUnidadMedida1.hints.label}"
-                                                                  value="#{bindings.IdUnidadMedida1.inputValue}"
-                                                                  label="#{bindings.IdUnidadMedida1.hints.label}"
-                                                                  model="#{bindings.IdUnidadMedida1.listOfValuesModel}"
-                                                                  required="#{bindings.IdUnidadMedida1.hints.mandatory}"
-                                                                  columns="#{bindings.IdUnidadMedida1.hints.displayWidth}"
-                                                                  shortDesc="#{bindings.IdUnidadMedida1.hints.tooltip}">
-                                        <f:validator binding="#{bindings.IdUnidadMedida1.validator}"/>
-                                        <af:convertNumber groupingUsed="false"
-                                                          pattern="#{bindings.IdUnidadMedida1.format}"/>
-                                    </af:inputComboboxListOfValues>
+                                    <af:selectOneChoice value="#{bindings.IdUnidadMedida.inputValue}"
+                                                        label="#{bindings.IdUnidadMedida.label}"
+                                                        required="#{bindings.IdUnidadMedida.hints.mandatory}"
+                                                        shortDesc="#{bindings.IdUnidadMedida.hints.tooltip}" id="soc5">
+                                        <f:selectItems value="#{bindings.IdUnidadMedida.items}" id="si5"/>
+                                        <f:validator binding="#{bindings.IdUnidadMedida.validator}"/>
+                                    </af:selectOneChoice>
                                     <f:facet name="footer">
                                         <af:panelGroupLayout layout="horizontal" id="pgl1">
                                             <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
                                                        disabled="#{!bindings.Rollback.enabled}" immediate="true"
-                                                       id="b6">
+                                                       id="b7">
                                                 <af:resetActionListener/>
                                             </af:button>
                                             <af:button actionListener="#{bindings.CreateInsert.execute}"
-                                                       text="Nuevo producto" disabled="#{!bindings.CreateInsert.enabled}"
+                                                       text="CreateInsert" disabled="#{!bindings.CreateInsert.enabled}"
                                                        id="b5"/>
                                             <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
-                                                       disabled="#{!bindings.Commit.enabled}" id="b1"/>
+                                                       disabled="#{!bindings.Commit.enabled}" id="b6"/>
                                         </af:panelGroupLayout>
                                     </f:facet>
                                 </af:panelFormLayout>
@@ -309,101 +215,127 @@
                         </af:gridRow>
                         <af:gridRow marginTop="15px" height="auto" marginBottom="5px" id="gr2">
                             <af:gridCell marginStart="5px" width="100%" marginEnd="5px" id="gc2">
+                                <af:panelHeader text="Productos existentes" id="ph3" inlineStyle="height:33px;">
+                                    <f:facet name="context"/>
+                                    <f:facet name="toolbar"/>
+                                    <f:facet name="menuBar"/>
+                                    <f:facet name="legend"/>
+                                    <f:facet name="info"/>
+                                </af:panelHeader>
                                 <af:panelCollection id="pc1">
                                     <f:facet name="menus"/>
                                     <f:facet name="toolbar"/>
-                                    <af:table value="#{bindings.ProductoView1.collectionModel}" var="row"
-                                              rows="#{bindings.ProductoView1.rangeSize}"
-                                              emptyText="#{bindings.ProductoView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                    <af:table value="#{bindings.ProductoBodegaView1.collectionModel}" var="row"
+                                              rows="#{bindings.ProductoBodegaView1.rangeSize}"
+                                              emptyText="#{bindings.ProductoBodegaView1.viewable ? 'No data to display.' : 'Access Denied.'}"
                                               rowBandingInterval="0"
-                                              selectedRowKeys="#{bindings.ProductoView1.collectionModel.selectedRow}"
-                                              selectionListener="#{bindings.ProductoView1.collectionModel.makeCurrent}"
-                                              rowSelection="single" fetchSize="#{bindings.ProductoView1.rangeSize}"
-                                              filterModel="#{bindings.ProductoView1Query.queryDescriptor}"
+                                              selectedRowKeys="#{bindings.ProductoBodegaView1.collectionModel.selectedRow}"
+                                              selectionListener="#{bindings.ProductoBodegaView1.collectionModel.makeCurrent}"
+                                              rowSelection="single"
+                                              fetchSize="#{bindings.ProductoBodegaView1.rangeSize}"
+                                              filterModel="#{bindings.ProductoBodegaView1Query.queryDescriptor}"
                                               filterVisible="true"
-                                              queryListener="#{bindings.ProductoView1Query.processQuery}" varStatus="vs"
-                                              id="t1" partialTriggers=":::b5 :::b2 :::b3 :::b4 :::b7" width="962"
-                                              autoHeightRows="8">
-                                        <af:column sortProperty="#{bindings.ProductoView1.hints.CodProducto.name}"
+                                              queryListener="#{bindings.ProductoBodegaView1Query.processQuery}"
+                                              varStatus="vs" id="t1" autoHeightRows="8" width="696">
+                                        <af:column sortProperty="#{bindings.ProductoBodegaView1.hints.CodProducto.name}"
                                                    filterable="true" sortable="true"
-                                                   headerText="#{bindings.ProductoView1.hints.CodProducto.label}"
+                                                   headerText="#{bindings.ProductoBodegaView1.hints.CodProducto.label}"
                                                    id="c1">
-                                            <af:outputText value="#{row.CodProducto}"
-                                                           shortDesc="#{bindings.ProductoView1.hints.CodProducto.tooltip}"
+                                            <af:selectOneChoice value="#{row.bindings.CodProducto.inputValue}"
+                                                                label="#{row.bindings.CodProducto.label}"
+                                                                required="#{bindings.ProductoBodegaView1.hints.CodProducto.mandatory}"
+                                                                shortDesc="#{bindings.ProductoBodegaView1.hints.CodProducto.tooltip}"
+                                                                readOnly="true" id="soc1">
+                                                <f:selectItems value="#{row.bindings.CodProducto.items}" id="si1"/>
+                                                <f:validator binding="#{row.bindings.CodProducto.validator}"/>
+                                            </af:selectOneChoice>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.ProductoBodegaView1.hints.NumBodega.name}"
+                                                   filterable="true" sortable="true"
+                                                   headerText="#{bindings.ProductoBodegaView1.hints.NumBodega.label}"
+                                                   id="c2">
+                                            <af:selectOneChoice value="#{row.bindings.NumBodega.inputValue}"
+                                                                label="#{row.bindings.NumBodega.label}"
+                                                                required="#{bindings.ProductoBodegaView1.hints.NumBodega.mandatory}"
+                                                                shortDesc="#{bindings.ProductoBodegaView1.hints.NumBodega.tooltip}"
+                                                                readOnly="true" id="soc2">
+                                                <f:selectItems value="#{row.bindings.NumBodega.items}" id="si2"/>
+                                                <f:validator binding="#{row.bindings.NumBodega.validator}"/>
+                                            </af:selectOneChoice>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.ProductoBodegaView1.hints.CantidadProducto.name}"
+                                                   filterable="true" sortable="true"
+                                                   headerText="#{bindings.ProductoBodegaView1.hints.CantidadProducto.label}"
+                                                   id="c3">
+                                            <af:outputText value="#{row.CantidadProducto}"
+                                                           shortDesc="#{bindings.ProductoBodegaView1.hints.CantidadProducto.tooltip}"
                                                            id="ot1">
                                                 <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.ProductoView1.hints.CodProducto.format}"/>
+                                                                  pattern="#{bindings.ProductoBodegaView1.hints.CantidadProducto.format}"/>
                                             </af:outputText>
                                         </af:column>
-                                        <af:column sortProperty="#{bindings.ProductoView1.hints.DescripcionProducto.name}"
+                                        <af:column sortProperty="#{bindings.ProductoBodegaView1.hints.NoProveedor.name}"
                                                    filterable="true" sortable="true"
-                                                   headerText="#{bindings.ProductoView1.hints.DescripcionProducto.label}"
-                                                   id="c2">
-                                            <af:outputText value="#{row.DescripcionProducto}"
-                                                           shortDesc="#{bindings.ProductoView1.hints.DescripcionProducto.tooltip}"
-                                                           id="ot2"/>
-                                        </af:column>
-                                        <af:column sortProperty="#{bindings.ProductoView1.hints.PrecioCompra.name}"
-                                                   filterable="true" sortable="true"
-                                                   headerText="#{bindings.ProductoView1.hints.PrecioCompra.label}"
-                                                   id="c3">
-                                            <af:outputText value="#{row.PrecioCompra}"
-                                                           shortDesc="#{bindings.ProductoView1.hints.PrecioCompra.tooltip}"
-                                                           id="ot3">
-                                                <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.ProductoView1.hints.PrecioCompra.format}"/>
-                                            </af:outputText>
-                                        </af:column>
-                                        <af:column sortProperty="#{bindings.ProductoView1.hints.PrecioVenta.name}"
-                                                   filterable="true" sortable="true"
-                                                   headerText="#{bindings.ProductoView1.hints.PrecioVenta.label}"
+                                                   headerText="#{bindings.ProductoBodegaView1.hints.NoProveedor.label}"
                                                    id="c4">
-                                            <af:outputText value="#{row.PrecioVenta}"
-                                                           shortDesc="#{bindings.ProductoView1.hints.PrecioVenta.tooltip}"
-                                                           id="ot4">
-                                                <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.ProductoView1.hints.PrecioVenta.format}"/>
-                                            </af:outputText>
+                                            <af:selectOneChoice value="#{row.bindings.NoProveedor.inputValue}"
+                                                                label="#{row.bindings.NoProveedor.label}"
+                                                                required="#{bindings.ProductoBodegaView1.hints.NoProveedor.mandatory}"
+                                                                shortDesc="#{bindings.ProductoBodegaView1.hints.NoProveedor.tooltip}"
+                                                                readOnly="true" id="soc3">
+                                                <f:selectItems value="#{row.bindings.NoProveedor.items}" id="si3"/>
+                                                <f:validator binding="#{row.bindings.NoProveedor.validator}"/>
+                                            </af:selectOneChoice>
                                         </af:column>
-                                        <af:column sortProperty="#{bindings.ProductoView1.hints.PrecioSugerido.name}"
+                                        <af:column sortProperty="#{bindings.ProductoBodegaView1.hints.FechaReg.name}"
                                                    filterable="true" sortable="true"
-                                                   headerText="#{bindings.ProductoView1.hints.PrecioSugerido.label}"
+                                                   headerText="#{bindings.ProductoBodegaView1.hints.FechaReg.label}"
                                                    id="c5">
-                                            <af:outputText value="#{row.PrecioSugerido}"
-                                                           shortDesc="#{bindings.ProductoView1.hints.PrecioSugerido.tooltip}"
-                                                           id="ot5">
-                                                <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.ProductoView1.hints.PrecioSugerido.format}"/>
-                                            </af:outputText>
-                                        </af:column>
-                                        <af:column sortProperty="#{bindings.ProductoView1.hints.FechaVencimiento.name}"
-                                                   filterable="true" sortable="true"
-                                                   headerText="#{bindings.ProductoView1.hints.FechaVencimiento.label}"
-                                                   id="c6">
                                             <f:facet name="filter">
-                                                <af:inputDate value="#{bindings.ProductoView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.FechaVencimiento.value}"
+                                                <af:inputDate value="#{bindings.ProductoBodegaView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.FechaReg.value}"
                                                               id="id2">
-                                                    <af:convertDateTime pattern="#{bindings.ProductoView1.hints.FechaVencimiento.format}"/>
+                                                    <af:convertDateTime pattern="#{bindings.ProductoBodegaView1.hints.FechaReg.format}"/>
                                                 </af:inputDate>
                                             </f:facet>
-                                            <af:outputText value="#{row.FechaVencimiento}"
-                                                           shortDesc="#{bindings.ProductoView1.hints.FechaVencimiento.tooltip}"
-                                                           id="ot6">
-                                                <af:convertDateTime pattern="#{bindings.ProductoView1.hints.FechaVencimiento.format}"/>
+                                            <af:outputText value="#{row.FechaReg}"
+                                                           shortDesc="#{bindings.ProductoBodegaView1.hints.FechaReg.tooltip}"
+                                                           id="ot2">
+                                                <af:convertDateTime pattern="#{bindings.ProductoBodegaView1.hints.FechaReg.format}"/>
                                             </af:outputText>
                                         </af:column>
-                                        <af:column sortProperty="#{bindings.ProductoView1.hints.IdUnidadMedida.name}"
+                                        <af:column sortProperty="#{bindings.ProductoBodegaView1.hints.NoFactura.name}"
                                                    filterable="true" sortable="true"
-                                                   headerText="#{bindings.ProductoView1.hints.IdUnidadMedida.label}"
+                                                   headerText="#{bindings.ProductoBodegaView1.hints.NoFactura.label}"
+                                                   id="c6">
+                                            <af:outputText value="#{row.NoFactura}"
+                                                           shortDesc="#{bindings.ProductoBodegaView1.hints.NoFactura.tooltip}"
+                                                           id="ot3">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.ProductoBodegaView1.hints.NoFactura.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.ProductoBodegaView1.hints.NoBajaVenc.name}"
+                                                   filterable="true" sortable="true"
+                                                   headerText="#{bindings.ProductoBodegaView1.hints.NoBajaVenc.label}"
                                                    id="c7">
-                                            <af:selectOneChoice value="#{row.bindings.IdUnidadMedida.inputValue}"
-                                                                label="#{row.bindings.IdUnidadMedida.label}"
-                                                                required="#{bindings.ProductoView1.hints.IdUnidadMedida.mandatory}"
-                                                                shortDesc="#{bindings.ProductoView1.hints.IdUnidadMedida.tooltip}"
-                                                                readOnly="true" id="soc2">
-                                                <f:selectItems value="#{row.bindings.IdUnidadMedida.items}" id="si2"/>
-                                                <f:validator binding="#{row.bindings.IdUnidadMedida.validator}"/>
-                                          
+                                            <af:outputText value="#{row.NoBajaVenc}"
+                                                           shortDesc="#{bindings.ProductoBodegaView1.hints.NoBajaVenc.tooltip}"
+                                                           id="ot4">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.ProductoBodegaView1.hints.NoBajaVenc.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.ProductoBodegaView1.hints.IdMovimiento.name}"
+                                                   filterable="true" sortable="true"
+                                                   headerText="#{bindings.ProductoBodegaView1.hints.IdMovimiento.label}"
+                                                   id="c10">
+                                            <af:selectOneChoice value="#{row.bindings.IdMovimiento.inputValue}"
+                                                                label="#{row.bindings.IdMovimiento.label}"
+                                                                required="#{bindings.ProductoBodegaView1.hints.IdMovimiento.mandatory}"
+                                                                shortDesc="#{bindings.ProductoBodegaView1.hints.IdMovimiento.tooltip}"
+                                                                readOnly="true" id="soc4">
+                                                <f:selectItems value="#{row.bindings.IdMovimiento.items}" id="si4"/>
+                                                <f:validator binding="#{row.bindings.IdMovimiento.validator}"/>
                                             </af:selectOneChoice>
                                         </af:column>
                                     </af:table>

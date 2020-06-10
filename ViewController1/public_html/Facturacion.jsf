@@ -7,9 +7,7 @@
             <af:panelGridLayout id="pgl5">
                 <af:gridRow marginTop="5px" height="auto" id="gr1">
                     <af:gridCell marginStart="5px" width="50%" id="gc1">
-                    
-                    
-                         
+                        <af:button text="HOME" id="b1" action="home"/>
                         <af:panelFormLayout id="pfl2">
                         
                 
@@ -125,27 +123,62 @@
                                           required="#{bindings.NoFactura.hints.mandatory}"
                                           columns="#{bindings.NoFactura.hints.displayWidth}"
                                           maximumLength="#{bindings.NoFactura.hints.precision}"
-                                          shortDesc="#{bindings.NoFactura.hints.tooltip}" id="it1" autoSubmit="true">
+                                          shortDesc="#{bindings.NoFactura.hints.tooltip}" id="it1" readOnly="true"
+                                          autoSubmit="true">
                                 <f:validator binding="#{bindings.NoFactura.validator}"/>
                                 <af:convertNumber groupingUsed="false" pattern="#{bindings.NoFactura.format}"/>
                             </af:inputText>
-                            <af:inputComboboxListOfValues id="codProductoId"
-                                                          popupTitle="Search and Select: #{bindings.CodProducto.hints.label}"
-                                                          value="#{bindings.CodProducto.inputValue}"
-                                                          label="#{bindings.CodProducto.hints.label}"
-                                                          model="#{bindings.CodProducto.listOfValuesModel}"
-                                                          required="#{bindings.CodProducto.hints.mandatory}"
-                                                          columns="#{bindings.CodProducto.hints.displayWidth}"
-                                                          shortDesc="#{bindings.CodProducto.hints.tooltip}">
+                            <af:selectOneChoice value="#{bindings.CodProducto.inputValue}"
+                                                label="#{bindings.CodProducto.label}"
+                                                required="#{bindings.CodProducto.hints.mandatory}"
+                                                shortDesc="#{bindings.CodProducto.hints.tooltip}" id="soc1"
+                                                autoSubmit="true">
+                                <f:selectItems value="#{bindings.CodProducto.items}" id="si1"/>
                                 <f:validator binding="#{bindings.CodProducto.validator}"/>
-                                <af:convertNumber groupingUsed="false" pattern="#{bindings.CodProducto.format}"/>
-                            </af:inputComboboxListOfValues>
+                            </af:selectOneChoice>
+                            <af:inputText value="#{bindings.Cantidad.inputValue}"
+                                          label="#{bindings.Cantidad.hints.label}"
+                                          required="#{bindings.Cantidad.hints.mandatory}"
+                                          columns="#{bindings.Cantidad.hints.displayWidth}"
+                                          maximumLength="#{bindings.Cantidad.hints.precision}"
+                                          shortDesc="#{bindings.Cantidad.hints.tooltip}" id="it2" autoSubmit="true">
+                                <f:validator binding="#{bindings.Cantidad.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.Cantidad.format}"/>
+                            </af:inputText>
+                            <af:selectOneChoice value="#{bindings.NumBodega.inputValue}"
+                                                label="#{bindings.NumBodega.label}"
+                                                required="#{bindings.NumBodega.hints.mandatory}"
+                                                shortDesc="#{bindings.NumBodega.hints.tooltip}" id="soc2"
+                                                autoSubmit="true">
+                                <f:selectItems value="#{bindings.NumBodega.items}" id="si2"/>
+                                <f:validator binding="#{bindings.NumBodega.validator}"/>
+                            </af:selectOneChoice>
+                            <af:inputText value="#{bindings.Subtotal.inputValue}"
+                                          label="#{bindings.Subtotal.hints.label}"
+                                          required="#{bindings.Subtotal.hints.mandatory}"
+                                          columns="#{bindings.Subtotal.hints.displayWidth}"
+                                          maximumLength="#{bindings.Subtotal.hints.precision}"
+                                          shortDesc="#{bindings.Subtotal.hints.tooltip}" id="it3" readOnly="true"
+                                          autoSubmit="true">
+                                <f:validator binding="#{bindings.Subtotal.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.Subtotal.format}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.CodProducto1.inputValue}"
+                                          label="#{bindings.CodProducto1.hints.label}"
+                                          required="#{bindings.CodProducto1.hints.mandatory}"
+                                          columns="#{bindings.CodProducto1.hints.displayWidth}"
+                                          maximumLength="#{bindings.CodProducto1.hints.precision}"
+                                          shortDesc="#{bindings.CodProducto1.hints.tooltip}" id="it4" visible="false">
+                                <f:validator binding="#{bindings.CodProducto1.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.CodProducto1.format}"/>
+                            </af:inputText>
                             <af:inputText value="#{bindings.DescripcionProducto.inputValue}"
                                           label="#{bindings.DescripcionProducto.hints.label}"
                                           required="#{bindings.DescripcionProducto.hints.mandatory}"
                                           columns="#{bindings.DescripcionProducto.hints.displayWidth}"
                                           maximumLength="#{bindings.DescripcionProducto.hints.precision}"
-                                          shortDesc="#{bindings.DescripcionProducto.hints.tooltip}" id="it10">
+                                          shortDesc="#{bindings.DescripcionProducto.hints.tooltip}" id="it5"
+                                          readOnly="true" autoSubmit="true">
                                 <f:validator binding="#{bindings.DescripcionProducto.validator}"/>
                             </af:inputText>
                             <af:inputText value="#{bindings.PrecioVenta.inputValue}"
@@ -153,65 +186,21 @@
                                           required="#{bindings.PrecioVenta.hints.mandatory}"
                                           columns="#{bindings.PrecioVenta.hints.displayWidth}"
                                           maximumLength="#{bindings.PrecioVenta.hints.precision}"
-                                          shortDesc="#{bindings.PrecioVenta.hints.tooltip}" id="it9">
+                                          shortDesc="#{bindings.PrecioVenta.hints.tooltip}" id="it7" readOnly="true"
+                                          autoSubmit="true">
                                 <f:validator binding="#{bindings.PrecioVenta.validator}"/>
                                 <af:convertNumber groupingUsed="false" pattern="#{bindings.PrecioVenta.format}"/>
                             </af:inputText>
-                            <af:inputText value="#{bindings.Cantidad.inputValue}"
-                                          label="#{bindings.Cantidad.hints.label}"
-                                          required="#{bindings.Cantidad.hints.mandatory}"
-                                          columns="#{bindings.Cantidad.hints.displayWidth}"
-                                          maximumLength="#{bindings.Cantidad.hints.precision}"
-                                          shortDesc="#{bindings.Cantidad.hints.tooltip}" id="it3" autoSubmit="true">
-                                <f:validator binding="#{bindings.Cantidad.validator}"/>
-                                <af:convertNumber groupingUsed="false" pattern="#{bindings.Cantidad.format}"/>
-                            </af:inputText>
-                            <af:inputComboboxListOfValues id="numBodegaId"
-                                                          popupTitle="Search and Select: #{bindings.NumBodega.hints.label}"
-                                                          value="#{bindings.NumBodega.inputValue}"
-                                                          label="#{bindings.NumBodega.hints.label}"
-                                                          model="#{bindings.NumBodega.listOfValuesModel}"
-                                                          required="#{bindings.NumBodega.hints.mandatory}"
-                                                          columns="#{bindings.NumBodega.hints.displayWidth}"
-                                                          shortDesc="#{bindings.NumBodega.hints.tooltip}">
-                                <f:validator binding="#{bindings.NumBodega.validator}"/>
-                                <af:convertNumber groupingUsed="false" pattern="#{bindings.NumBodega.format}"/>
-                            </af:inputComboboxListOfValues>
-                            <af:inputText value="#{bindings.CodProducto1.inputValue}"
-                                          label="#{bindings.CodProducto1.hints.label}"
-                                          required="#{bindings.CodProducto1.hints.mandatory}"
-                                          columns="#{bindings.CodProducto1.hints.displayWidth}"
-                                          maximumLength="#{bindings.CodProducto1.hints.precision}"
-                                          shortDesc="#{bindings.CodProducto1.hints.tooltip}" id="it8" visible="false">
-                                <f:validator binding="#{bindings.CodProducto1.validator}"/>
-                                <af:convertNumber groupingUsed="false" pattern="#{bindings.CodProducto1.format}"/>
-                            </af:inputText>
-                            <af:inputText value="#{bindings.Subtotal.inputValue}"
-                                          label="#{bindings.Subtotal.hints.label}"
-                                          required="#{bindings.Subtotal.hints.mandatory}"
-                                          columns="#{bindings.Subtotal.hints.displayWidth}"
-                                          maximumLength="#{bindings.Subtotal.hints.precision}"
-                                          shortDesc="#{bindings.Subtotal.hints.tooltip}" id="it5" autoSubmit="true"
-                                          inlineStyle="text-align:left; column-rule-width:thick; column-width:inherit; alignment-adjust:middle; inline-box-align:initial;"
-                                          readOnly="true">
-                                <f:validator binding="#{bindings.Subtotal.validator}"/>
-                                <af:convertNumber groupingUsed="false" pattern="#{bindings.Subtotal.format}"/>
-                            </af:inputText>
                             <f:facet name="footer">
-                                <af:panelGroupLayout layout="horizontal" id="pgl2">
-                                    <af:button actionListener="#{bindings.Rollback.execute}" text="CANCELAR"
-                                               disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b7">
+                                <af:panelGroupLayout layout="horizontal" id="pgl1">
+                                    <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                                               disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b6">
                                         <af:resetActionListener/>
                                     </af:button>
-                           
-                                    <af:button 
-                                    
-                                    actionListener="#{bindings.CreateInsert.execute}" text="NUEVO"
-                                                disabled="#{!bindings.CreateInsert.enabled}" id="b5" />
-                         
-                                    <af:button actionListener="#{bindings.Commit.execute}" text="CONFIRMAR"
-                                               disabled="#{!bindings.Commit.enabled}" id="b6"/>
-                                               
+                                    <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+                                               disabled="#{!bindings.CreateInsert.enabled}" id="b5"/>
+                                    <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
+                                               disabled="#{!bindings.Commit.enabled}" id="b7"/>
                                 </af:panelGroupLayout>
                             </f:facet>
                         </af:panelFormLayout>

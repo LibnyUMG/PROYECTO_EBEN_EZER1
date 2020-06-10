@@ -6,8 +6,6 @@
     <variableIterator id="variables"/>
     <iterator Binds="FacturaVentaView1" RangeSize="25" DataControl="AppModuleDataControl"
               id="FacturaVentaView1Iterator"/>
-    <iterator Binds="DetalleFacturaView3" RangeSize="25" DataControl="AppModuleDataControl"
-              id="DetalleFacturaView3Iterator"/>
     <iterator Binds="ViTotalFactura1_1" DataControl="AppModuleDataControl"
               id="ViTotalFactura1_1Iterator" RangeSize="25"/>
     <searchRegion Binds="ViTotalFactura1_1Iterator" Criteria=""
@@ -16,8 +14,8 @@
               id="DetalleFacturaView5Iterator"/>
     <searchRegion Binds="DetalleFacturaView5Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="DetalleFacturaView5Query"/>
-    <iterator Binds="DetalleFacturaView1" RangeSize="25" DataControl="AppModuleDataControl"
-              id="DetalleFacturaView1Iterator"/>
+    <iterator Binds="DetalleFacturaView3" RangeSize="25" DataControl="AppModuleDataControl"
+              id="DetalleFacturaView3Iterator"/>
   </executables>
   <bindings>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
@@ -34,38 +32,6 @@
     </attributeValues>
     <action IterBinding="FacturaVentaView1Iterator" id="Last1" RequiresUpdateModel="true" Action="last"/>
     <action IterBinding="FacturaVentaView1Iterator" id="CreateInsert1" RequiresUpdateModel="true"
-            Action="createInsertRow"/>
-    <attributeValues IterBinding="DetalleFacturaView3Iterator" id="NoFactura">
-      <AttrNames>
-        <Item Value="NoFactura"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="DetalleFacturaView3Iterator" id="Cantidad">
-      <AttrNames>
-        <Item Value="Cantidad"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="DetalleFacturaView3Iterator" id="Subtotal">
-      <AttrNames>
-        <Item Value="Subtotal"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="DetalleFacturaView3Iterator" id="CodProducto1">
-      <AttrNames>
-        <Item Value="CodProducto1"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="DetalleFacturaView3Iterator" id="PrecioVenta">
-      <AttrNames>
-        <Item Value="PrecioVenta"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="DetalleFacturaView3Iterator" id="DescripcionProducto">
-      <AttrNames>
-        <Item Value="DescripcionProducto"/>
-      </AttrNames>
-    </attributeValues>
-    <action IterBinding="DetalleFacturaView3Iterator" id="CreateInsert" RequiresUpdateModel="true"
             Action="createInsertRow"/>
     <tree IterBinding="ViTotalFactura1_1Iterator" id="ViTotalFactura1_1">
       <nodeDefinition DefName="model.ViTotalFactura1" Name="ViTotalFactura1_10">
@@ -92,7 +58,41 @@
       </nodeDefinition>
     </tree>
     <listOfValues IterBinding="FacturaVentaView1Iterator" StaticList="false" Uses="LOV_NoCliente" id="NoCliente"/>
-    <listOfValues IterBinding="DetalleFacturaView1Iterator" StaticList="false" Uses="LOV_CodProducto" id="CodProducto"/>
-    <listOfValues IterBinding="DetalleFacturaView1Iterator" StaticList="false" Uses="LOV_NumBodega" id="NumBodega"/>
+    <attributeValues IterBinding="DetalleFacturaView3Iterator" id="NoFactura">
+      <AttrNames>
+        <Item Value="NoFactura"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="DetalleFacturaView3Iterator" StaticList="false" Uses="LOV_CodProducto" id="CodProducto"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="DetalleFacturaView3Iterator" id="Cantidad">
+      <AttrNames>
+        <Item Value="Cantidad"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="DetalleFacturaView3Iterator" StaticList="false" Uses="LOV_NumBodega" id="NumBodega"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="DetalleFacturaView3Iterator" id="Subtotal">
+      <AttrNames>
+        <Item Value="Subtotal"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DetalleFacturaView3Iterator" id="CodProducto1">
+      <AttrNames>
+        <Item Value="CodProducto1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DetalleFacturaView3Iterator" id="DescripcionProducto">
+      <AttrNames>
+        <Item Value="DescripcionProducto"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DetalleFacturaView3Iterator" id="PrecioVenta">
+      <AttrNames>
+        <Item Value="PrecioVenta"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="DetalleFacturaView3Iterator" id="CreateInsert" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
   </bindings>
 </pageDefinition>

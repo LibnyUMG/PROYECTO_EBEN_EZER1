@@ -38,6 +38,25 @@
   <EntityUsage
     Name="Producto"
     Entity="model.Producto"/>
+  <EntityUsage
+    Name="UnidadMedida"
+    Entity="model.UnidadMedida"
+    Association="model.ProductoUnidadMedidaFkAssoc"
+    AssociationEnd="model.ProductoUnidadMedidaFkAssoc.UnidadMedida"
+    SourceUsage="model.ProductoView.Producto"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.UnidadMedida.IdUnidadMedida"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.Producto.IdUnidadMedida"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
   <ViewAttribute
     Name="CodProducto"
     IsNotNull="true"

@@ -106,6 +106,82 @@
   <EntityUsage
     Name="ProductoBodega"
     Entity="model.ProductoBodega"/>
+  <EntityUsage
+    Name="Producto"
+    Entity="model.Producto"
+    Association="model.Relation7ProductoFkAssoc"
+    AssociationEnd="model.Relation7ProductoFkAssoc.Producto"
+    SourceUsage="model.ProductoBodegaView.ProductoBodega"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.Producto.CodProducto"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.ProductoBodega.CodProducto"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="TipoMovimiento"
+    Entity="model.TipoMovimiento"
+    Association="model.ProductoBodegaFk4Assoc"
+    AssociationEnd="model.ProductoBodegaFk4Assoc.TipoMovimiento"
+    SourceUsage="model.ProductoBodegaView.ProductoBodega"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="INNER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.TipoMovimiento.NoMovimiento"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.ProductoBodega.IdMovimiento"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="Bodega"
+    Entity="model.Bodega"
+    Association="model.Relation7BodegaFkAssoc"
+    AssociationEnd="model.Relation7BodegaFkAssoc.Bodega"
+    SourceUsage="model.ProductoBodegaView.ProductoBodega"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.Bodega.NumBodega"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.ProductoBodega.NumBodega"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="Proveedor"
+    Entity="model.Proveedor"
+    Association="model.ProductoBodegaFk1Assoc"
+    AssociationEnd="model.ProductoBodegaFk1Assoc.Proveedor"
+    SourceUsage="model.ProductoBodegaView.ProductoBodega"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.Proveedor.NoProveedor"/>
+      </AttrArray>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.ProductoBodega.NoProveedor"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
   <ViewAttribute
     Name="CodProducto"
     IsNotNull="true"
@@ -183,14 +259,14 @@
     AliasName="ID_MOVIMIENTO"
     LOVName="LOV_IdMovimiento"
     DefaultValue="1">
+    <DesignTime>
+      <Attr Name="_description" Value="Movimiento"/>
+    </DesignTime>
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
-    <DesignTime>
-      <Attr Name="_description" Value="Movimiento"/>
-    </DesignTime>
   </ViewAttribute>
 </ViewObject>

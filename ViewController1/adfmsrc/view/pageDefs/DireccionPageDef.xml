@@ -5,9 +5,6 @@
   <executables>
     <variableIterator id="variables"/>
     <iterator Binds="DireccionView1" RangeSize="25" DataControl="AppModuleDataControl" id="DireccionView1Iterator"/>
-    <iterator Binds="ClienteView2" RangeSize="25" DataControl="AppModuleDataControl" id="ClienteView2Iterator"/>
-    <searchRegion Binds="ClienteView2Iterator" Criteria=""
-                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ClienteView2Query"/>
     <searchRegion Binds="DireccionView1Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="DireccionView1Query"/>
     <iterator Binds="ProveedorView2" RangeSize="25" DataControl="AppModuleDataControl" id="ProveedorView2Iterator"/>
@@ -16,6 +13,9 @@
     <iterator Binds="BodegaView2" RangeSize="25" DataControl="AppModuleDataControl" id="BodegaView2Iterator"/>
     <searchRegion Binds="BodegaView2Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="BodegaView2Query"/>
+    <iterator Binds="ClienteView2" RangeSize="25" DataControl="AppModuleDataControl" id="ClienteView2Iterator"/>
+    <searchRegion Binds="ClienteView2Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ClienteView2Query"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="DireccionView1Iterator" id="IdDireccion">
@@ -33,20 +33,6 @@
     <action IterBinding="DireccionView1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
-    <tree IterBinding="ClienteView2Iterator" id="ClienteView2">
-      <nodeDefinition DefName="model.ClienteView" Name="ClienteView20">
-        <AttrNames>
-          <Item Value="NoCliente"/>
-          <Item Value="NombreCliente"/>
-          <Item Value="TelCliente"/>
-          <Item Value="NitCliente"/>
-          <Item Value="DpiCliente"/>
-          <Item Value="IdDireccion"/>
-          <Item Value="IdDireccion1"/>
-          <Item Value="Descripcion"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
     <tree IterBinding="DireccionView1Iterator" id="DireccionView1">
       <nodeDefinition DefName="model.DireccionView" Name="DireccionView10">
         <AttrNames>
@@ -75,6 +61,20 @@
           <Item Value="NumBodega"/>
           <Item Value="DescripcionBodega"/>
           <Item Value="IdDireccion"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ClienteView2Iterator" id="ClienteView2">
+      <nodeDefinition DefName="model.ClienteView" Name="ClienteView20">
+        <AttrNames>
+          <Item Value="NoCliente"/>
+          <Item Value="NombreCliente"/>
+          <Item Value="TelCliente"/>
+          <Item Value="NitCliente"/>
+          <Item Value="DpiCliente"/>
+          <Item Value="IdDireccion"/>
+          <Item Value="IdDireccion1"/>
+          <Item Value="Descripcion"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
