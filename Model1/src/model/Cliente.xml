@@ -18,8 +18,8 @@
     ColumnType="NUMBER"
     TableName="CLIENTE"
     PrimaryKey="true"
-    RetrievedOnUpdate="true"
-    RetrievedOnInsert="true"/>
+    RetrievedOnInsert="true"
+    RetrievedOnUpdate="true"/>
   <Attribute
     Name="NombreCliente"
     Precision="50"

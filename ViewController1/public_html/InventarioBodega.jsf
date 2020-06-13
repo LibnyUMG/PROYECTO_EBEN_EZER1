@@ -97,14 +97,15 @@
                                             <f:facet name="footer">
                                                 <af:panelGroupLayout layout="horizontal" id="pgl1">
                                                     <af:button actionListener="#{bindings.Rollback.execute}"
-                                                               text="Rollback" disabled="#{!bindings.Rollback.enabled}"
+                                                               text="CANCELAR" disabled="#{!bindings.Rollback.enabled}"
                                                                immediate="true" id="b7">
                                                         <af:resetActionListener/>
                                                     </af:button>
                                                     <af:button actionListener="#{bindings.CreateInsert.execute}"
-                                                               text="CreateInsert"
+                                                               text="NUEVO"
                                                                disabled="#{!bindings.CreateInsert.enabled}" id="b5"/>
-                                                    <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
+                                                    <af:button actionListener="#{bindings.Commit.execute}"
+                                                               text="CONFIRMAR"
                                                                disabled="#{!bindings.Commit.enabled}" id="b6"/>
                                                 </af:panelGroupLayout>
                                             </f:facet>

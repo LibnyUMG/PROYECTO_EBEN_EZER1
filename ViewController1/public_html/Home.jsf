@@ -3,28 +3,36 @@
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
     <af:document title="Home.jsf" id="d1">
         <af:form id="f1">
-            <af:panelGridLayout id="pgl1">
-                <af:gridRow height="50px" id="gr2"/>
-                <af:gridRow height="100%" id="gr1"/>
-            </af:panelGridLayout>
-            <af:panelStretchLayout id="psl1" inlineStyle="width:1268px; height:990px;">
-                <f:facet name="start"/>
-                <f:facet name="end"/>
+            <af:decorativeBox id="db1" theme="dark" inlineStyle="background-color:ThreeDShadow;">
                 <f:facet name="top">
-                    <af:panelGroupLayout id="pgl2">
-                        <af:button text="BODEGAS" id="b1" action="bod"/>
-                        <af:button text="CLIENTES" id="b2" action="clie"/>
-                        <af:button text="DIRECCIONES" id="b3" action="dir"/>
-                        <af:button text="FACTURACIÓN" id="b4" action="goFact"/>
-                        <af:button text="INVENTARIO" id="b5" action="InvBod"/>
-                        <af:button text="PRODUCTOS" id="b6" action="prod"/>
-                        <af:button text="PRODUCTOS VENCIDOS" id="b7" action="prodVen"/>
-                        <af:button text="PROVEEDORES" id="b8" action="goProv"/>
+                    <af:panelGroupLayout id="pgl4" halign="right" layout="horizontal"
+                                         inlineStyle="background-color:InfoBackground;">
+                        <af:outputText value="#{'Bienvenido&#160;'}#{securityContext.userName}#{'&#160;'}" id="ot1"/>
+                        <af:link text="Cerrar sesión" destination="#{'/adfAuthentication?logout=true&amp;end_url=/login.jsp'}" 
+                        accessKey="L" shortDesc="Logs-out current user session." id="l1"/>
+                        <af:statusIndicator id="si1"/>
                     </af:panelGroupLayout>
                 </f:facet>
-                <f:facet name="bottom"/>
-                <f:facet name="center"/>
-            </af:panelStretchLayout>
+                <f:facet name="center">
+                    <af:panelGroupLayout id="pgl1" layout="vertical" inlineStyle="background-color:ButtonText;">
+                        <af:panelGroupLayout id="pgl2" valign="middle" layout="horizontal" halign="center">
+                            <af:activeImage source="#{resource['images:logo.png']}" id="ai1"
+                                            inlineStyle="width:138px; height:141px;"/>
+                            <af:button text="FACTURACIÓN" id="b4" action="goFact"/>
+                            <af:button text="INVENTARIO" id="b5" action="InvBod"/>
+                            <af:button text="BODEGAS" id="b1" action="bod"/>
+                            <af:button text="PRODUCTOS" id="b6" action="prod"/>
+                            <af:button text="PRODUCTOS VENCIDOS" id="b7" action="prodVen"/>
+                            <af:button text="CLIENTES" id="b2" action="clie"/>
+                            <af:button text="PROVEEDORES" id="b8" action="goProv"/>
+                            <af:button text="DIRECCIONES" id="b3" action="dir"/>
+                        </af:panelGroupLayout>
+                        <af:panelGroupLayout id="pgl3" valign="middle" halign="center" layout="horizontal">
+                            <af:activeImage source="#{resource['images:welcome3.jpg']}" id="ai2"/>
+                        </af:panelGroupLayout>
+                    </af:panelGroupLayout>
+                </f:facet>
+            </af:decorativeBox>
         </af:form>
     </af:document>
 </f:view>

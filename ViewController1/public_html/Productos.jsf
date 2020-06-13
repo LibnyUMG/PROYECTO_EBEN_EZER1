@@ -27,95 +27,78 @@
                             <af:panelGroupLayout layout="vertical" id="pgl3"/>
                         </af:showDetailItem>
                         <af:showDetailItem text="Unidad de medida" id="sdi1">
-                            <af:panelFormLayout id="pfl3">
-                                <af:inputText value="#{bindings.IdUnidadMedida2.inputValue}"
-                                              label="#{bindings.IdUnidadMedida2.hints.label}"
-                                              required="#{bindings.IdUnidadMedida2.hints.mandatory}"
-                                              columns="#{bindings.IdUnidadMedida2.hints.displayWidth}"
-                                              maximumLength="#{bindings.IdUnidadMedida2.hints.precision}"
-                                              shortDesc="#{bindings.IdUnidadMedida2.hints.tooltip}" id="it11"
-                                              readOnly="true">
-                                    <f:validator binding="#{bindings.IdUnidadMedida2.validator}"/>
-                                    <af:convertNumber groupingUsed="false"
-                                                      pattern="#{bindings.IdUnidadMedida2.format}"/>
-                                </af:inputText>
-                                <af:inputText value="#{bindings.UnidadMedida1.inputValue}"
-                                              label="#{bindings.UnidadMedida1.hints.label}"
-                                              required="#{bindings.UnidadMedida1.hints.mandatory}"
-                                              columns="#{bindings.UnidadMedida1.hints.displayWidth}"
-                                              maximumLength="#{bindings.UnidadMedida1.hints.precision}"
-                                              shortDesc="#{bindings.UnidadMedida1.hints.tooltip}" id="it12">
-                                    <f:validator binding="#{bindings.UnidadMedida1.validator}"/>
-                                </af:inputText>
-                                <f:facet name="footer">
-                                    <af:panelGroupLayout layout="horizontal" id="pgl5">
-                                        <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
-                                                   disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b16">
-                                            <af:resetActionListener/>
-                                        </af:button>
-                                        <af:button actionListener="#{bindings.CreateInsert1.execute}"
-                                                   text="CreateInsert1" disabled="#{!bindings.CreateInsert1.enabled}"
-                                                   id="b14"/>
-                                        <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
-                                                   disabled="#{!bindings.Commit.enabled}" id="b15"/>
-                                    </af:panelGroupLayout>
-                                </f:facet>
-                            </af:panelFormLayout>
-                            <af:spacer id="s2"/>
-                            <af:panelCollection id="pc2">
-                                <f:facet name="menus"/>
-                                <f:facet name="toolbar"/>
-                                <af:table value="#{bindings.UnidadMedidaView1.collectionModel}" var="row"
-                                          rows="#{bindings.UnidadMedidaView1.rangeSize}"
-                                          emptyText="#{bindings.UnidadMedidaView1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                          rowBandingInterval="0"
-                                          selectedRowKeys="#{bindings.UnidadMedidaView1.collectionModel.selectedRow}"
-                                          selectionListener="#{bindings.UnidadMedidaView1.collectionModel.makeCurrent}"
-                                          rowSelection="single" fetchSize="#{bindings.UnidadMedidaView1.rangeSize}"
-                                          filterModel="#{bindings.UnidadMedidaView1Query.queryDescriptor}"
-                                          filterVisible="true"
-                                          queryListener="#{bindings.UnidadMedidaView1Query.processQuery}" varStatus="vs"
-                                          id="t2" partialTriggers=":::b14">
-                                    <af:column sortProperty="#{bindings.UnidadMedidaView1.hints.IdUnidadMedida.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.UnidadMedidaView1.hints.IdUnidadMedida.label}"
-                                               id="c8" width="100">
-                                        <af:inputText value="#{row.bindings.IdUnidadMedida.inputValue}"
-                                                      label="#{bindings.UnidadMedidaView1.hints.IdUnidadMedida.label}"
-                                                      required="#{bindings.UnidadMedidaView1.hints.IdUnidadMedida.mandatory}"
-                                                      columns="#{bindings.UnidadMedidaView1.hints.IdUnidadMedida.displayWidth}"
-                                                      maximumLength="#{bindings.UnidadMedidaView1.hints.IdUnidadMedida.precision}"
-                                                      shortDesc="#{bindings.UnidadMedidaView1.hints.IdUnidadMedida.tooltip}"
-                                                      id="it13">
-                                            <f:validator binding="#{row.bindings.IdUnidadMedida.validator}"/>
-                                            <af:convertNumber groupingUsed="false"
-                                                              pattern="#{bindings.UnidadMedidaView1.hints.IdUnidadMedida.format}"/>
-                                        </af:inputText>
-                                    </af:column>
-                                    <af:column sortProperty="#{bindings.UnidadMedidaView1.hints.UnidadMedida1.name}"
-                                               filterable="true" sortable="true"
-                                               headerText="#{bindings.UnidadMedidaView1.hints.UnidadMedida1.label}"
-                                               id="c9" width="238">
-                                        <af:inputText value="#{row.bindings.UnidadMedida1.inputValue}"
-                                                      label="#{bindings.UnidadMedidaView1.hints.UnidadMedida1.label}"
-                                                      required="#{bindings.UnidadMedidaView1.hints.UnidadMedida1.mandatory}"
-                                                      columns="#{bindings.UnidadMedidaView1.hints.UnidadMedida1.displayWidth}"
-                                                      maximumLength="#{bindings.UnidadMedidaView1.hints.UnidadMedida1.precision}"
-                                                      shortDesc="#{bindings.UnidadMedidaView1.hints.UnidadMedida1.tooltip}"
-                                                      id="it14">
-                                            <f:validator binding="#{row.bindings.UnidadMedida1.validator}"/>
-                                        </af:inputText>
-                                    </af:column>
-                                </af:table>
-                                <f:facet name="statusbar"/>
-                            </af:panelCollection>
-                            <af:panelGroupLayout id="pgl6" inlineStyle="width:441px;">
-                                <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
-                                           disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b11">
-                                    <af:resetActionListener/>
-                                </af:button>
-                                <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
-                                           disabled="#{!bindings.Commit.enabled}" id="b10"/>
+                            <af:panelGroupLayout id="pgl4" layout="vertical">
+                                <af:panelFormLayout id="pfl2">
+                                    <af:inputText value="#{bindings.IdUnidadMedida1.inputValue}"
+                                                  label="#{bindings.IdUnidadMedida1.hints.label}"
+                                                  required="#{bindings.IdUnidadMedida1.hints.mandatory}"
+                                                  columns="#{bindings.IdUnidadMedida1.hints.displayWidth}"
+                                                  maximumLength="#{bindings.IdUnidadMedida1.hints.precision}"
+                                                  shortDesc="#{bindings.IdUnidadMedida1.hints.tooltip}" id="it8"
+                                                  readOnly="true" autoSubmit="true">
+                                        <f:validator binding="#{bindings.IdUnidadMedida1.validator}"/>
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.IdUnidadMedida1.format}"/>
+                                    </af:inputText>
+                                    <f:facet name="footer">
+                                        <af:panelGroupLayout layout="horizontal" id="pgl5">
+                                            <af:button actionListener="#{bindings.Rollback.execute}" text="CANCELAR"
+                                                       disabled="#{!bindings.Rollback.enabled}" immediate="true"
+                                                       id="b11">
+                                                <af:resetActionListener/>
+                                            </af:button>
+                                            <af:button actionListener="#{bindings.CreateInsert1.execute}"
+                                                       text="NUEVO"
+                                                       disabled="#{!bindings.CreateInsert1.enabled}" id="b9"/>
+                                            <af:button actionListener="#{bindings.Commit.execute}" text="CONFIRMAR"
+                                                       disabled="#{!bindings.Commit.enabled}" id="b10"/>
+                                        </af:panelGroupLayout>
+                                    </f:facet>
+                                    <af:inputText value="#{bindings.UnidadMedida1.inputValue}"
+                                                  label="#{bindings.UnidadMedida1.hints.label}"
+                                                  required="#{bindings.UnidadMedida1.hints.mandatory}"
+                                                  columns="#{bindings.UnidadMedida1.hints.displayWidth}"
+                                                  maximumLength="#{bindings.UnidadMedida1.hints.precision}"
+                                                  shortDesc="#{bindings.UnidadMedida1.hints.tooltip}" id="it6">
+                                        <f:validator binding="#{bindings.UnidadMedida1.validator}"/>
+                                    </af:inputText>
+                                </af:panelFormLayout>
+                                <af:panelCollection id="pc2">
+                                    <f:facet name="menus"/>
+                                    <f:facet name="toolbar"/>
+                                    <f:facet name="statusbar"/>
+                                    <af:table value="#{bindings.UnidadMedidaView1.collectionModel}" var="row"
+                                              rows="#{bindings.UnidadMedidaView1.rangeSize}"
+                                              emptyText="#{bindings.UnidadMedidaView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                              rowBandingInterval="0"
+                                              selectedRowKeys="#{bindings.UnidadMedidaView1.collectionModel.selectedRow}"
+                                              selectionListener="#{bindings.UnidadMedidaView1.collectionModel.makeCurrent}"
+                                              rowSelection="single" fetchSize="#{bindings.UnidadMedidaView1.rangeSize}"
+                                              filterModel="#{bindings.UnidadMedidaView1Query.queryDescriptor}"
+                                              filterVisible="true"
+                                              queryListener="#{bindings.UnidadMedidaView1Query.processQuery}"
+                                              varStatus="vs" id="t2" partialTriggers=":::b2 :::b3 :::b4 :::b8 :::b9">
+                                        <af:column sortProperty="#{bindings.UnidadMedidaView1.hints.IdUnidadMedida.name}"
+                                                   filterable="true" sortable="true"
+                                                   headerText="#{bindings.UnidadMedidaView1.hints.IdUnidadMedida.label}"
+                                                   id="c8">
+                                            <af:outputText value="#{row.IdUnidadMedida}"
+                                                           shortDesc="#{bindings.UnidadMedidaView1.hints.IdUnidadMedida.tooltip}"
+                                                           id="ot5">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.UnidadMedidaView1.hints.IdUnidadMedida.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.UnidadMedidaView1.hints.UnidadMedida1.name}"
+                                                   filterable="true" sortable="true"
+                                                   headerText="#{bindings.UnidadMedidaView1.hints.UnidadMedida1.label}"
+                                                   id="c9">
+                                            <af:outputText value="#{row.UnidadMedida1}"
+                                                           shortDesc="#{bindings.UnidadMedidaView1.hints.UnidadMedida1.tooltip}"
+                                                           id="ot6"/>
+                                        </af:column>
+                                    </af:table>
+                                </af:panelCollection>
                             </af:panelGroupLayout>
                         </af:showDetailItem>
                     </af:panelAccordion>
@@ -198,15 +181,15 @@
                                     </af:selectOneChoice>
                                     <f:facet name="footer">
                                         <af:panelGroupLayout layout="horizontal" id="pgl1">
-                                            <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                                            <af:button actionListener="#{bindings.Rollback.execute}" text="CANCELAR"
                                                        disabled="#{!bindings.Rollback.enabled}" immediate="true"
                                                        id="b7">
                                                 <af:resetActionListener/>
                                             </af:button>
                                             <af:button actionListener="#{bindings.CreateInsert.execute}"
-                                                       text="CreateInsert" disabled="#{!bindings.CreateInsert.enabled}"
+                                                       text="NUEVO" disabled="#{!bindings.CreateInsert.enabled}"
                                                        id="b5"/>
-                                            <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
+                                            <af:button actionListener="#{bindings.Commit.execute}" text="CONFIRMAR"
                                                        disabled="#{!bindings.Commit.enabled}" id="b6"/>
                                         </af:panelGroupLayout>
                                     </f:facet>

@@ -9,12 +9,12 @@
                   Binds="ProductoView1Iterator" id="ImplicitViewCriteriaQuery"/>
     <iterator Binds="UnidadMedidaView1" RangeSize="25" DataControl="AppModuleDataControl"
               id="UnidadMedidaView1Iterator"/>
-    <searchRegion Binds="UnidadMedidaView1Iterator" Criteria=""
-                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="UnidadMedidaView1Query"/>
     <iterator Binds="ProductoBodegaView1" RangeSize="25" DataControl="AppModuleDataControl"
               id="ProductoBodegaView1Iterator"/>
     <searchRegion Binds="ProductoBodegaView1Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ProductoBodegaView1Query"/>
+    <searchRegion Binds="UnidadMedidaView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="UnidadMedidaView1Query"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="ProductoView1Iterator" id="CodProducto">
@@ -26,26 +26,6 @@
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
-    <attributeValues IterBinding="UnidadMedidaView1Iterator" id="IdUnidadMedida2">
-      <AttrNames>
-        <Item Value="IdUnidadMedida"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="UnidadMedidaView1Iterator" id="UnidadMedida1">
-      <AttrNames>
-        <Item Value="UnidadMedida1"/>
-      </AttrNames>
-    </attributeValues>
-    <action IterBinding="UnidadMedidaView1Iterator" id="CreateInsert1" RequiresUpdateModel="true"
-            Action="createInsertRow"/>
-    <tree IterBinding="UnidadMedidaView1Iterator" id="UnidadMedidaView1">
-      <nodeDefinition DefName="model.UnidadMedidaView" Name="UnidadMedidaView10">
-        <AttrNames>
-          <Item Value="IdUnidadMedida"/>
-          <Item Value="UnidadMedida1"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
     <tree IterBinding="ProductoBodegaView1Iterator" id="ProductoBodegaView1">
       <nodeDefinition DefName="model.ProductoBodegaView" Name="ProductoBodegaView10">
         <AttrNames>
@@ -86,5 +66,25 @@
       </AttrNames>
     </attributeValues>
     <action IterBinding="ProductoView1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <attributeValues IterBinding="UnidadMedidaView1Iterator" id="IdUnidadMedida1">
+      <AttrNames>
+        <Item Value="IdUnidadMedida"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="UnidadMedidaView1Iterator" id="UnidadMedidaView1">
+      <nodeDefinition DefName="model.UnidadMedidaView" Name="UnidadMedidaView10">
+        <AttrNames>
+          <Item Value="IdUnidadMedida"/>
+          <Item Value="UnidadMedida1"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="UnidadMedidaView1Iterator" id="CreateInsert1" RequiresUpdateModel="true"
+            Action="createInsertRow"/>
+    <attributeValues IterBinding="UnidadMedidaView1Iterator" id="UnidadMedida1">
+      <AttrNames>
+        <Item Value="UnidadMedida1"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

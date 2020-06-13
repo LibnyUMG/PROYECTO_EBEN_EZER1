@@ -15,6 +15,7 @@
     <page path="/Productos.jsf" usageId="view_ProductosPageDef"/>
     <page path="/InventarioBodega.jsf" usageId="view_InventarioBodegaPageDef"/>
     <page path="/ProductosVencidos.jsf" usageId="view_ProductosVencidosPageDef"/>
+    <page path="/Home.jsf" usageId="view_HomePageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="view_untitled1PageDef" path="view.pageDefs.untitled1PageDef"/>
@@ -26,6 +27,7 @@
     <page id="view_ProductosPageDef" path="view.pageDefs.ProductosPageDef"/>
     <page id="view_InventarioBodegaPageDef" path="view.pageDefs.InventarioBodegaPageDef"/>
     <page id="view_ProductosVencidosPageDef" path="view.pageDefs.ProductosVencidosPageDef"/>
+    <page id="view_HomePageDef" path="view.pageDefs.HomePageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AppModuleDataControl" Package="model"

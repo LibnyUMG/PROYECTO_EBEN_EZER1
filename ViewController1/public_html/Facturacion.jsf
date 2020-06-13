@@ -6,7 +6,7 @@
         <af:form id="f1">
             <af:panelGridLayout id="pgl5">
                 <af:gridRow marginTop="5px" height="auto" id="gr1">
-                    <af:gridCell marginStart="5px" width="50%" id="gc1">
+                    <af:gridCell marginStart="5px" width="35%" id="gc1">
                         <af:button text="HOME" id="b1" action="home"/>
                         <af:panelFormLayout id="pfl2">
                         
@@ -57,7 +57,7 @@
                             </f:facet>
                         </af:panelFormLayout>
                     </af:gridCell>
-                    <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc5">
+                    <af:gridCell marginStart="5px" width="65%" marginEnd="5px" id="gc5">
                         <af:panelCollection id="pc1" inlineStyle="width:603px;">
                             <f:facet name="menus"/>
                             <f:facet name="toolbar"/>
@@ -116,7 +116,7 @@
                     </af:gridCell>
                 </af:gridRow>
                 <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr4">
-                    <af:gridCell marginStart="5px" width="50%" id="gc6">
+                    <af:gridCell marginStart="5px" width="35%" id="gc6">
                         <af:panelFormLayout id="pfl1">
                             <af:inputText value="#{bindings.NoFactura.inputValue}"
                                           label="#{bindings.NoFactura.hints.label}"
@@ -193,19 +193,19 @@
                             </af:inputText>
                             <f:facet name="footer">
                                 <af:panelGroupLayout layout="horizontal" id="pgl1">
-                                    <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                                    <af:button actionListener="#{bindings.Rollback.execute}" text="CANCELAR"
                                                disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b6">
                                         <af:resetActionListener/>
                                     </af:button>
-                                    <af:button actionListener="#{bindings.CreateInsert.execute}" text="CreateInsert"
+                                    <af:button actionListener="#{bindings.CreateInsert.execute}" text="NUEVO"
                                                disabled="#{!bindings.CreateInsert.enabled}" id="b5"/>
-                                    <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
+                                    <af:button actionListener="#{bindings.Commit.execute}" text="CONFIRMAR"
                                                disabled="#{!bindings.Commit.enabled}" id="b7"/>
                                 </af:panelGroupLayout>
                             </f:facet>
                         </af:panelFormLayout>
                     </af:gridCell>
-                    <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc7">
+                    <af:gridCell marginStart="5px" width="65%" marginEnd="5px" id="gc7">
                         <af:panelCollection id="pc2" inlineStyle="height:253px;">
                             <f:facet name="menus"/>
                             <f:facet name="toolbar"/>
@@ -220,7 +220,7 @@
                                       filterModel="#{bindings.DetalleFacturaView5Query.queryDescriptor}"
                                       filterVisible="true"
                                       queryListener="#{bindings.DetalleFacturaView5Query.processQuery}" varStatus="vs"
-                                      id="t2" width="701" autoHeightRows="12">
+                                      id="t2" width="1128" autoHeightRows="12">
                                 <af:column sortProperty="#{bindings.DetalleFacturaView5.hints.NoFactura.name}"
                                            filterable="true" sortable="true"
                                            headerText="#{bindings.DetalleFacturaView5.hints.NoFactura.label}" id="c5">

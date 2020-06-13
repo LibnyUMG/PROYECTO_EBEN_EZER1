@@ -42,15 +42,15 @@
                                     </af:selectOneChoice>
                                     <f:facet name="footer">
                                         <af:panelGroupLayout layout="horizontal" id="pgl1">
-                                            <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                                            <af:button actionListener="#{bindings.Rollback.execute}" text="CANCELAR"
                                                        disabled="#{!bindings.Rollback.enabled}" immediate="true"
                                                        id="b2">
                                                 <af:resetActionListener/>
                                             </af:button>
                                             <af:button actionListener="#{bindings.CreateInsert.execute}"
-                                                       text="CreateInsert" disabled="#{!bindings.CreateInsert.enabled}"
+                                                       text="NUEVO" disabled="#{!bindings.CreateInsert.enabled}"
                                                        id="b5"/>
-                                            <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
+                                            <af:button actionListener="#{bindings.Commit.execute}" text="CONFIRMAR"
                                                        disabled="#{!bindings.Commit.enabled}" id="b1"/>
                                         </af:panelGroupLayout>
                                     </f:facet>
